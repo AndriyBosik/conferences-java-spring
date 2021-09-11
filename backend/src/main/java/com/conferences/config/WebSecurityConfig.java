@@ -1,18 +1,14 @@
 package com.conferences.config;
 
-import com.conferences.model.AuthResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -20,12 +16,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
     private final UserDetailsService userDetailsService;
     private final JwtFilter jwtFilter;
 
     @Autowired
-    public WebSecurityConfig(UserDetailsService userDetailsService, JwtFilter jwtFilter) {
+    public WebSecurityConfig(PasswordEncoder passwordEncoder, UserDetailsService userDetailsService, JwtFilter jwtFilter) {
+        this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService;
         this.jwtFilter = jwtFilter;
     }
@@ -43,10 +40,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.GET, "/api/meetings")
-                        .hasAnyRole("MODERATOR", "SPEAKER", "USER")
-                    .antMatchers("/**")
-                        .permitAll()
+                    .antMatchers(HttpMethod.GET, "/api/meetings/page/*/*", "/api/meetings/*/topics")
+                        .authenticated()
+                    .antMatchers(HttpMethod.POST, "/api/auth/login")
+                        .anonymous()
             .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
             .formLogin().disable();
