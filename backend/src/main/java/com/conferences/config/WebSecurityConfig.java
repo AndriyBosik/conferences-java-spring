@@ -40,10 +40,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.GET, "/api/meetings/page/*/*", "/api/meetings/*/topics")
+                    .antMatchers(HttpMethod.GET, "/api/meetings/page/*/*", "/api/meetings/*/topics", "/api/meetings/all")
                         .authenticated()
                     .antMatchers(HttpMethod.POST, "/api/auth/login")
                         .anonymous()
+                    .antMatchers("/**")
+                        .denyAll()
             .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
             .formLogin().disable();
