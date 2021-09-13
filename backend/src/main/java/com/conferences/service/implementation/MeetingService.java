@@ -2,15 +2,13 @@ package com.conferences.service.implementation;
 
 import com.conferences.entity.ReportTopic;
 import com.conferences.entity.projection.IMeeting;
-import com.conferences.model.Filter;
-import com.conferences.model.Sorter;
+import com.conferences.model.DateFilter;
 import com.conferences.repository.IMeetingRepository;
 import com.conferences.repository.IReportTopicRepository;
 import com.conferences.service.abstraction.IMeetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,12 +26,8 @@ public class MeetingService implements IMeetingService {
     }
 
     @Override
-    public Page<IMeeting> getMeetingsByPage(Pageable pageable) {
-        Sorter sorter = new Sorter();
-        sorter.setColumn("meetings.date");
-        Filter filter = new Filter();
-        filter.setCondition("1=1");
-        return meetingRepository.getWithUsersCountAndTopicsCount(pageable, sorter);
+    public Page<IMeeting> getMeetingsByPage(Pageable pageable, DateFilter dateFilter) {
+        return meetingRepository.findAllWithSpecification(pageable, dateFilter);
     }
 
     @Override
