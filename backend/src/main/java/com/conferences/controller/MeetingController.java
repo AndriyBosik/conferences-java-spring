@@ -1,7 +1,9 @@
 package com.conferences.controller;
 
+import com.conferences.entity.Meeting;
 import com.conferences.entity.ReportTopic;
-import com.conferences.entity.projection.IMeeting;
+import com.conferences.entity.projection.IMeetingWithStats;
+import com.conferences.model.MeetingData;
 import com.conferences.model.MeetingSorter;
 import com.conferences.repository.IMeetingRepository;
 import com.conferences.service.abstraction.IMeetingService;
@@ -17,21 +19,24 @@ import java.util.List;
 public class MeetingController {
 
     private final IMeetingService meetingService;
-    private final IMeetingRepository repository;
 
     @Autowired
     public MeetingController(IMeetingService meetingService, IMeetingRepository repository) {
         this.meetingService = meetingService;
-        this.repository = repository;
     }
 
     @GetMapping("/page/{page}/{items}")
-    public Page<IMeeting> getMeetings(
+    public Page<IMeetingWithStats> getMeetings(
         @PathVariable int page,
         @PathVariable int items,
         @RequestBody MeetingSorter sorter
     ) {
         return meetingService.getMeetingsByPage(PageRequest.of(page - 1, items, sorter.getSort()), sorter.getDateFilter());
+    }
+
+    @GetMapping("/{meetingId}")
+    public MeetingData getMeeting(@PathVariable int meetingId) {
+        return meetingService.getMeeting(meetingId);
     }
 
     @GetMapping("/{meetingId}/topics")

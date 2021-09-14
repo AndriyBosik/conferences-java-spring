@@ -1,16 +1,15 @@
 package com.conferences.repository;
 
 import com.conferences.entity.Meeting;
-import com.conferences.entity.projection.IMeeting;
+import com.conferences.entity.projection.IMeetingWithStats;
 import com.conferences.model.DateFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface IMeetingRepository extends Repository<Meeting, Integer>, JpaSpecificationExecutor<Meeting> {
+public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, Integer> {
 
     @Query(nativeQuery = true, value =
         "SELECT " +
@@ -32,5 +31,15 @@ public interface IMeetingRepository extends Repository<Meeting, Integer>, JpaSpe
         "GROUP BY meetings.id, stats.users_count, stats.present_users_count",
         countQuery = "SELECT COUNT(id) FROM meetings WHERE date BETWEEN :#{#dateFilter.getMin()} AND :#{#dateFilter.getMax()}"
     )
-    Page<IMeeting> findAllWithSpecification(Pageable pageable, @Param("dateFilter") DateFilter dateFilter);
+    Page<IMeetingWithStats> findAllWithSpecification(Pageable pageable, @Param("dateFilter") DateFilter dateFilter);
+
+    @Query(value =
+        "SELECT " +
+            "m " +
+        "FROM Meeting m " +
+            "JOIN FETCH m.reportTopics AS reportTopics " +
+                "JOIN FETCH reportTopics.reportTopicSpeaker AS reportTopicSpeaker " +
+                    "JOIN FETCH reportTopicSpeaker.speaker AS speaker WHERE m.id=:id"
+    )
+    Meeting findAllById(@Param("id") int id);
 }

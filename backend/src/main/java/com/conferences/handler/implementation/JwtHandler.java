@@ -18,7 +18,7 @@ public class JwtHandler implements IJwtHandler {
     private static final String JWT_SECRET = "jwt_secret";
 
     public String generateToken(String login) {
-        Date date = Date.from(LocalDateTime.now().plusMinutes(30).atZone(ZoneId.systemDefault()).toInstant());
+        Date date = Date.from(LocalDateTime.now().plusDays(1).atZone(ZoneId.systemDefault()).toInstant());
         return Jwts.builder()
             .setSubject(login)
             .setExpiration(date)

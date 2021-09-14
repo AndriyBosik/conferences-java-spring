@@ -1,10 +1,13 @@
 package com.conferences.service.implementation;
 
+import com.conferences.entity.Meeting;
 import com.conferences.entity.ReportTopic;
-import com.conferences.entity.projection.IMeeting;
+import com.conferences.entity.projection.IMeetingWithStats;
 import com.conferences.model.DateFilter;
+import com.conferences.model.MeetingData;
 import com.conferences.repository.IMeetingRepository;
 import com.conferences.repository.IReportTopicRepository;
+import com.conferences.repository.IUserMeetingRepository;
 import com.conferences.service.abstraction.IMeetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,17 +20,27 @@ import java.util.List;
 public class MeetingService implements IMeetingService {
 
     private final IMeetingRepository meetingRepository;
+    private final IUserMeetingRepository userMeetingRepository;
     private final IReportTopicRepository reportTopicRepository;
 
     @Autowired
-    public MeetingService(IMeetingRepository meetingRepository, IReportTopicRepository reportTopicRepository) {
+    public MeetingService(IMeetingRepository meetingRepository, IUserMeetingRepository userMeetingRepository, IReportTopicRepository reportTopicRepository) {
         this.meetingRepository = meetingRepository;
+        this.userMeetingRepository = userMeetingRepository;
         this.reportTopicRepository = reportTopicRepository;
     }
 
     @Override
-    public Page<IMeeting> getMeetingsByPage(Pageable pageable, DateFilter dateFilter) {
+    public Page<IMeetingWithStats> getMeetingsByPage(Pageable pageable, DateFilter dateFilter) {
         return meetingRepository.findAllWithSpecification(pageable, dateFilter);
+    }
+
+    @Override
+    public MeetingData getMeeting(int meetingId) {
+        return new MeetingData(
+            meetingRepository.findAllById(meetingId),
+            userMeetingRepository.countAllByMeetingId(meetingId)
+        );
     }
 
     @Override

@@ -24,4 +24,8 @@ public class ReportTopic {
 
     @Column(name = "meeting_id")
     private Integer meetingId;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private ReportTopicSpeaker reportTopicSpeaker;
 }

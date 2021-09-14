@@ -22,6 +22,10 @@ public class ReportTopicSpeaker {
     @Column(name = "report_topic_id")
     private Integer reportTopicId;
 
-    @Column(name = "speaker_id")
-    private Integer speakerId;
+    /*@Column(name = "speaker_id")
+    private Integer speakerId;*/
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "speaker_id")
+    private User speaker;
 }

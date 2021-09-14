@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDateTime;
 
-public interface IMeeting {
+public interface IMeetingWithStats {
 
     @Value("#{target.id}")
     Integer getId();
@@ -24,11 +24,11 @@ public interface IMeeting {
     @Value("#{target.address}")
     String getAddress();
 
-    /*@Value("#{target.users_count}")
+    @Value("#{target.users_count}")
     Integer getUsersCount();
 
     @Value("#{target.present_users_count}")
-    Integer getPresentUsersCount();*/
+    Integer getPresentUsersCount();
 
     @Value("#{target.topics_count}")
     Integer getTopicsCount();
