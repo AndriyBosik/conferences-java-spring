@@ -22,9 +22,10 @@ public class TopicProposal {
     @Column(name = "meeting_id")
     private Integer meetingId;
 
-    @Column(name = "speaker_id")
-    private Integer speakerId;
-
     @Column(name = "topic_title")
     private String topicTitle;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "speaker_id")
+    private User speaker;
 }

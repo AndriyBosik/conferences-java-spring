@@ -2,12 +2,15 @@ package com.conferences.repository;
 
 import com.conferences.entity.Meeting;
 import com.conferences.entity.projection.IMeetingWithStats;
+import com.conferences.entity.projection.topic.proposal.IMeetingData;
 import com.conferences.model.DateFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, Integer> {
 
@@ -42,4 +45,13 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
                     "JOIN FETCH reportTopicSpeaker.speaker AS speaker WHERE m.id=:id"
     )
     Meeting findAllById(@Param("id") int id);
+
+    @Query(value =
+        "SELECT " +
+            "m " +
+        "FROM Meeting m " +
+            "JOIN FETCH m.topicProposals AS topicProposals " +
+                "JOIN FETCH topicProposals.speaker"
+    )
+    List<IMeetingData> getMeetingsProposals();
 }

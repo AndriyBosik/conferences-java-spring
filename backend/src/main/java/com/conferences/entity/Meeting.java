@@ -44,4 +44,8 @@ public class Meeting {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "meeting_id")
     private List<ReportTopic> reportTopics = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "meeting_id")
+    private List<TopicProposal> topicProposals = new ArrayList<>();
 }
