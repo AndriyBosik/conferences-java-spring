@@ -6,6 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "report_topics")
@@ -28,4 +32,12 @@ public class ReportTopic {
     @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     private ReportTopicSpeaker reportTopicSpeaker;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "report_topic_id")
+    private Set<SpeakerProposal> speakerProposals = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "report_topic_id")
+    private Set<ModeratorProposal> moderatorProposals = new HashSet<>();
 }

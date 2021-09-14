@@ -1,6 +1,5 @@
-package com.conferences.entity.projection.topic.proposal;
+package com.conferences.entity.projection.proposal.topic;
 
-import com.conferences.entity.User;
 import org.springframework.beans.factory.annotation.Value;
 
 public interface ITopicProposal {

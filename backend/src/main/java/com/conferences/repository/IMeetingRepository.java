@@ -2,7 +2,9 @@ package com.conferences.repository;
 
 import com.conferences.entity.Meeting;
 import com.conferences.entity.projection.IMeetingWithStats;
-import com.conferences.entity.projection.topic.proposal.IMeetingData;
+import com.conferences.entity.projection.proposal.IModeratorProposalMeetingData;
+import com.conferences.entity.projection.proposal.ISpeakerProposalMeetingData;
+import com.conferences.entity.projection.proposal.topic.IMeetingData;
 import com.conferences.model.DateFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,7 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
+import java.util.Set;
 
 public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, Integer> {
 
@@ -47,11 +49,33 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
     Meeting findAllById(@Param("id") int id);
 
     @Query(value =
+            "SELECT " +
+                "m " +
+            "FROM Meeting m " +
+                "JOIN FETCH m.topicProposals AS topicProposals " +
+                    "JOIN FETCH topicProposals.speaker"
+    )
+    Set<IMeetingData> getMeetingsProposals();
+
+    @Query(value =
+            "SELECT " +
+                "m " +
+            "FROM Meeting m " +
+                "JOIN FETCH m.reportTopics AS reportTopics " +
+                    "LEFT JOIN FETCH reportTopics.reportTopicSpeaker AS reportTopicSpeaker " +
+                    "JOIN FETCH reportTopics.speakerProposals AS speakerProposals " +
+            "WHERE reportTopicSpeaker is null AND speakerProposals.speakerId=:speakerId AND m.date >= current_timestamp "
+    )
+    Set<ISpeakerProposalMeetingData> getSpeakerProposals(@Param("speakerId") int speakerId);
+
+    @Query(value =
         "SELECT " +
             "m " +
         "FROM Meeting m " +
-            "JOIN FETCH m.topicProposals AS topicProposals " +
-                "JOIN FETCH topicProposals.speaker"
+            "JOIN FETCH m.reportTopics AS reportTopics " +
+                "LEFT JOIN FETCH reportTopics.reportTopicSpeaker AS reportTopicSpeaker " +
+                "JOIN FETCH reportTopics.moderatorProposals AS moderatorProposals " +
+        "WHERE reportTopicSpeaker is null AND moderatorProposals.speakerId=:speakerId AND m.date >= current_timestamp"
     )
-    List<IMeetingData> getMeetingsProposals();
+    Set<IModeratorProposalMeetingData> getModeratorProposals(@Param("speakerId") int speakerId);
 }

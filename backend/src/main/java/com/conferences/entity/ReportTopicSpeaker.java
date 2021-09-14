@@ -14,16 +14,13 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class ReportTopicSpeaker {
 
-    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Id
     @Column(name = "report_topic_id")
     private Integer reportTopicId;
-
-    /*@Column(name = "speaker_id")
-    private Integer speakerId;*/
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "speaker_id")

@@ -11,6 +11,7 @@ import org.hibernate.annotations.FetchMode;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -43,7 +44,7 @@ public class Meeting {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "meeting_id")
-    private List<ReportTopic> reportTopics = new ArrayList<>();
+    private Set<ReportTopic> reportTopics = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "meeting_id")

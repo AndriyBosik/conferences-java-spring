@@ -1,6 +1,6 @@
 package com.conferences.controller;
 
-import com.conferences.entity.projection.topic.proposal.IMeetingData;
+import com.conferences.entity.projection.proposal.topic.IMeetingData;
 import com.conferences.service.abstraction.ITopicProposalsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

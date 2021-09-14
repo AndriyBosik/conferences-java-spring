@@ -1,6 +1,6 @@
 package com.conferences.service.abstraction;
 
-import com.conferences.entity.projection.topic.proposal.IMeetingData;
+import com.conferences.entity.projection.proposal.topic.IMeetingData;
 
 import java.util.List;
 

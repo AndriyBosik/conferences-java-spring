@@ -45,7 +45,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/api/meetings/*/topics",
                             "/api/meetings/all",
                             "/api/meetings/*",
-                            "/api/topic-proposals")
+                            "/api/topic-proposals",
+                            "/api/proposals/speaker/*",
+                            "/api/proposals/moderator/*")
                         .authenticated()
                     .antMatchers(HttpMethod.POST, "/api/auth/login")
                         .anonymous()
