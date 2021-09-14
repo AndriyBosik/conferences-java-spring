@@ -1,7 +1,7 @@
 package com.conferences.controller;
 
-import com.conferences.entity.projection.proposal.IModeratorProposalMeetingData;
-import com.conferences.entity.projection.proposal.ISpeakerProposalMeetingData;
+import com.conferences.entity.projection.proposal.moderator.IModeratorProposalMeetingData;
+import com.conferences.entity.projection.proposal.speaker.ISpeakerProposalMeetingData;
 import com.conferences.service.abstraction.IProposalsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

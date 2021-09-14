@@ -1,10 +1,10 @@
 package com.conferences.service.abstraction;
 
-import com.conferences.entity.projection.proposal.topic.IMeetingData;
+import com.conferences.entity.projection.proposal.topic.IMeetingTopicProposalsData;
 
 import java.util.List;
 
 public interface ITopicProposalsService {
 
-    List<IMeetingData> getAllMeetingProposals();
+    List<IMeetingTopicProposalsData> getAllMeetingProposals();
 }

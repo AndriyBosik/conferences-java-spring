@@ -2,9 +2,9 @@ package com.conferences.repository;
 
 import com.conferences.entity.Meeting;
 import com.conferences.entity.projection.IMeetingWithStats;
-import com.conferences.entity.projection.proposal.IModeratorProposalMeetingData;
-import com.conferences.entity.projection.proposal.ISpeakerProposalMeetingData;
-import com.conferences.entity.projection.proposal.topic.IMeetingData;
+import com.conferences.entity.projection.proposal.moderator.IModeratorProposalMeetingData;
+import com.conferences.entity.projection.proposal.speaker.ISpeakerProposalMeetingData;
+import com.conferences.entity.projection.proposal.topic.IMeetingTopicProposalsData;
 import com.conferences.model.DateFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -55,7 +55,7 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
                 "JOIN FETCH m.topicProposals AS topicProposals " +
                     "JOIN FETCH topicProposals.speaker"
     )
-    Set<IMeetingData> getMeetingsProposals();
+    Set<IMeetingTopicProposalsData> getMeetingsProposals();
 
     @Query(value =
             "SELECT " +

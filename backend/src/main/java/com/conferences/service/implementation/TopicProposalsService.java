@@ -1,6 +1,6 @@
 package com.conferences.service.implementation;
 
-import com.conferences.entity.projection.proposal.topic.IMeetingData;
+import com.conferences.entity.projection.proposal.topic.IMeetingTopicProposalsData;
 import com.conferences.repository.IMeetingRepository;
 import com.conferences.service.abstraction.ITopicProposalsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class TopicProposalsService implements ITopicProposalsService {
     }
 
     @Override
-    public List<IMeetingData> getAllMeetingProposals() {
+    public List<IMeetingTopicProposalsData> getAllMeetingProposals() {
         return new ArrayList<>(meetingRepository.getMeetingsProposals());
     }
 }

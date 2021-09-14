@@ -1,11 +1,10 @@
-package com.conferences.entity.projection.proposal;
+package com.conferences.entity.projection;
 
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
-public interface ISpeakerProposalMeetingData {
+public interface IMeetingData {
 
     @Value("#{target.id}")
     Integer getId();
@@ -18,7 +17,4 @@ public interface ISpeakerProposalMeetingData {
 
     @Value("#{target.date}")
     LocalDateTime getDate();
-
-    @Value("#{target.reportTopics}")
-    Set<ISpeakerReportTopic> getReportTopics();
 }

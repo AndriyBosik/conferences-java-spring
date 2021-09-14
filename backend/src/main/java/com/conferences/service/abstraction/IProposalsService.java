@@ -1,7 +1,7 @@
 package com.conferences.service.abstraction;
 
-import com.conferences.entity.projection.proposal.IModeratorProposalMeetingData;
-import com.conferences.entity.projection.proposal.ISpeakerProposalMeetingData;
+import com.conferences.entity.projection.proposal.moderator.IModeratorProposalMeetingData;
+import com.conferences.entity.projection.proposal.speaker.ISpeakerProposalMeetingData;
 
 import java.util.List;
 
