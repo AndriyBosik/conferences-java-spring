@@ -8,8 +8,8 @@ function SignUpPage() {
     return (
         <div className="yellow lighten-5 s-vflex-center">
             <div className="container">
-                <div class="row">
-                    <div class="col s12 m8 push-m2 my20">
+                <div className="row">
+                    <div className="col s12 m8 push-m2 my20">
                         <LanguagesList additionalClasses="my10 s-hflex-end" />
 
                         <SignUpForm />

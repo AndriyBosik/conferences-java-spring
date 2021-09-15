@@ -1,11 +1,11 @@
 import React from "react";
 import LanguagesList from "../Languages/LanguagesList";
 import LoginForm from './LoginForm';
-
 import './LoginPage.css';
+import { useTitle } from "./../../hooks/useTitle";
 
 function LoginPage() {
-    document.title = "Login";
+    useTitle("login");
 
     return (
         <div className="window-height window-width yellow lighten-5 s-vflex-center">

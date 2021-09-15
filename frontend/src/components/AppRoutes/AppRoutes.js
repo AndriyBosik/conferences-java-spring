@@ -3,19 +3,23 @@ import { Route, Switch } from "react-router";
 import App from "./../../App";
 import LoginPage from "./../Login/LoginPage";
 import SignUpPage from "./../SignUp/SignUpPage";
+import LinkParser from "../Link/LinkParser";
+import { useLink } from "../../hooks/useLink";
 
 function AppRoutes() {
     return (
-        <App>
-            <Switch>
-                <Route path="/" exact>
-                    <LoginPage />
-                </Route>
-                <Route path="/users/sign-up">
-                    <SignUpPage />
-                </Route>
-            </Switch>
-        </App>
+        <LinkParser>
+            <App>
+                <Switch>
+                    <Route path={[useLink("/"), "/"]} exact>
+                        <LoginPage />
+                    </Route>
+                    <Route path={useLink("/users/sign-up")}>
+                        <SignUpPage />
+                    </Route>
+                </Switch>
+            </App>
+        </LinkParser>
     );
 }
 
