@@ -1,0 +1,38 @@
+.collection .title {
+    font-size: 20px;
+}
+
+/* Truncation */
+.truncate-2, .truncate-3, .truncate-4, .truncate-5 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.truncate-2 {
+    -webkit-line-clamp: 2;
+}
+
+.truncate-3 {
+    -webkit-line-clamp: 3;
+}
+
+.truncate-4 {
+    -webkit-line-clamp: 4;
+}
+
+.truncate-5 {
+    -webkit-line-clamp: 5;
+}
+
+.modal.datepicker-modal.open {
+    width: auto !important;
+}
+
+.tabs a.active.blue-text {
+    background-color: #e3f2fd !important;
+}
+
+.tabs.m-blue.m-darken-3 .indicator {
+    background-color: #1565c0 !important;
+}
