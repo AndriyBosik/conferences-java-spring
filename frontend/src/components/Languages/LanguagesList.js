@@ -9,7 +9,7 @@ function LanguagesList({
     return (
         <ul className={additionalClasses + " uppercase weight-normal"}>
             {
-                languages.map(language => <LanguageItem language={language} isActive={language === activeLanguage} />)
+                languages.map((language, index) => <LanguageItem language={language} key={index} isActive={language === activeLanguage} />)
             }
         </ul>
     );
