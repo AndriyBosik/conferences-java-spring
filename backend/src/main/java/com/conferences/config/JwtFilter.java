@@ -47,7 +47,7 @@ public class JwtFilter extends GenericFilterBean {
         if (bearer == null) {
             return null;
         }
-        if (!bearer.isEmpty() && bearer.startsWith("Bearer ")) {
+        if (bearer.startsWith("Bearer ")) {
             return bearer.substring(7);
         }
         return null;

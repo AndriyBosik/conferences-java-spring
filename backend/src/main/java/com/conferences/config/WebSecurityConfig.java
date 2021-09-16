@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+            .cors().disable()
             .httpBasic().disable()
             .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -52,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers(HttpMethod.POST, "/api/auth/login")
                         .anonymous()
                     .antMatchers("/**")
-                        .denyAll()
+                        .permitAll()
             .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
             .formLogin().disable();

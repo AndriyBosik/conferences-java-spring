@@ -18,17 +18,25 @@ public class JwtHandler implements IJwtHandler {
     private static final String JWT_SECRET = "jwt_secret";
 
     public String generateToken(String login) {
-        Date date = Date.from(LocalDateTime.now().plusDays(1).atZone(ZoneId.systemDefault()).toInstant());
+        return generateToken(login, Date.from(LocalDateTime.now().plusDays(1).atZone(ZoneId.systemDefault()).toInstant()));
+    }
+
+    public String generateToken(String login, Date expiration) {
         return Jwts.builder()
             .setSubject(login)
-            .setExpiration(date)
+            .setExpiration(expiration)
             .signWith(SignatureAlgorithm.HS512, JWT_SECRET)
             .compact();
     }
 
     public boolean validateToken(String token) {
-        Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token);
-        return true;
+        try {
+            Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token);
+            return true;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return false;
     }
 
     public String getLoginFromToken(String token) {

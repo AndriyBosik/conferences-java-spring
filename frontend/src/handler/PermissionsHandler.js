@@ -1,10 +1,14 @@
+import { pages } from "./../constants/pages";
+import { getUserRole } from "./StorageHandler";
+
 const permissions = {
-    "/users/sign-up": ["guest"],
-    "/": ["guest"],
-    "/profile": ["user", "speaker", "moderator"]
+    [pages.signUp]: ["guest"],
+    [pages.home]: ["guest"],
+    [pages.profile]: ["user", "speaker", "moderator"]
 };
 
-export function checkPermission(url, role) {
+export function checkPermission(url) {
+    const role = getUserRole();
     if (typeof permissions[url] === "undefined") {
         return false;
     }

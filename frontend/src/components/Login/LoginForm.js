@@ -1,23 +1,41 @@
 import React, { useState, useEffect } from "react";
-
+import { doPost } from "../../handler/RequestHandler";
 import { generateUrl } from "../../handler/LinkHandler";
-
 import M from "materialize-css";
+import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import Message from "../Message/Message";
 
 function LoginForm() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [login, setLogin] = useState("");
+    const [error, setError] = useState("");
     const [password, setPassword] = useState("");
 
     useEffect(() => {
         M.updateTextFields();
     }, []);
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
 
-        console.log(login, password);
+        const result = await doPost("http://localhost:8080/api/auth/login", {
+            login: login,
+            password: password
+        });
+
+        if (result.error) {
+            setError(result.message);
+            return;
+        }
+
+        setIsLoggedIn(true);
+    }
+
+    if (isLoggedIn) {
+        return (
+            <Redirect to={generateUrl("/home/profile")} />
+        );
     }
 
     return (
@@ -32,6 +50,13 @@ function LoginForm() {
                 <label htmlFor="password">{<Message alias="password" />} </label>
                 <input id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
             </div>
+            {error !== "" ? (
+                <div className="full-width col s12">
+                    <p className="center-align pink-text text-lighten-1 weight-normal login-errorKey-message">
+                        {error}
+                    </p>
+                </div>
+             ) : null}
             <div className="col s12">
                 <button className="full-width btn waves-effect waves-light" type="submit">
                     {<Message alias="login" />}

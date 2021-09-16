@@ -5,7 +5,9 @@ import LoginPage from "./../Login/LoginPage";
 import SignUpPage from "./../SignUp/SignUpPage";
 import LinkParser from "../Link/LinkParser";
 import { useLink } from "../../hooks/useLink";
+import { pages } from "../../constants/pages";
 import PermissionBoundary from "../PermissionBoundary/PermissionBoundary";
+import ProfilePage from "../Profile/ProfilePage";
 
 function AppRoutes() {
     return (
@@ -13,11 +15,14 @@ function AppRoutes() {
             <PermissionBoundary>
                 <App>
                     <Switch>
-                        <Route path={[useLink("/"), "/"]} exact>
+                        <Route path={[useLink(pages.home), "/"]} exact>
                             <LoginPage />
                         </Route>
-                        <Route path={useLink("/users/sign-up")}>
+                        <Route path={useLink(pages.signUp)}>
                             <SignUpPage />
+                        </Route>
+                        <Route path={useLink(pages.profile)}>
+                            <ProfilePage />
                         </Route>
                     </Switch>
                 </App>

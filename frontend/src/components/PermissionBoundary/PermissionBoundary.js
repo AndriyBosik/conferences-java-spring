@@ -9,14 +9,13 @@ function PermissionBoundary({children}) {
     const [allowed, setAllowed] = useState(true);
 
     useEffect(() => {
-        console.log(LinkStoreInstance.urlLink);
-        setAllowed(checkPermission(LinkStoreInstance.urlLink, "guest"));
+        setAllowed(checkPermission(LinkStoreInstance.urlLink));
         return () => {};
     }, []);
 
     useEffect(() => {
         const disposer = observe(LinkStoreInstance, change => {
-            setAllowed(checkPermission(LinkStoreInstance.urlLink, "guest"));
+            setAllowed(checkPermission(LinkStoreInstance.urlLink));
             return () => {};
         });
 
