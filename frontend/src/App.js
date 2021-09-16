@@ -6,7 +6,7 @@ import './shared/css/materialize-extensions.css';
 
 function App({children}) {
   return (
-    <div className="App">
+    <div className="App s-vflex">
       {children}
     </div>
   );

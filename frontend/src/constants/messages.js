@@ -57,5 +57,25 @@ export const messages = {
         [EN]: "Required field",
         [RU]: "Обязательное поле",
         [UK]: "Обов'язкове поле"
+    },
+    profile: {
+        [EN]: "Profile",
+        [RU]: "Профиль",
+        [UK]: "Профіль"
+    },
+    meetings: {
+        [EN]: "Meetings",
+        [RU]: "Мероприятия",
+        [UK]: "Заходи"
+    },
+    logout: {
+        [EN]: "Logout",
+        [RU]: "Выйти",
+        [UK]: "Вийти"
+    },
+    proposals: {
+        [EN]: "Proposals",
+        [RU]: "Предложения",
+        [UK]: "Пропозиції"
     }
 };

@@ -6,7 +6,11 @@ import { history } from "../../handler/HistoryHandler";
 import { parseUrl } from "./../../handler/LinkHandler";
 import { useForceUpdate } from "./../../hooks/useForceUpdate";
 
-function LanguagesList({additionalClasses = ""}) {
+function LanguagesList({
+    additionalClasses = "",
+    initialClass = "teal-text text-lighten-1",
+    activeClass = "red-text"
+}) {
     const forceUpdate = useForceUpdate();
     const languages = localization.availableLanguages;
     const store = useContext(LinkContext);
@@ -23,7 +27,7 @@ function LanguagesList({additionalClasses = ""}) {
     return (
         <ul className={additionalClasses + " uppercase weight-normal"}>
             {
-                languages.map((language, index) => <LanguageItem href={parseUrl(window.location.pathname)[1]} language={language} key={index} isActive={language === activeLanguage} />)
+                languages.map((language, index) => <LanguageItem href={parseUrl(window.location.pathname)[1]} language={language} key={index} isActive={language === activeLanguage} initialClass={initialClass} activeClass={activeClass} />)
             }
         </ul>
     );
