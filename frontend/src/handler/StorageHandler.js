@@ -11,3 +11,8 @@ export const getUserRole = () => {
 export const saveData = (data) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
+
+export const getUser = () => {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    return data.userData;
+}

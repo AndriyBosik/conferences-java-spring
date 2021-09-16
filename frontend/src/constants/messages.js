@@ -77,5 +77,35 @@ export const messages = {
         [EN]: "Proposals",
         [RU]: "Предложения",
         [UK]: "Пропозиції"
+    },
+    my_meetings: {
+        [EN]: "My meetings",
+        [RU]: "Мои мероприятия",
+        [UK]: "Мої заходи"
+    },
+    confirm_changes: {
+        [EN]: "Confirm changes",
+        [RU]: "Подтвердить изменения",
+        [UK]: "Підтвердити зміни"
+    },
+    new_password: {
+        [EN]: "New password",
+        [RU]: "Новый пароль",
+        [UK]: "Новий пароль"
+    },
+    old_password: {
+        [EN]: "Old password",
+        [RU]: "Старый пароль",
+        [UK]: "Старий пароль"
+    },
+    change_photo: {
+        [EN]: "Change photo",
+        [RU]: "Изменить фотографию",
+        [UK]: "Змінити фотографію"
+    },
+    proposed_topics: {
+        [EN]: "Proposed topics",
+        [RU]: "Предлагаемые темы",
+        [UK]: "Запропоновані теми"
     }
 };

@@ -1,0 +1,84 @@
+:root {
+    --user-avatar-size: 50px;
+    --proposal-avatar-size: 80px;
+    --user-profile-avatar-size: 150px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+ul.languages-list li {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.meeting-card .card-image {
+    height: 200px;
+}
+
+.meeting-card .date-divider {
+    margin-top: 20px;
+}
+
+.meeting-container .meeting-title {
+    font-size: 30px;
+}
+
+.meeting-container .meeting-description {
+    font-size: 17px;
+}
+
+.user-avatar {
+    width: var(--user-avatar-size);
+    height: var(--user-avatar-size);
+    border-radius: 50%;
+}
+
+.large-text {
+    font-size: 50px;
+}
+
+.time-divider {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+#meeting-form .modal.datepicker-modal {
+    top: 3% !important;
+}
+
+.preloader-background {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 100;
+}
+
+.meeting-additional-data {
+    font-size: 18px;
+}
+
+.proposal-avatar {
+    width: var(--proposal-avatar-size);
+    height: var(--proposal-avatar-size);
+}
+
+.proposal .username {
+    font-size: 20px;
+}
+
+.speaker-proposals-collection .topic-title {
+    font-size: 18px;
+}
+
+.user-profile-avatar {
+    height: var(--user-profile-avatar-size);
+    width: var(--user-profile-avatar-size);
+    border: 5px solid white;
+}

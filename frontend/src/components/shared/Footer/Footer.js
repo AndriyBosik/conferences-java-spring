@@ -5,7 +5,7 @@ function Footer() {
         <footer className="page-footer teal lighten-2" style={{paddingTop: 0}}>
             <div className="footer-copyright">
                 <div className="container center-align">
-                    &copyright; Copyright <span className="weight-normal">Meetings.com</span>
+                    &copy; {new Date().getFullYear()} Copyright <span className="weight-normal">Meetings.com</span>
                 </div>
             </div>
         </footer>
