@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { LinkContext } from "../..";
-import { generateUrl } from "./../../handler/LinkHandler";
+import { useLink } from "../../hooks/useLink";
 
-function LanguageItem({language, isActive, keyValue}) {
-    const store = useContext(LinkContext);
-
+function LanguageItem({language, isActive, href}) {
     return (
         <li>
-            <Link to={generateUrl(store.urlLink, language)} className={(isActive ? "red-text" : "teal-text text-lighten-1") + " px5"}>
+            <Link to={useLink(href, language)} className={(isActive ? "red-text" : "teal-text text-lighten-1") + " px5"}>
                 {language}
             </Link>
         </li>

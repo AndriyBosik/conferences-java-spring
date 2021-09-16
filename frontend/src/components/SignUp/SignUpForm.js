@@ -17,6 +17,7 @@ function SignUpForm() {
 
     useEffect(() => {
         M.updateTextFields();
+        return () => {};
     }, []);
 
     const handleSubmit = event => {

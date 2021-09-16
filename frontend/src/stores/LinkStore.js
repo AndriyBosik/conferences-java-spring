@@ -1,12 +1,12 @@
 import { makeAutoObservable } from "mobx";
-
-import { localization } from "../constants/localization";
+import { parseUrl } from "../handler/LinkHandler";
 
 class LinkStore {
-    urlLanguage = localization.defaultLanguage;
-    urlLink = "/";
+    urlLanguage;
+    urlLink;
 
     constructor() {
+        [this.urlLanguage, this.urlLink] = parseUrl(window.location.pathname);
         makeAutoObservable(this);
     }
 
