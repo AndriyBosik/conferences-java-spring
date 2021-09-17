@@ -9,6 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserData {
+    private Integer id;
     private String login;
     private String email;
     private String name;

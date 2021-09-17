@@ -232,5 +232,80 @@ export const messages = {
         [EN]: "Description",
         [RU]: "Описание",
         [UK]: "Опис"
+    },
+    no_topics: {
+        [EN]: "No topics yet",
+        [RU]: "Пока нет тем",
+        [UK]: "Поки немає тем"
+    },
+    present_users: {
+        [EN]: "Present users",
+        [RU]: "Присутствующие пользователи",
+        [UK]: "Присутні користувачі"
+    },
+    where: {
+        [EN]: "Where",
+        [RU]: "Где",
+        [UK]: "Де"
+    },
+    when: {
+        [EN]: "When",
+        [RU]: "Когда",
+        [UK]: "Коли"
+    },
+    propose: {
+        [EN]: "Propose",
+        [RU]: "Предложить",
+        [UK]: "Запропонувати"
+    },
+    topic: {
+        [EN]: "Topic",
+        [RU]: "Тема",
+        [UK]: "Тема"
+    },
+    no_speaker: {
+        [EN]: "No speaker",
+        [RU]: "Нет спикера",
+        [UK]: "Немає спікера"
+    },
+    select_from_proposals: {
+        [EN]: "Select from proposals",
+        [RU]: "Выбрать из предложений",
+        [UK]: "Вибрати із пропозицій"
+    },
+    propose_to_speakers: {
+        [EN]: "Propose to speakers",
+        [RU]: "Предложить спикерам",
+        [UK]: "Запропонувати спікерам"
+    },
+    join: {
+        [EN]: "Join",
+        [RU]: "Присоединиться",
+        [UK]: "Приєднатися"
+    },
+    joined: {
+        [EN]: "Joined",
+        [RU]: "Зарегистрирован",
+        [UK]: "Зареєстрований"
+    },
+    you_proposed_yourself: {
+        [EN]: "You proposed yourself",
+        [RU]: "Вы предложили себя",
+        [UK]: "Ви запропонували себе"
+    },
+    propose_me: {
+        [EN]: "Propose me",
+        [RU]: "Предложить себя",
+        [UK]: "Запропонувати себе"
+    },
+    create_topic: {
+        [EN]: "Create topic",
+        [RU]: "Создать тему",
+        [UK]: "Створити тему"
+    },
+    choose_speaker: {
+        [EN]: "Choose speaker",
+        [RU]: "Выберите спикера",
+        [UK]: "Виберіть спікера"
     }
 };

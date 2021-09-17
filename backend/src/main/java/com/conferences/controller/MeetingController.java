@@ -1,12 +1,12 @@
 package com.conferences.controller;
 
 import com.conferences.entity.ReportTopic;
+import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IMeetingWithStats;
 import com.conferences.mapper.IMapper;
 import com.conferences.model.MeetingData;
 import com.conferences.model.MeetingSorter;
 import com.conferences.model.RequestSorter;
-import com.conferences.repository.IMeetingRepository;
 import com.conferences.service.abstraction.IMeetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -51,5 +51,10 @@ public class MeetingController {
     @GetMapping("/{meetingId}/topics")
     public List<ReportTopic> getMeetingTopics(@PathVariable int meetingId) {
         return meetingService.getMeetingTopics(meetingId);
+    }
+
+    @GetMapping("/check-user-joined")
+    public boolean checkUserJoined(UserMeeting userMeeting) {
+        return meetingService.isUserJoined(userMeeting);
     }
 }

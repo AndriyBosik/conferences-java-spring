@@ -42,9 +42,9 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
         "SELECT " +
             "m " +
         "FROM Meeting m " +
-            "JOIN FETCH m.reportTopics AS reportTopics " +
-                "JOIN FETCH reportTopics.reportTopicSpeaker AS reportTopicSpeaker " +
-                    "JOIN FETCH reportTopicSpeaker.speaker AS speaker WHERE m.id=:id"
+            "LEFT JOIN FETCH m.reportTopics AS reportTopics " +
+                "LEFT JOIN FETCH reportTopics.reportTopicSpeaker AS reportTopicSpeaker " +
+                    "LEFT JOIN FETCH reportTopicSpeaker.speaker AS speaker WHERE m.id=:id"
     )
     Meeting findAllById(@Param("id") int id);
 

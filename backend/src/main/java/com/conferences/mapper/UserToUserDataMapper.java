@@ -10,6 +10,7 @@ public class UserToUserDataMapper implements IMapper<User, UserData> {
     @Override
     public UserData map(User user) {
         UserData userData = new UserData();
+        userData.setId(user.getId());
         userData.setLogin(user.getLogin());
         userData.setEmail(user.getEmail());
         userData.setImagePath(user.getImagePath());

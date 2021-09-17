@@ -81,7 +81,9 @@ function MeetingsListPage() {
                     )}
                 </div>
             </div>
-            <CreateMeetingModal id="meeting-form" />
+            <RoleController allow={["moderator"]}>
+                <CreateMeetingModal id="meeting-form" />
+            </RoleController>
         </>
     );
 }

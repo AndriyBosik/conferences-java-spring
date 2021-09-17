@@ -1,5 +1,6 @@
 package com.conferences.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,5 +28,6 @@ public class TopicProposal {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "speaker_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private User speaker;
 }

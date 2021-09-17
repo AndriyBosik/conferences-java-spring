@@ -1,6 +1,7 @@
 package com.conferences.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -48,5 +49,6 @@ public class Meeting {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "meeting_id")
-    private List<TopicProposal> topicProposals = new ArrayList<>();
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Set<TopicProposal> topicProposals = new HashSet<>();
 }

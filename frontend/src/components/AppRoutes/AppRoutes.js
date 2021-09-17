@@ -11,6 +11,7 @@ import ProfilePage from "../Profile/ProfilePage";
 import Navbar from "../shared/Navbar/Navbar";
 import Footer from "../shared/Footer/Footer";
 import MeetingsListPage from "../MeetingsList/MeetingsListPage";
+import MeetingPage from "../Meeting/MeetingPage";
 
 function AppRoutes() {
     return (
@@ -27,6 +28,13 @@ function AppRoutes() {
                         <Route>
                             <Navbar />
                             <main className="flex-auto">
+                                <Route path={useLink(pages.meeting)} exact>
+                                    {
+                                        ({match}) => match == null ? null : (
+                                            <MeetingPage meetingId={match.params.id} />
+                                        )
+                                    }
+                                </Route>
                                 <Route path={useLink(pages.profile)}>
                                     <ProfilePage />
                                 </Route>

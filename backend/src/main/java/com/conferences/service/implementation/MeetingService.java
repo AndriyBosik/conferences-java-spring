@@ -2,6 +2,7 @@ package com.conferences.service.implementation;
 
 import com.conferences.entity.Meeting;
 import com.conferences.entity.ReportTopic;
+import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IMeetingWithStats;
 import com.conferences.model.DateFilter;
 import com.conferences.model.MeetingData;
@@ -46,5 +47,10 @@ public class MeetingService implements IMeetingService {
     @Override
     public List<ReportTopic> getMeetingTopics(int meetingId) {
         return reportTopicRepository.findAllByMeetingId(meetingId);
+    }
+
+    @Override
+    public boolean isUserJoined(UserMeeting userMeeting) {
+        return userMeetingRepository.findByUserIdAndMeetingId(userMeeting.getUserId(), userMeeting.getMeetingId()) != null;
     }
 }
