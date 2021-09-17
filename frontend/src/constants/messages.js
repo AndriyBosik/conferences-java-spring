@@ -107,5 +107,130 @@ export const messages = {
         [EN]: "Proposed topics",
         [RU]: "Предлагаемые темы",
         [UK]: "Запропоновані теми"
+    },
+    add: {
+        [EN]: "Add",
+        [RU]: "Добавить",
+        [UK]: "Додати"
+    },
+    sort_by: {
+        [EN]: "Sort by",
+        [RU]: "Сортировать по",
+        [UK]: "Сортувати за"
+    },
+    by_date: {
+        [EN]: "Date",
+        [RU]: "Дате проведения",
+        [UK]: "Датою проведення"
+    },
+    by_users: {
+        [EN]: "Users",
+        [RU]: "Учасникам",
+        [UK]: "Учасниками"
+    },
+    by_topics: {
+        [EN]: "Topics",
+        [RU]: "Темам",
+        [UK]: "Темою"
+    },
+    ascending: {
+        [EN]: "Ascending",
+        [RU]: "По возрастанию",
+        [UK]: "По зростанню"
+    },
+    descending: {
+        [EN]: "Descending",
+        [RU]: "По убыванию",
+        [UK]: "По спаданню"
+    },
+    all: {
+        [EN]: "All",
+        [RU]: "Все",
+        [UK]: "Всі"
+    },
+    past: {
+        [EN]: "Past",
+        [RU]: "Прошедшие",
+        [UK]: "Минулі"
+    },
+    future: {
+        [EN]: "Future",
+        [RU]: "Будущие",
+        [UK]: "Майбутні"
+    },
+    confirm: {
+        [EN]: "Confirm",
+        [RU]: "Подтвердить",
+        [UK]: "Підтвердити"
+    },
+    page_not_found: {
+        [EN]: "Page not found",
+        [RU]: "Страница не найдена",
+        [UK]: "Сторінку не знайдено"
+    },
+    view: {
+        [EN]: "View",
+        [RU]: "Посмотреть",
+        [UK]: "Переглянути"
+    },
+    topics: {
+        [EN]: "Topics",
+        [RU]: "Темы",
+        [UK]: "Теми"
+    },
+    participants: {
+        [EN]: "Participants",
+        [RU]: "Учасники",
+        [UK]: "Учасники"
+    },
+    loading: {
+        [EN]: "Loading",
+        [RU]: "Загрузка",
+        [UK]: "Завантаження"
+    },
+    joined_users: {
+        [EN]: "Joined users",
+        [RU]: "Пользователи, которые присоединились",
+        [UK]: "Користувачі, які приєднались"
+    },
+    edit: {
+        [EN]: "Edit",
+        [RU]: "Редактировать",
+        [UK]: "Редагувати"
+    },
+    was_present: {
+        [EN]: "Was present",
+        [RU]: "Присутствовали",
+        [UK]: "Були присутні"
+    },
+    create_meeting: {
+        [EN]: "Create meeting",
+        [RU]: "Создать мероприятие",
+        [UK]: "Створити захід"
+    },
+    title: {
+        [EN]: "Title",
+        [RU]: "Наименование",
+        [UK]: "Найменування"
+    },
+    address: {
+        [EN]: "Address",
+        [RU]: "Адрес",
+        [UK]: "Адреса"
+    },
+    select_date: {
+        [EN]: "Select date",
+        [RU]: "Выберите дату",
+        [UK]: "Виберіть дату"
+    },
+    photo: {
+        [EN]: "Photo",
+        [RU]: "Фото",
+        [UK]: "Фото"
+    },
+    description: {
+        [EN]: "Description",
+        [RU]: "Описание",
+        [UK]: "Опис"
     }
 };

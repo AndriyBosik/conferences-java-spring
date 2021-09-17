@@ -1,0 +1,1 @@
+export const eventPreventer = (event) => event.preventDefault();

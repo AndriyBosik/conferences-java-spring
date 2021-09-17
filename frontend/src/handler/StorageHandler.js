@@ -16,3 +16,8 @@ export const getUser = () => {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
     return data.userData;
 }
+
+export const getAccessToken = () => {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    return data.accessToken;
+}

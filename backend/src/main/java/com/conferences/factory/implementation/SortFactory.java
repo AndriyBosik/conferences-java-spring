@@ -10,6 +10,9 @@ public class SortFactory implements ISortFactory {
 
     @Override
     public Sort getSort(String column, String order) {
-        return JpaSort.unsafe(Sort.Direction.valueOf(order), "(" + column + ")");
+        if ("".equals(column)) {
+            column = "id";
+        }
+        return JpaSort.unsafe(Sort.Direction.valueOf(order.toUpperCase()), "(" + column + ")");
     }
 }
