@@ -327,5 +327,30 @@ export const messages = {
         [EN]: "Propose topic",
         [RU]: "Предложить тему",
         [UK]: "Запропонувати тему"
+    },
+    my: {
+        [EN]: "My",
+        [RU]: "Мои",
+        [UK]: "Мої"
+    },
+    for_me: {
+        [EN]: "For my",
+        [RU]: "Для меня",
+        [UK]: "Для мене"
+    },
+    processing: {
+        [EN]: "Processing",
+        [RU]: "Обрабатывается",
+        [UK]: "Обробляється"
+    },
+    accept: {
+        [EN]: "Accept",
+        [RU]: "Принять",
+        [UK]: "Прийняти"
+    },
+    reject: {
+        [EN]: "Reject",
+        [RU]: "Отклонить",
+        [UK]: "Відхилити"
     }
 };

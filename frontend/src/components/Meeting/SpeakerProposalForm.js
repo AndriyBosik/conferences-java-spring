@@ -10,12 +10,11 @@ function SpeakerProposalForm({meetingId, topic, userId}) {
 
     useEffect(() => {
         const fetchProposedTopicIds = async () => {
-            const ids = await getSpeakerProposedTopicsIds(userId, meetingId);
-            setProposedTopicIds(ids);
+            setProposedTopicIds(await getSpeakerProposedTopicsIds(userId, meetingId));
         }
 
         fetchProposedTopicIds();
-    }, [userId, meetingId]);
+    }, []);
 
     const handleSubmit = event => {
         event.preventDefault();

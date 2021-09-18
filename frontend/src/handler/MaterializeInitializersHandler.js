@@ -19,3 +19,8 @@ export const initDatePickers = () => {
     var elems = document.querySelectorAll('.datepicker');
     M.Datepicker.init(elems);
 }
+
+export const initTabs = () => {
+    let tabs = document.querySelectorAll(".tabs");
+    M.Tabs.init(tabs);
+}
