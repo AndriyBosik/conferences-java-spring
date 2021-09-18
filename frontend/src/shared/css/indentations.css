@@ -34,6 +34,10 @@
     padding-top: 20px;
 }
 
+.pt50 {
+    padding-top: 50px;
+}
+
 .pr5 {
     padding-right: 5px;
 }
@@ -124,6 +128,10 @@
 
 .mt20 {
     margin-top: 20px;
+}
+
+.mt50 {
+    margin-top: 50px;
 }
 
 .mr5 {

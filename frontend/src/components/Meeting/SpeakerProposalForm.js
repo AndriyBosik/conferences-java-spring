@@ -14,7 +14,7 @@ function SpeakerProposalForm({meetingId, topic, userId}) {
         }
 
         fetchProposedTopicIds();
-    }, []);
+    }, [userId, meetingId]);
 
     const handleSubmit = event => {
         event.preventDefault();

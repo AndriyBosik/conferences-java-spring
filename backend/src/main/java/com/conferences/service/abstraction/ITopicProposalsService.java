@@ -7,4 +7,6 @@ import java.util.List;
 public interface ITopicProposalsService {
 
     List<IMeetingTopicProposalsData> getAllMeetingProposals();
+
+    long getCount();
 }

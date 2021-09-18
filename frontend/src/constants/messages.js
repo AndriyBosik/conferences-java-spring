@@ -352,5 +352,15 @@ export const messages = {
         [EN]: "Reject",
         [RU]: "Отклонить",
         [UK]: "Відхилити"
+    },
+    nothing_found: {
+        [EN]: "Nothing found",
+        [RU]: "Ничего не найдено",
+        [UK]: "Нічого не знайдено"
+    },
+    speaker_proposed_topic: {
+        [EN]: "Proposed topic",
+        [RU]: "Предложил(-ла) тему",
+        [UK]: "Запрпонував(-ла) тему"
     }
 };

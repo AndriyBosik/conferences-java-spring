@@ -24,4 +24,9 @@ public class TopicProposalController {
     public List<IMeetingTopicProposalsData> getAllTopicProposals() {
         return topicProposalsService.getAllMeetingProposals();
     }
+
+    @GetMapping("/count")
+    public long getCount() {
+        return topicProposalsService.getCount();
+    }
 }

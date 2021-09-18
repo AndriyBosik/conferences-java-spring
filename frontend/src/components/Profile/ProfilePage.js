@@ -7,6 +7,7 @@ import RoleController from "../RoleController/RoleController";
 import { getUser } from "./../../handler/StorageHandler";
 import UserDataForm from "./UserDataForm";
 import M from "materialize-css";
+import ProposedTopicsButton from "./ProposedTopicsButton";
 
 function ProfilePage() {
     useTitle("profile");
@@ -54,12 +55,7 @@ function ProfilePage() {
                                 </a>
                             </RoleController>
                             <RoleController allow={["moderator"]}>
-                                <a href={useLink(pages.speakerProposedTopics)} className="btn waves-effect waves-light modal-trigger">
-                                    <div className="s-hflex">
-                                        <span><Message alias="proposed_topics" /></span>
-                                        {/* TODO */}
-                                    </div>
-                                </a>
+                                <ProposedTopicsButton />
                             </RoleController>
                         </div>
                     </div>

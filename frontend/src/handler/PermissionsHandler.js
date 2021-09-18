@@ -6,6 +6,7 @@ const permissions = {
     [pages.signUp]: ["guest"],
     [pages.home]: ["guest"],
     [pages.proposals]: ["speaker"],
+    [pages.proposedTopics]: ["moderator"],
     [pages.profile]: ["user", "speaker", "moderator"],
     [pages.allMeetings]: ["user", "speaker", "moderator"],
     [pages.meeting]: ["user", "speaker", "moderator"],

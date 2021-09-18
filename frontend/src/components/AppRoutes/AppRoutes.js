@@ -13,6 +13,7 @@ import Footer from "../shared/Footer/Footer";
 import MeetingsListPage from "../MeetingsList/MeetingsListPage";
 import MeetingPage from "../Meeting/MeetingPage";
 import ProposalsPage from "../Proposals/ProposalsPage";
+import ProposedTopicsPage from "../ProposedTopics/ProposedTopicsPage";
 
 function AppRoutes() {
     return (
@@ -44,6 +45,9 @@ function AppRoutes() {
                                 </Route>
                                 <Route path={useLink(pages.proposals)}>
                                     <ProposalsPage />
+                                </Route>
+                                <Route path={useLink(pages.proposedTopics)}>
+                                    <ProposedTopicsPage />
                                 </Route>
                             </main>
                             <Footer />

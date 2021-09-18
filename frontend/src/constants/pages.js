@@ -7,7 +7,7 @@ export const pages = {
     proposals: "/home/proposals",
     changeAvatar: "/users/change-avatar",
     speakerMeetings: "/home/speaker-meetings",
-    speakerProposedTopics: "/topics/speaker-proposed",
     updateProfile: "/users/update-profile",
-    meeting: "/meetings/show/:id"
+    meeting: "/meetings/show/:id",
+    proposedTopics: "/home/proposed-topics"
 };
