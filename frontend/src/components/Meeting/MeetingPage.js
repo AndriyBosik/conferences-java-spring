@@ -6,13 +6,10 @@ import UserJoining from "./UserJoining";
 import TopicsList from "./TopicsList";
 import { getUser } from "./../../handler/StorageHandler";
 import MeetingDetails from "./MeetingDetails";
-import CreateTopicModal from "../shared/modals/CreateTopicModal";
-import ProposeToSpeakersModal from "../shared/modals/ProposeToSpeakersModal/ProposeToSpeakersModal";
-import SpeakerProposalsModal from "../shared/modals/SpeakerProposalsModal";
 import { initModals, initSelects, initTooltips } from "./../../handler/MaterializeInitializersHandler";
 import { isOutdated } from "../../handler/DateHandler";
-import PresenceEditorModal from "../shared/modals/PresenceEditor/PresenceEditorModal";
-import CreateTopicProposalModal from "../shared/modals/CreateTopicProposal/CreateTopicProposalModal";
+import ModeratorModals from "./ModeratorModals";
+import CreateTopicProposalModal from "./../shared/modals/CreateTopicProposal/CreateTopicProposalModal";
 
 function MeetingPage({meetingId}) {
     const user = getUser();
@@ -24,8 +21,12 @@ function MeetingPage({meetingId}) {
         date: [],
         reportTopics: []
     });
+    
     const [usersPresence, setUsersPresence] = useState({});
-    const [activeTopicId, setActiveTopicId] = useState(0);
+    const [activeTopic, setActiveTopic] = useState({
+        id: 0,
+        speakerProposals: []
+    });
 
     useEffect(() => {
         const fetchMeeting = async () => {
@@ -110,7 +111,7 @@ function MeetingPage({meetingId}) {
                         <div className="separator mb10 mt5"></div>
 
                         {meeting.reportTopics.length > 0 ? (
-                            <TopicsList topics={meeting.reportTopics} user={user} rowClickHandler={setActiveTopicId} isOutdated={isOutdated(meeting.date)} />
+                            <TopicsList topics={meeting.reportTopics} user={user} rowClickHandler={setActiveTopic} isOutdated={isOutdated(meeting.date)} />
                         ) : (
                             <p className="center-align translucent large-text">
                                 {noTopicsMessage}
@@ -121,14 +122,7 @@ function MeetingPage({meetingId}) {
             </div>
 
             <RoleController allow={["moderator"]}>
-                <CreateTopicModal meeting={meeting} />
-                <ProposeToSpeakersModal topicId={activeTopicId} />
-                <SpeakerProposalsModal />
-                {
-                    usersPresence.usersCount > 0 ? (
-                        <PresenceEditorModal />
-                    ) : null
-                }
+                <ModeratorModals meeting={meeting} topic={activeTopic} usersPresence={usersPresence} />
             </RoleController>
 
             <RoleController allow={["speaker"]}>

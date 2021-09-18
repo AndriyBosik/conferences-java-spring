@@ -307,5 +307,25 @@ export const messages = {
         [EN]: "Choose speaker",
         [RU]: "Выберите спикера",
         [UK]: "Виберіть спікера"
+    },
+    edit_presence: {
+        [EN]: "Edit presence",
+        [RU]: "Редактировать присутствие",
+        [UK]: "Редагувати присутність"
+    },
+    is_present: {
+        [EN]: "Joined",
+        [RU]: "Присутствует",
+        [UK]: "Присутній"
+    },
+    is_not_present: {
+        [EN]: "Joined",
+        [RU]: "Отсутствует",
+        [UK]: "Відсутній"
+    },
+    propose_topic: {
+        [EN]: "Propose topic",
+        [RU]: "Предложить тему",
+        [UK]: "Запропонувати тему"
     }
 };

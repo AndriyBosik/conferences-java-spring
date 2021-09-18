@@ -1,8 +1,9 @@
 package com.conferences.controller;
 
 import com.conferences.entity.User;
+import com.conferences.entity.projection.IUserPresence;
+import com.conferences.entity.projection.IUserPublicData;
 import com.conferences.model.UserData;
-import com.conferences.repository.IUserRepository;
 import com.conferences.service.abstraction.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,5 +32,20 @@ public class UserController {
     @GetMapping("/speakers")
     public List<UserData> getSpeakers() {
         return userService.getUsersByRole("speaker");
+    }
+
+    @GetMapping("/get-topic-available")
+    public List<UserData> getTopicAvailable(Integer topicId) {
+        return userService.getAvailableSpeakersByTopic(topicId);
+    }
+
+    @GetMapping("/get-topic-proposed")
+    public List<IUserPublicData> getTopicProposed(Integer topicId) {
+        return userService.getProposedSpeakersForTopic(topicId);
+    }
+
+    @GetMapping("/get-for-meeting")
+    public List<IUserPresence> getForMeeting(int meetingId) {
+        return userService.getJoinedUsersByMeeting(meetingId);
     }
 }

@@ -24,4 +24,8 @@ public class SpeakerProposal {
 
     @Column(name = "report_topic_id")
     private Integer reportTopicId;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "speaker_id", updatable = false, insertable = false)
+    private User speaker;
 }

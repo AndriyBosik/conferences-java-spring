@@ -27,4 +27,8 @@ public class UserMeeting {
 
     @Column(name = "present")
     private Boolean present;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", updatable = false, insertable = false)
+    private User user;
 }

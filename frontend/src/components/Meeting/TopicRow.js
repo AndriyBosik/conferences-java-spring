@@ -11,7 +11,7 @@ function TopicRow({topic, order, user, rowClickHandler, isOutdated}) {
     return (
         <tr className="topic-item" onClick={() => {
             if (user.role === "moderator") {
-                rowClickHandler(topic.id);
+                rowClickHandler(topic);
             }
         }}>
             <td className="center-align">{order}</td>

@@ -1,8 +1,11 @@
-package com.conferences.entity.projection.proposal.topic;
+package com.conferences.entity.projection;
 
 import org.springframework.beans.factory.annotation.Value;
 
-public interface ISpeaker {
+public interface IUserPublicData {
+
+    @Value("#{target.id}")
+    Integer getId();
 
     @Value("#{target.name}")
     String getName();

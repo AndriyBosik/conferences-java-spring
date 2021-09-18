@@ -1,5 +1,6 @@
 package com.conferences.entity.projection.proposal.topic;
 
+import com.conferences.entity.projection.IUserPublicData;
 import org.springframework.beans.factory.annotation.Value;
 
 public interface ITopicProposal {
@@ -11,5 +12,5 @@ public interface ITopicProposal {
     String getTopicTitle();
 
     @Value("#{target.speaker}")
-    ISpeaker getSpeaker();
+    IUserPublicData getSpeaker();
 }

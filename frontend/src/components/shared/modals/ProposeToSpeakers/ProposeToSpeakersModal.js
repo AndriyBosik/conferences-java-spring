@@ -4,16 +4,16 @@ import { useMessage } from "../../../../hooks/useMessage";
 import { getAvailableSpeakers } from "../../../../services/UserService";
 import CollectionSpeakerItem from "./CollectionSpeakerItem";
 
-function ProposeToSpeakersModal({topicId}) {
+function ProposeToSpeakersModal({topic}) {
     const [availableSpeakers, setAvailableSpeakers] = useState([]);
 
     useEffect(() => {
         const fetchAvailableSpeakers = async () => {
-            setAvailableSpeakers(await getAvailableSpeakers(topicId));
+            setAvailableSpeakers(await getAvailableSpeakers(topic.id));
         }
 
         fetchAvailableSpeakers();
-    }, [topicId]);
+    }, [topic]);
 
     return (
         <div id="propose-to-speakers-form" className="modal height-70">
@@ -27,7 +27,7 @@ function ProposeToSpeakersModal({topicId}) {
                 <div className="col s12">
                     <ul id="availableSpeakersCollection" className="collection">
                         {
-                            availableSpeakers.map(speaker => <CollectionSpeakerItem />)
+                            availableSpeakers.map(speaker => <CollectionSpeakerItem key={speaker.id} speaker={speaker} />)
                         }
                     </ul>
                 </div>
