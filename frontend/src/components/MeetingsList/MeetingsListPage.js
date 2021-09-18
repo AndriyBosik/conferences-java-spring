@@ -2,42 +2,16 @@ import React from "react";
 import { useTitle } from "../../hooks/useTitle";
 import RoleController from "./../RoleController/RoleController";
 import Message from "./../Message/Message";
-import MeetingsList from "./MeetingsList";
-import MeetingsFilters from "./MeetingsFilters";
-import LinearPreloader from "./../LinearPreloader/LinearPreloader";
-import { getAllMeetings } from "./../../services/MeetingService";
-import { useEffect, useState } from "react/cjs/react.development";
-import { useMessage } from "../../hooks/useMessage";
-import Pagination from "../Pagination/Pagination";
-import { defaultMeetingsFilter } from "../../constants/defaults";
-import { initTooltips, initModals } from "../../handler/MaterializeInitializersHandler";
+import { useEffect } from "react/cjs/react.development";
 import CreateMeetingModal from "../shared/modals/CreateMeetingModal";
-
-const MEETINGS_COUNT = 12;
+import { initModals } from "../../handler/MaterializeInitializersHandler";
+import MeetingsInformation from "./MeetingsInformation";
+import { getAllMeetings } from "./../../services/MeetingService";
 
 function MeetingsListPage() {
-    const pageNotFoundMessage = useMessage("page_not_found");
     useTitle("meetings");
-    const [loading, setLoading] = useState(true);
-    const [filters, setFilters] = useState(defaultMeetingsFilter);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [meetings, setMeetings] = useState([]);
-    const [totalPages, setTotalPages] = useState(0);
-
-    const fetchMeetings = async (page, items, filters) => {
-        setLoading(true);
-        const meetingsData = await getAllMeetings(page, items, filters);
-        setMeetings(meetingsData.content);
-        setTotalPages(meetingsData.totalPages);
-        setLoading(false);
-        initTooltips();
-    };
     
     useEffect(initModals, []);
-
-    useEffect(() => {
-        fetchMeetings(currentPage, MEETINGS_COUNT, filters);
-    }, [currentPage, filters]);
     
     return (
         <>
@@ -60,25 +34,8 @@ function MeetingsListPage() {
                         <hr />
                     </div>
 
-                    <MeetingsFilters handler={setFilters} />
-                    {loading ? (
-                        <LinearPreloader />
-                    ) : (
-                        meetings.length > 0 ? (
-                            <>
-                                <MeetingsList meetings={meetings} />
-                                <Pagination
-                                    totalPages={totalPages}
-                                    currentPage={currentPage}
-                                    paginationClass="col s12"
-                                    pageClickHandler={setCurrentPage} />
-                            </>
-                        ) : (
-                            <p className="center-align translucent large-text">
-                                {pageNotFoundMessage}
-                            </p>
-                        )
-                    )}
+                    <MeetingsInformation meetingsFetcher={getAllMeetings} />
+
                 </div>
             </div>
             <RoleController allow={["moderator"]}>

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useMessage } from "./../../hooks/useMessage";
 import { initSelects } from "./../../handler/MaterializeInitializersHandler";
-import { defaultMeetingsFilter } from "./../../constants/defaults";
+import { DEFAULT_MEETINGS_FILTER } from "./../../constants/defaults";
 
 function MeetingsFilters({handler}) {
-    const [sortOption, setSortOption] = useState(defaultMeetingsFilter.sortBy === "" ? "default" : defaultMeetingsFilter);
-    const [sortOrder, setSortOrder] = useState(defaultMeetingsFilter.sortOrder);
-    const [filter, setFilter] = useState(defaultMeetingsFilter.select);
+    const [sortOption, setSortOption] = useState(DEFAULT_MEETINGS_FILTER.sortBy === "" ? "default" : DEFAULT_MEETINGS_FILTER);
+    const [sortOrder, setSortOrder] = useState(DEFAULT_MEETINGS_FILTER.sortOrder);
+    const [filter, setFilter] = useState(DEFAULT_MEETINGS_FILTER.select);
 
     const handleSubmit = event => {
         event.preventDefault();

@@ -1,6 +1,5 @@
 package com.conferences.service.implementation;
 
-import com.conferences.entity.Meeting;
 import com.conferences.entity.ReportTopic;
 import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IMeetingWithStats;
@@ -33,7 +32,12 @@ public class MeetingService implements IMeetingService {
 
     @Override
     public Page<IMeetingWithStats> getMeetingsByPage(Pageable pageable, DateFilter dateFilter) {
-        return meetingRepository.findAllWithSpecification(pageable, dateFilter);
+        return meetingRepository.findAllWithFilters(pageable, dateFilter);
+    }
+
+    @Override
+    public Page<IMeetingWithStats> getMeetingsByPageAndSpeaker(Pageable pageable, DateFilter dateFilter, Integer speakerId) {
+        return meetingRepository.findAllWithFiltersBySpeaker(pageable, dateFilter, speakerId);
     }
 
     @Override

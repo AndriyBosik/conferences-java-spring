@@ -15,6 +15,8 @@ public interface IMeetingService {
 
     Page<IMeetingWithStats> getMeetingsByPage(Pageable pageable, DateFilter dateFilter);
 
+    Page<IMeetingWithStats> getMeetingsByPageAndSpeaker(Pageable pageable, DateFilter dateFilter, Integer speakerId);
+
     MeetingData getMeeting(int meetingId);
 
     List<ReportTopic> getMeetingTopics(int meetingId);

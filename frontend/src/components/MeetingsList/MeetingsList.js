@@ -1,6 +1,5 @@
 import React from "react";
 import Meeting from "./Meeting";
-import Pagination from "./../Pagination/Pagination";
 
 function MeetingsList({meetings}) {
     return (
@@ -8,7 +7,6 @@ function MeetingsList({meetings}) {
             {
                 meetings.map(meeting => <Meeting key={meeting.id} meeting={meeting} />)
             }
-            <Pagination currentPage={2} pagesCount={3} />
         </div>
     );
 }

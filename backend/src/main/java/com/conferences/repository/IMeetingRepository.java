@@ -36,7 +36,43 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
         "GROUP BY meetings.id, stats.users_count, stats.present_users_count",
         countQuery = "SELECT COUNT(id) FROM meetings WHERE date BETWEEN :#{#dateFilter.getMin()} AND :#{#dateFilter.getMax()}"
     )
-    Page<IMeetingWithStats> findAllWithSpecification(Pageable pageable, @Param("dateFilter") DateFilter dateFilter);
+    Page<IMeetingWithStats> findAllWithFilters(Pageable pageable, @Param("dateFilter") DateFilter dateFilter);
+
+    @Query(nativeQuery = true, value =
+            "SELECT " +
+                "meetings.*," +
+                "COALESCE(stats.users_count, 0) AS users_count," +
+                "COALESCE(stats.present_users_count, 0) AS present_users_count," +
+                "(SELECT COUNT(id) FROM report_topics WHERE meeting_id=meetings.id) AS topics_count " +
+            "FROM meetings " +
+                "LEFT JOIN (" +
+                    "SELECT " +
+                        "meeting_id," +
+                        "COUNT(id) AS users_count, " +
+                        "SUM(" +
+                            "CASE WHEN present THEN 1 END" +
+                        ") AS present_users_count " +
+                    "FROM users_meetings GROUP BY meeting_id " +
+                ") AS stats ON stats.meeting_id=meetings.id " +
+            "WHERE meetings.date BETWEEN :#{#dateFilter.getMin()} AND :#{#dateFilter.getMax()} AND EXISTS (" +
+                "SELECT 1 FROM users WHERE id=:speakerId AND EXISTS (" +
+                    "SELECT 1 FROM report_topics_speakers rts WHERE rts.speaker_id=:speakerId AND EXISTS (" +
+                        "SELECT 1 FROM report_topics rt WHERE rt.meeting_id=meetings.id AND rt.id=rts.report_topic_id" +
+                    ")" +
+                ")" +
+            ")" +
+            "GROUP BY meetings.id, stats.users_count, stats.present_users_count",
+        countQuery =
+            "SELECT COUNT(id) FROM meetings " +
+            "WHERE date BETWEEN :#{#dateFilter.getMin()} AND :#{#dateFilter.getMax()} AND EXISTS (" +
+                "SELECT 1 FROM users WHERE id=:speakerId AND EXISTS (" +
+                    "SELECT 1 FROM report_topics_speakers rts WHERE rts.speaker_id=:speakerId AND EXISTS (" +
+                        "SELECT 1 FROM report_topics rt WHERE rt.meeting_id=meetings.id AND rt.id=rts.report_topic_id" +
+                    ")" +
+                ")" +
+            ")"
+    )
+    Page<IMeetingWithStats> findAllWithFiltersBySpeaker(Pageable pageable, @Param("dateFilter") DateFilter dateFilter, @Param("speakerId") Integer speakerId);
 
     @Query(value =
         "SELECT " +

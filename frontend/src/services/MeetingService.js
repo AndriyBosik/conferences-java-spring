@@ -12,6 +12,21 @@ export const getAllMeetings = async (page, items, filters) => {
     });
 };
 
+export const getAllMeetingsForSpeaker = speakerId => async (page, items, filters) => {
+    return axios.get(`http://localhost:8080/api/meetings/speaker/${page}/${items}`, {
+        params: {
+            ...filters,
+            speakerId
+        },
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        console.log(response.data);
+        return response.data;
+    });
+}
+
 export const getMeeting = async meetingId => {
     return axios.get(`http://localhost:8080/api/meetings/${meetingId}`, {
         headers: {

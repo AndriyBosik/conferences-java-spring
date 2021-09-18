@@ -14,6 +14,7 @@ import MeetingsListPage from "../MeetingsList/MeetingsListPage";
 import MeetingPage from "../Meeting/MeetingPage";
 import ProposalsPage from "../Proposals/ProposalsPage";
 import ProposedTopicsPage from "../ProposedTopics/ProposedTopicsPage";
+import SpeakerMeetingsPage from "../SpeakerMeetings/SpeakerMeetingsPage";
 
 function AppRoutes() {
     return (
@@ -48,6 +49,9 @@ function AppRoutes() {
                                 </Route>
                                 <Route path={useLink(pages.proposedTopics)}>
                                     <ProposedTopicsPage />
+                                </Route>
+                                <Route path={useLink(pages.speakerMeetings)}>
+                                    <SpeakerMeetingsPage />
                                 </Route>
                             </main>
                             <Footer />

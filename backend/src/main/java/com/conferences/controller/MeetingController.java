@@ -35,12 +35,18 @@ public class MeetingController {
         RequestSorter sorter
     ) {
         MeetingSorter meetingSorter = mapper.map(sorter);
+        return meetingService.getMeetingsByPage(PageRequest.of(page - 1, items, meetingSorter.getSort()), meetingSorter.getDateFilter());
+    }
 
-        Page<IMeetingWithStats> meetings = meetingService.getMeetingsByPage(PageRequest.of(page - 1, items, meetingSorter.getSort()), meetingSorter.getDateFilter());
-        for (IMeetingWithStats meeting: meetings.getContent()) {
-            System.out.println(meeting.getDate() + " " + meeting.getTitle());
-        }
-        return meetings;
+    @GetMapping("/speaker/{page}/{items}")
+    public Page<IMeetingWithStats> getMeetingsByPageAndSpeaker(
+        @PathVariable int page,
+        @PathVariable int items,
+        RequestSorter sorter,
+        Integer speakerId
+    ) {
+        MeetingSorter meetingSorter = mapper.map(sorter);
+        return meetingService.getMeetingsByPageAndSpeaker(PageRequest.of(page - 1, items, meetingSorter.getSort()), meetingSorter.getDateFilter(), speakerId);
     }
 
     @GetMapping("/{meetingId}")
