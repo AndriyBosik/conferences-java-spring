@@ -1,6 +1,6 @@
 package com.conferences.controller;
 
-import com.conferences.handler.implementation.JwtHandler;
+import com.conferences.handler.abstraction.IJwtHandler;
 import com.conferences.entity.User;
 import com.conferences.mapper.IMapper;
 import com.conferences.model.AuthRequest;
@@ -21,12 +21,12 @@ import java.util.Date;
 public class AuthController {
 
     private final IUserService userService;
-    private final JwtHandler jwtHandler;
+    private final IJwtHandler jwtHandler;
     private final PasswordEncoder passwordEncoder;
     private final IMapper<User, UserData> mapper;
 
     @Autowired
-    public AuthController(IUserService userService, JwtHandler jwtHandler, PasswordEncoder passwordEncoder, IMapper<User, UserData> mapper) {
+    public AuthController(IUserService userService, IJwtHandler jwtHandler, PasswordEncoder passwordEncoder, IMapper<User, UserData> mapper) {
         this.userService = userService;
         this.jwtHandler = jwtHandler;
         this.passwordEncoder = passwordEncoder;

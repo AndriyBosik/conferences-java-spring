@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { doPost } from "../../handler/RequestHandler";
+import { loginUser } from "./../../services/AuthService";
 import { generateUrl } from "../../handler/LinkHandler";
 import M from "materialize-css";
 import { Redirect } from "react-router";
@@ -19,7 +19,7 @@ function LoginForm() {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        const result = await doPost("http://localhost:8080/api/auth/login", {
+        const result = await loginUser("http://localhost:8080/api/auth/login", {
             login: login,
             password: password
         });

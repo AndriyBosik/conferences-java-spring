@@ -1,7 +1,7 @@
 import axios from "axios";
-import { saveData } from "./StorageHandler";
+import { saveData, getUserRole, getUser } from "../handler/StorageHandler";
 
-export const doPost = (url, data) => {
+export const loginUser = (url, data) => {
     return axios.post(url, data).then(response => {
         saveData(response.data);
         return {
@@ -14,4 +14,8 @@ export const doPost = (url, data) => {
             message: "Invalid login or password"
         };
     });
+}
+
+export const isAuthorized = () => {
+    return getUserRole() !== "guest";
 }

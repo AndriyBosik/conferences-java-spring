@@ -361,6 +361,6 @@ export const messages = {
     speaker_proposed_topic: {
         [EN]: "Proposed topic",
         [RU]: "Предложил(-ла) тему",
-        [UK]: "Запрпонував(-ла) тему"
+        [UK]: "Запропонував(-ла) тему"
     }
 };
