@@ -12,11 +12,18 @@ import ProposedTopicsButton from "./ProposedTopicsButton";
 function ProfilePage() {
     useTitle("profile");
 
+    const changeAvatarLink = useLink(pages.changeAvatar);
+    const speakerMeetingsLink = useLink(pages.speakerMeetings);
+
     useEffect(() => {
         M.updateTextFields();
     });
 
     const user = getUser();
+    
+    if (user == null) {
+        return <div></div>
+    }
 
     return (
         <div className="container">
@@ -30,7 +37,7 @@ function ProfilePage() {
                         </div>
                         <div className="equal-flex s-hflex-center m-hflex-start px10">
                             <div className="s-vflex-center">
-                                <form action={useLink(pages.changeAvatar)} method="post" encType="multipart/form-data">
+                                <form action={changeAvatarLink} method="post" encType="multipart/form-data">
                                     <div className="file-field input-field">
                                         <div className="btn waves-effect waves-light">
                                             <span data-forward-click="user-avatar"><Message alias="change_photo" /></span>
@@ -49,7 +56,7 @@ function ProfilePage() {
                         </div>
                         <div className="s-vflex-end">
                             <RoleController allow={["speaker"]}>
-                                <a href={useLink(pages.speakerMeetings)} className="btn waves-effect waves-light modal-trigger">
+                                <a href={speakerMeetingsLink} className="btn waves-effect waves-light modal-trigger">
                                     <Message alias="my_meetings" />
                                     <i className="material-icons right">visibility</i>
                                 </a>

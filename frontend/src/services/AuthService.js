@@ -1,5 +1,5 @@
 import axios from "axios";
-import { saveData, getUserRole, getUser } from "../handler/StorageHandler";
+import { saveData, getUserRole, clearData } from "../handler/StorageHandler";
 
 export const loginUser = (url, data) => {
     return axios.post(url, data).then(response => {
@@ -14,6 +14,10 @@ export const loginUser = (url, data) => {
             message: "Invalid login or password"
         };
     });
+}
+
+export const logoutUser = () => {
+    clearData();
 }
 
 export const isAuthorized = () => {
