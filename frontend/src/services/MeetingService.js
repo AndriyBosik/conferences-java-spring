@@ -22,7 +22,6 @@ export const getAllMeetingsForSpeaker = speakerId => async (page, items, filters
             "Authorization": "Bearer " + getAccessToken()
         }
     }).then(response => {
-        console.log(response.data);
         return response.data;
     });
 }

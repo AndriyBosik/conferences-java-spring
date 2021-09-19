@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react"
-import LinkStoreInstance from "../stores/LinkStore";
 import { messages } from "../constants/messages";
-import { observe } from "mobx";
+import { history } from "../handler/HistoryHandler";
+import { parseUrl } from "./../handler/LinkHandler";
 
 export const useTitle = (alias) => {
-    const [title, setTitle] = useState(messages[alias][LinkStoreInstance.urlLanguage]);
+    const [lang, ] = parseUrl(window.location.pathname);
+
+    const [title, setTitle] = useState(messages[alias][lang]);
 
     useEffect(() => {
-        const disposer = observe(LinkStoreInstance, () => {
-            setTitle(messages[alias][LinkStoreInstance.urlLanguage]);
+        const disposer = history.listen(location => {
+            const [lang, ] = parseUrl(location.pathname);
+            setTitle(messages[alias][lang]);
         });
 
         return disposer;

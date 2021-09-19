@@ -1,20 +1,21 @@
 import { useState } from "react"
-import LinkStoreInstance from "../stores/LinkStore";
-import { observe } from "mobx";
+import { history } from "./../handler/HistoryHandler";
 import { useEffect } from "react/cjs/react.development";
+import { parseUrl } from "./../handler/LinkHandler";
 
 export const useLink = (to, language = null) => {
-    let newTo = to.length === 0 ? LinkStoreInstance.urlLink : to;
-    const [link, setLink] = useState("/" + (language == null ? LinkStoreInstance.urlLanguage : language) + newTo);
+    const [lang, ] = parseUrl(window.location.pathname);
+    const [link, setLink] = useState("/" + (language == null ? lang : language) + to);
 
     useEffect(() => {
-        const disposer = observe(LinkStoreInstance, change => {
-            let newTo = to.length === 0 ? LinkStoreInstance.urlLink : to;
-            setLink("/" + (language == null ? LinkStoreInstance.urlLanguage : language) + newTo);
+        const disposer = history.listen(location => {
+            let [lang, ] = parseUrl(location.pathname);
+            lang = language == null ? lang : language;
+            setLink("/" + lang + to);
         });
 
         return disposer;
-    });
+    }, [language, to]);
 
     return link;
 }

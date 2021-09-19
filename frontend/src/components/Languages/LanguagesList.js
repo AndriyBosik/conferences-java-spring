@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import { LinkContext } from "../..";
+import React, { useEffect } from "react";
 import LanguageItem from "./LanguageItem";
 import { localization } from "./../../constants/localization";
 import { history } from "../../handler/HistoryHandler";
@@ -12,9 +11,9 @@ function LanguagesList({
     activeClass = "red-text"
 }) {
     const forceUpdate = useForceUpdate();
+    const [lang, ] = parseUrl(window.location.pathname);
     const languages = localization.availableLanguages;
-    const store = useContext(LinkContext);
-    const activeLanguage = store.urlLanguage;
+    const activeLanguage = lang;
 
     useEffect(() => {
         const disposer = history.listen((location) => {

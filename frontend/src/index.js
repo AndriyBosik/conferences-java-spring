@@ -6,18 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { Router } from 'react-router-dom';
 import AppRoutes from './components/AppRoutes/AppRoutes';
 import { history } from "./handler/HistoryHandler";
-import LinkStoreInstance from "./stores/LinkStore";
-
-export const LanguageContext = React.createContext();
-export const LinkContext = React.createContext();
 
 ReactDOM.render(
 	<React.StrictMode>
 		<ErrorBoundary>
 			<Router history={history}>
-				<LinkContext.Provider value={LinkStoreInstance}>
-					<AppRoutes />
-				</LinkContext.Provider>
+				<AppRoutes />
 			</Router>
 		</ErrorBoundary>
 	</React.StrictMode>,

@@ -1,9 +1,9 @@
 import { localization } from "../constants/localization";
-import LinkStore from "./../stores/LinkStore";
 
 export const generateUrl = (to, lang = null) => {
+    const [urlLang, ] = parseUrl(window.location.pathname);
     if (lang == null) {
-        return "/" + LinkStore.urlLanguage + to;
+        return "/" + urlLang + to;
     }
     return "/" + lang + to;
 }
