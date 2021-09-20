@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
-import { initDatePickers } from "../../../handler/MaterializeInitializersHandler";
-import { useLink } from "../../../hooks/useLink";
-import { useMessage } from "../../../hooks/useMessage";
+import { initDatePickers } from "../../../../handler/MaterializeInitializersHandler";
+import { useLink } from "../../../../hooks/useLink";
+import { useMessage } from "../../../../hooks/useMessage";
 
 function CreateMeetingModal({id}) {
     const [hours, setHours] = useState(0);

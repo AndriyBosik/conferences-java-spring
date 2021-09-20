@@ -3,7 +3,7 @@ import { useTitle } from "../../hooks/useTitle";
 import RoleController from "./../RoleController/RoleController";
 import Message from "./../Message/Message";
 import { useEffect } from "react/cjs/react.development";
-import CreateMeetingModal from "../shared/modals/CreateMeetingModal";
+import CreateMeetingModal from "../shared/modals/CreateMeeting/CreateMeetingModal";
 import { initModals } from "../../handler/MaterializeInitializersHandler";
 import MeetingsInformation from "./MeetingsInformation";
 import { getAllMeetings } from "./../../services/MeetingService";

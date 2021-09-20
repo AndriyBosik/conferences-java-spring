@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
-import { useMessage } from "../../../hooks/useMessage";
-import { getSpeakers } from "./../../../services/UserService";
+import { useMessage } from "../../../../hooks/useMessage";
+import { getSpeakers } from "../../../../services/UserService";
 
 function CreateTopicModal({
     meeting,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CreateTopicModal from "./../shared/modals/CreateTopicModal";
+import CreateTopicModal from "./../shared/modals/CreateTopic/CreateTopicModal";
 import ProposeToSpeakersModal from "../shared/modals/ProposeToSpeakers/ProposeToSpeakersModal";
 import SpeakerProposalsModal from "../shared/modals/SpeakerProposals/SpeakerProposalsModal";
 import PresenceEditorModal from "./../shared/modals/PresenceEditor/PresenceEditorModal";
