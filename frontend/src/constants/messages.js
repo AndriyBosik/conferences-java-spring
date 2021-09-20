@@ -334,7 +334,7 @@ export const messages = {
         [UK]: "Мої"
     },
     for_me: {
-        [EN]: "For my",
+        [EN]: "For me",
         [RU]: "Для меня",
         [UK]: "Для мене"
     },
@@ -392,5 +392,20 @@ export const messages = {
         [EN]: "The topic proposal was rejected",
         [RU]: "Предложение было отклонено",
         [UK]: "Пропозиція була відхилена"
+    },
+    proposal_was_rejected: {
+        [EN]: "The proposal was successfully rejected",
+        [RU]: "Предложение было успешно отклонено",
+        [UK]: "Пропозиція була успішно відхилена"
+    },
+    proposal_was_accepted: {
+        [EN]: "The proposal was successfully accepted",
+        [RU]: "Предложение было успешно принято",
+        [UK]: "Пропозиція була успішно прийнята"
+    },
+    error_happened: {
+        [EN]: "An unexpected error has happened. Try again later",
+        [RU]: "Произошла непредвиденная ошибка. Попробуйте позже",
+        [UK]: "Сталася несподівана помилка. Спробуйте ще раз пізніше"
     }
 };

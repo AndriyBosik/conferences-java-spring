@@ -14,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class ReportTopicSpeaker {
 
-    @Column(name = "id")
+    @Column(name = "id", insertable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -22,7 +22,10 @@ public class ReportTopicSpeaker {
     @Column(name = "report_topic_id")
     private Integer reportTopicId;
 
+    @Column(name = "speaker_id")
+    private Integer speakerId;
+
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "speaker_id")
+    @JoinColumn(name = "speaker_id", updatable = false, insertable = false)
     private User speaker;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useMessage } from "./../../hooks/useMessage";
+import { useTitle } from "./../../hooks/useTitle";
 import { initTabs } from "./../../handler/MaterializeInitializersHandler";
 import { getUser } from "./../../handler/StorageHandler";
 import { getForSpeakerProposals, getSpeakerProposals } from "./../../services/ProposalService";
@@ -8,10 +9,16 @@ import SpeakerProposalItem from "./SpeakerProposalItem";
 import ModeratorProposalItem from "./ModeratorProposalItem";
 
 function ProposalsPage() {
+    useTitle("proposals");
+
     const user = getUser();
 
     const [myProposals, setMyProposals] = useState([]);
     const [forMeProposals, setForMeProposals] = useState([]);
+
+    const removeReportTopicFromProposals = reportTopic => {
+        setForMeProposals(previousForMeProposals => removeModeratorProposal(previousForMeProposals, reportTopic));
+    }
 
     useEffect(() => {
         const fetchMyProposals = async () => {
@@ -47,10 +54,22 @@ function ProposalsPage() {
                     </ul>
                 </div>
                 <ProposalsTab id="my" proposals={myProposals} proposalHandler={proposal => <SpeakerProposalItem key={proposal.id} proposal={proposal} />} />
-                <ProposalsTab id="for-me" proposals={forMeProposals} proposalHandler={proposal => <ModeratorProposalItem key={proposal.id} proposal={proposal} />} />
+                <ProposalsTab id="for-me" proposals={forMeProposals} proposalHandler={reportTopic => <ModeratorProposalItem key={reportTopic.id} reportTopic={reportTopic} successfulRejectionCallback={removeReportTopicFromProposals} successfulAcceptanceCallback={removeReportTopicFromProposals} />} />
             </div>
         </div>
     );
 }
 
 export default ProposalsPage;
+
+const removeModeratorProposal = (previousProposals, reportTopic) => {
+    const proposals = [];
+    for (const proposal of previousProposals) {
+        const reportTopics = proposal.reportTopics.filter(topic => topic.id !== reportTopic.id);
+        if (reportTopics.length > 0) {
+            proposal.reportTopics = reportTopics;
+            proposals.push(proposal);
+        }
+    }
+    return proposals;
+}

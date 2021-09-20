@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import LanguageItem from "./LanguageItem";
 import { localization } from "./../../constants/localization";
 import { history } from "../../handler/HistoryHandler";
@@ -11,12 +11,15 @@ function LanguagesList({
     activeClass = "red-text"
 }) {
     const forceUpdate = useForceUpdate();
-    const [lang, ] = parseUrl(window.location.pathname);
+    const [lang, url] = parseUrl(window.location.pathname);
+    const [link, setLink] = useState(url);
     const languages = localization.availableLanguages;
     const activeLanguage = lang;
 
     useEffect(() => {
         const disposer = history.listen((location) => {
+            const [, url] = parseUrl(location.pathname);
+            setLink(url);
             forceUpdate();
         });
 
@@ -26,7 +29,7 @@ function LanguagesList({
     return (
         <ul className={additionalClasses + " uppercase weight-normal"}>
             {
-                languages.map((language, index) => <LanguageItem href={parseUrl(window.location.pathname)[1]} language={language} key={index} isActive={language === activeLanguage} initialClass={initialClass} activeClass={activeClass} />)
+                languages.map((language, index) => <LanguageItem href={link} language={language} key={index} isActive={language === activeLanguage} initialClass={initialClass} activeClass={activeClass} />)
             }
         </ul>
     );

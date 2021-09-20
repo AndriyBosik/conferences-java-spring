@@ -66,6 +66,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/api/proposals/speaker/*",
                             "/api/proposals/moderator/*")
                         .hasAuthority("SPEAKER")
+                    .antMatchers(HttpMethod.POST,
+                            "/api/moderator-proposals/reject",
+                            "/api/moderator-proposals/accept")
+                        .hasAuthority("SPEAKER")
                     .antMatchers(HttpMethod.GET, "/api/meetings/check-user-joined")
                         .hasAuthority("USER")
                     .antMatchers(HttpMethod.POST, "/api/auth/login", "/api/sign-up")
