@@ -37,7 +37,7 @@ public class User {
     @Column(name = "image_path")
     private String imagePath;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id", insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "role_id")
     private Role role;
 }

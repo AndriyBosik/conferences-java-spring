@@ -5,7 +5,7 @@ export const getUserRole = () => {
     if (data == null) {
         return "guest";
     }
-    return data.userData.role;
+    return data.user.role;
 }
 
 export const saveData = (data) => {
@@ -18,7 +18,7 @@ export const clearData = () => {
 
 export const getUser = () => {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    return data == null ? null : data.userData;
+    return data == null ? null : data.user;
 }
 
 export const getAccessToken = () => {

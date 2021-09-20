@@ -1,21 +1,27 @@
 import { useState, useEffect } from "react";
-import { messages } from "../constants/messages";
 import { history } from "../handler/HistoryHandler";
-import { parseUrl } from "../handler/LinkHandler";
+import { format } from "./../handler/StringHandler";
+import { getMessage } from "../handler/MessageHanlder";
 
-export const useMessage = (alias) => {
-    const [lang, ] = parseUrl(window.location.pathname);
-
-    const [message, setMessage] = useState(messages[alias][lang]);
+export const useMessage = (alias, data = {}) => {
+    const [message, setMessage] = useState(format(getMessage(alias), translateData(data, window.location.pathname)));
 
     useEffect(() => {
         const disposer = history.listen(location => {
-            const [lang, ] = parseUrl(location.pathname);
-            setMessage(messages[alias][lang]);
+            setMessage(format(getMessage(alias, location.pathname), translateData(data, location.pathname)));
         });
 
         return disposer;
-    }, [alias]);
+    }, [alias, data]);
 
     return message;
+}
+
+const translateData = (data, pathname) => {
+    const translated = {};
+    const keys = Object.keys(data);
+    for (let key of keys) {
+        translated[key] = getMessage(data[key], pathname);
+    }
+    return translated;
 }

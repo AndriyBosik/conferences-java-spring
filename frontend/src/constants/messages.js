@@ -362,5 +362,25 @@ export const messages = {
         [EN]: "Proposed topic",
         [RU]: "Предложил(-ла) тему",
         [UK]: "Запропонував(-ла) тему"
+    },
+    required_min_length: {
+        [EN]: "The field '{field}' must have at least {min} characters",
+        [RU]: "Поле '{field}' должно содержать не менее {min} символов",
+        [UK]: "Поле '{field}' має містити принаймні {min} символів"
+    },
+    invalid_email: {
+        [EN]: "Invalid email",
+        [RU]: "Неверный адрес электронной почты",
+        [UK]: "Невірна електронна адреса"
+    },
+    fields_not_matches: {
+        [EN]: "Fields '{first}' and '{second}' does not match",
+        [RU]: "Поля '{first}' и '{second}' не совпадают",
+        [UK]: "Поля '{first}' та '{second}' не збігаються"
+    },
+    successfully_signed_up: {
+        [EN]: "You were successfully signed up",
+        [RU]: "Вы успешно зарегистрировались",
+        [UK]: "You were successfully signed up"
     }
 };

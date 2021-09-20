@@ -4,7 +4,7 @@ import com.conferences.entity.User;
 import com.conferences.entity.projection.IUserPresence;
 import com.conferences.entity.projection.IUserPublicData;
 import com.conferences.mapper.IMapper;
-import com.conferences.model.UserData;
+import com.conferences.model.UserPublicData;
 import com.conferences.repository.IUserMeetingRepository;
 import com.conferences.repository.IUserRepository;
 import com.conferences.service.abstraction.IUserService;
@@ -20,10 +20,10 @@ public class UserService implements IUserService {
 
     private final IUserRepository userRepository;
     private final IUserMeetingRepository userMeetingRepository;
-    private final IMapper<User, UserData> mapper;
+    private final IMapper<User, UserPublicData> mapper;
 
     @Autowired
-    public UserService(IUserRepository userRepository, IUserMeetingRepository userMeetingRepository, IMapper<User, UserData> mapper) {
+    public UserService(IUserRepository userRepository, IUserMeetingRepository userMeetingRepository, IMapper<User, UserPublicData> mapper) {
         this.userRepository = userRepository;
         this.userMeetingRepository = userMeetingRepository;
         this.mapper = mapper;
@@ -35,14 +35,14 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<UserData> getUsersByRole(String role) {
+    public List<UserPublicData> getUsersByRole(String role) {
         return userRepository.findAllByRole(role).stream()
             .map(mapper::map)
             .collect(Collectors.toList());
     }
 
     @Override
-    public List<UserData> getAvailableSpeakersByTopic(int topicId) {
+    public List<UserPublicData> getAvailableSpeakersByTopic(int topicId) {
         return userRepository.findAvailableSpeakersByTopic(topicId).stream()
             .map(mapper::map)
             .collect(Collectors.toList());

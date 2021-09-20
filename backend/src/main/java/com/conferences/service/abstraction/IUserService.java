@@ -3,7 +3,7 @@ package com.conferences.service.abstraction;
 import com.conferences.entity.User;
 import com.conferences.entity.projection.IUserPresence;
 import com.conferences.entity.projection.IUserPublicData;
-import com.conferences.model.UserData;
+import com.conferences.model.UserPublicData;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ public interface IUserService {
 
     User getUserByLogin(String login);
 
-    List<UserData> getUsersByRole(String role);
+    List<UserPublicData> getUsersByRole(String role);
 
-    List<UserData> getAvailableSpeakersByTopic(int topicId);
+    List<UserPublicData> getAvailableSpeakersByTopic(int topicId);
 
     List<IUserPublicData> getProposedSpeakersForTopic(int topicId);
 

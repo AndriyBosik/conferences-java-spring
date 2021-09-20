@@ -1,7 +1,5 @@
 package com.conferences.handler.abstraction;
 
-import com.conferences.model.UserData;
-
 import java.util.Date;
 
 public interface IJwtHandler {

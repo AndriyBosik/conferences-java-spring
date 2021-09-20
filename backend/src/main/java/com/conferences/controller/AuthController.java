@@ -5,7 +5,7 @@ import com.conferences.entity.User;
 import com.conferences.mapper.IMapper;
 import com.conferences.model.AuthRequest;
 import com.conferences.model.AuthResponse;
-import com.conferences.model.UserData;
+import com.conferences.model.UserPublicData;
 import com.conferences.service.abstraction.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,10 +23,10 @@ public class AuthController {
     private final IUserService userService;
     private final IJwtHandler jwtHandler;
     private final PasswordEncoder passwordEncoder;
-    private final IMapper<User, UserData> mapper;
+    private final IMapper<User, UserPublicData> mapper;
 
     @Autowired
-    public AuthController(IUserService userService, IJwtHandler jwtHandler, PasswordEncoder passwordEncoder, IMapper<User, UserData> mapper) {
+    public AuthController(IUserService userService, IJwtHandler jwtHandler, PasswordEncoder passwordEncoder, IMapper<User, UserPublicData> mapper) {
         this.userService = userService;
         this.jwtHandler = jwtHandler;
         this.passwordEncoder = passwordEncoder;
@@ -47,7 +47,7 @@ public class AuthController {
         return AuthResponse.builder()
             .accessToken(accessToken)
             .refreshToken(refreshToken)
-            .userData(mapper.map(user))
+            .user(mapper.map(user))
             .build();
     }
 }

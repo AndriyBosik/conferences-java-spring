@@ -19,7 +19,7 @@ function LoginForm() {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        const result = await loginUser("http://localhost:8080/api/auth/login", {
+        const result = await loginUser({
             login: login,
             password: password
         });
