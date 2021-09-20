@@ -31,4 +31,9 @@ public class TopicProposalsService implements ITopicProposalsService {
     public long getCount() {
         return topicProposalRepository.count();
     }
+
+    @Override
+    public void reject(int topicProposalId) {
+        topicProposalRepository.deleteById(topicProposalId);
+    }
 }

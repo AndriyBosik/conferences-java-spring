@@ -14,3 +14,23 @@ export const getSpeakerProposedTopicsIds = async (speakerId, meetingId) => {
         return response.data;
     });
 }
+
+export const createFromProposal = async topicProposalId => {
+    return axios.post("http://localhost:8080/api/topics/create-from-proposal", {id: topicProposalId}, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return response.data;
+    });
+}
+
+export const rejectTopicProposal = async topicProposalId => {
+    return axios.post("http://localhost:8080/api/topic-proposals/reject", {id: topicProposalId}, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return response.data;
+    });
+}

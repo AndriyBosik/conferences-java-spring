@@ -48,14 +48,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/api/meetings/*",
                             "/api/proposals/speaker/*",
                             "/api/proposals/moderator/*")
-                        .authenticated()
+                        .hasAnyAuthority("USER", "SPEAKER", "MODERATOR")
                     .antMatchers(HttpMethod.GET,
+                            "/api/topics/create-from-proposal",
                             "/api/users/speakers",
                             "/api/users/get-topic-available",
                             "/api/users/get-topic-proposed",
                             "/api/users/get-for-meeting",
                             "/api/topic-proposals/count",
                             "/api/topic-proposals")
+                        .hasAuthority("MODERATOR")
+                    .antMatchers(HttpMethod.POST, "/api/topic-proposals/reject")
                         .hasAuthority("MODERATOR")
                     .antMatchers(HttpMethod.GET,
                             "/api/meetings/speaker/*/*",
@@ -67,8 +70,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .hasAuthority("USER")
                     .antMatchers(HttpMethod.POST, "/api/auth/login", "/api/sign-up")
                         .anonymous()
-                    .antMatchers("/**")
-                        .permitAll()
             .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
             .formLogin().disable();

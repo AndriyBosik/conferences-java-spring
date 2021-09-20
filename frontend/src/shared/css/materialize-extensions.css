@@ -36,3 +36,7 @@
 .tabs.m-blue.m-darken-3 .indicator {
     background-color: #1565c0 !important;
 }
+
+.teal-blockquote {
+    border-left-color: #009688;
+}

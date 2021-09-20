@@ -1,11 +1,10 @@
 package com.conferences.controller;
 
+import com.conferences.entity.TopicProposal;
 import com.conferences.entity.projection.proposal.topic.IMeetingTopicProposalsData;
 import com.conferences.service.abstraction.ITopicProposalsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +27,11 @@ public class TopicProposalController {
     @GetMapping("/count")
     public long getCount() {
         return topicProposalsService.getCount();
+    }
+
+    @PostMapping("/reject")
+    public boolean rejectTopicProposal(@RequestBody TopicProposal topicProposal) {
+        topicProposalsService.reject(topicProposal.getId());
+        return true;
     }
 }

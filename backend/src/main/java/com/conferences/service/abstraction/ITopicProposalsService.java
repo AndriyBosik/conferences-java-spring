@@ -9,4 +9,6 @@ public interface ITopicProposalsService {
     List<IMeetingTopicProposalsData> getAllMeetingProposals();
 
     long getCount();
+
+    void reject(int topicProposalId);
 }

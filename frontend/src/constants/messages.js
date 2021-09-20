@@ -382,5 +382,15 @@ export const messages = {
         [EN]: "You were successfully signed up",
         [RU]: "Вы успешно зарегистрировались",
         [UK]: "You were successfully signed up"
+    },
+    topic_was_added: {
+        [EN]: "The topic was successfully added",
+        [RU]: "Тема успешно добавлена",
+        [UK]: "Тему успішно додано"
+    },
+    topic_proposal_was_rejected: {
+        [EN]: "The topic proposal was rejected",
+        [RU]: "Предложение было отклонено",
+        [UK]: "Пропозиція була відхилена"
     }
 };

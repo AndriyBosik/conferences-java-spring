@@ -5,7 +5,11 @@ import { useLink } from "./../../hooks/useLink";
 import { format } from "./../../handler/StringHandler";
 import TopicProposal from './TopicProposal';
 
-function MeetingProposals({proposal}) {
+function MeetingProposals({
+    proposal,
+    successAcceptanceCallback = () => {},
+    successRejectionCallback = () => {}
+}) {
     const meetingLink = useLink(format("/meetings/show/{id}", {id: proposal.id}));
 
     return (
@@ -28,7 +32,7 @@ function MeetingProposals({proposal}) {
             </li>
 
             {
-                proposal.topicProposals.map(topic => <TopicProposal key={topic.id} topic={topic} />)
+                proposal.topicProposals.map(topicProposal => <TopicProposal key={topicProposal.id} topicProposal={topicProposal} successAcceptanceCallback={successAcceptanceCallback} successRejectionCallback={successRejectionCallback} />)
             }
         </>
     );
