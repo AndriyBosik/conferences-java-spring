@@ -34,4 +34,9 @@ public class TopicProposalController {
         topicProposalsService.reject(topicProposal.getId());
         return true;
     }
+
+    @PostMapping("/create")
+    public boolean createTopicProposal(@RequestBody TopicProposal topicProposal) {
+        return topicProposalsService.create(topicProposal) != null;
+    }
 }

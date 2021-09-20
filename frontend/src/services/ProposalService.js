@@ -1,5 +1,6 @@
 import axios from "axios";
-import { getAccessToken } from "./../handler/StorageHandler";
+import { getAccessToken, getUser } from "./../handler/StorageHandler";
+import { validate } from "../validators/TopicProposalValidator";
 
 export const getSpeakerProposals = async (speakerId) => {
     return axios.get(`http://localhost:8080/api/proposals/speaker/${speakerId}`, {
@@ -18,6 +19,27 @@ export const getForSpeakerProposals = async (speakerId) => {
         }
     }).then(response => {
         return response.data;
+    });
+}
+
+export const createTopicProposal = async topicProposal => {
+    const errors = validate(topicProposal);
+    if (errors.length > 0) {
+        return {
+            errors: errors,
+            data: false
+        };
+    }
+    topicProposal.speakerId = getUser().id;
+    return axios.post("http://localhost:8080/api/topic-proposals/create", topicProposal, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return {
+            errors: [],
+            data: response.data
+        }
     });
 }
 

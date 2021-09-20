@@ -407,5 +407,10 @@ export const messages = {
         [EN]: "An unexpected error has happened. Try again later",
         [RU]: "Произошла непредвиденная ошибка. Попробуйте позже",
         [UK]: "Сталася несподівана помилка. Спробуйте ще раз пізніше"
+    },
+    topic_proposal_was_created: {
+        [EN]: "The topic proposal was successfully created",
+        [RU]: "Предложение по теме было успешно создано",
+        [UK]: "Пропозиція теми була успішно створена"
     }
 };

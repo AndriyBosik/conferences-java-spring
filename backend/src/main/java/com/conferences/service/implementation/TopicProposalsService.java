@@ -1,5 +1,6 @@
 package com.conferences.service.implementation;
 
+import com.conferences.entity.TopicProposal;
 import com.conferences.entity.projection.proposal.topic.IMeetingTopicProposalsData;
 import com.conferences.repository.IMeetingRepository;
 import com.conferences.repository.ITopicProposalRepository;
@@ -35,5 +36,10 @@ public class TopicProposalsService implements ITopicProposalsService {
     @Override
     public void reject(int topicProposalId) {
         topicProposalRepository.deleteById(topicProposalId);
+    }
+
+    @Override
+    public TopicProposal create(TopicProposal topicProposal) {
+        return topicProposalRepository.save(topicProposal);
     }
 }

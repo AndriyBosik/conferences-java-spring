@@ -1,5 +1,6 @@
 package com.conferences.service.abstraction;
 
+import com.conferences.entity.TopicProposal;
 import com.conferences.entity.projection.proposal.topic.IMeetingTopicProposalsData;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface ITopicProposalsService {
     long getCount();
 
     void reject(int topicProposalId);
+
+    TopicProposal create(TopicProposal topicProposal);
 }

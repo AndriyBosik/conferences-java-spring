@@ -18,6 +18,7 @@ function MeetingPage({meetingId}) {
     const noTopicsMessage = useMessage("no_topics");
 
     const [meeting, setMeeting] = useState({
+        id: 0,
         date: [],
         reportTopics: []
     });
@@ -126,7 +127,7 @@ function MeetingPage({meetingId}) {
             </RoleController>
 
             <RoleController allow={["speaker"]}>
-                <CreateTopicProposalModal />
+                <CreateTopicProposalModal meeting={meeting} />
             </RoleController>
         </>
     );
