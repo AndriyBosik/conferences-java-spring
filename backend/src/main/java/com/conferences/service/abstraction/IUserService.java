@@ -1,9 +1,9 @@
 package com.conferences.service.abstraction;
 
 import com.conferences.entity.User;
-import com.conferences.entity.projection.IUserPresence;
 import com.conferences.entity.projection.IUserPublicData;
 import com.conferences.model.UserPublicData;
+import com.conferences.model.UserUpdateData;
 
 import java.util.List;
 
@@ -17,5 +17,5 @@ public interface IUserService {
 
     List<IUserPublicData> getProposedSpeakersForTopic(int topicId);
 
-    List<IUserPresence> getJoinedUsersByMeeting(int meetingId);
+    String updateUser(UserUpdateData userUpdateData);
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "topic_proposals")
@@ -27,6 +28,7 @@ public class TopicProposal {
     private Integer speakerId;
 
     @Column(name = "topic_title")
+    @Size(min = 5)
     private String topicTitle;
 
     @OneToOne(fetch = FetchType.LAZY)

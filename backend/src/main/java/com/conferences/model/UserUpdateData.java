@@ -12,11 +12,7 @@ import javax.validation.constraints.Size;
 
 @Getter @Setter
 @PasswordMatches
-public class UserRegistrationData {
-
-    @NotNull
-    @NotEmpty
-    private String role;
+public class UserUpdateData {
 
     @NotNull
     @NotEmpty
@@ -38,14 +34,11 @@ public class UserRegistrationData {
     @Size(min = 2)
     private String surname;
 
-    @NotNull
-    @NotEmpty
-    @Size(min = 5)
-    @Password
-    private String password;
+    private String oldPassword;
 
-    @NotNull
-    @NotEmpty
+    @Password
+    private String newPassword;
+
     @Password
     private String confirmPassword;
 }

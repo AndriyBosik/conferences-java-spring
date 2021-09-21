@@ -1,5 +1,11 @@
 const STORAGE_KEY = "storageData";
 
+export const refreshAccessToken = newToken => {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    data.accessToken = newToken;
+    saveData(data);
+}
+
 export const getUserRole = () => {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
     if (data == null) {

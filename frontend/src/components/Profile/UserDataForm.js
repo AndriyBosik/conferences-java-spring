@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useLink } from "./../../hooks/useLink";
 import Message from "../Message/Message";
 import { pages } from "./../../constants/pages";
+import { updateProfile } from "./../../services/UserService";
+import { getMessage } from "./../../handler/MessageHanlder";
+import M from "materialize-css";
 
 function UserDataForm({user}) {
     const [login, setLogin] = useState(user.login);
@@ -12,8 +15,31 @@ function UserDataForm({user}) {
     const [newPassword, setNewPassword] = useState("");
     const [confirmNewPassword, setConfirmNewPassword] = useState("");
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
+
+        const result = await updateProfile({
+            login,
+            email,
+            name,
+            surname,
+            oldPassword: password,
+            newPassword,
+            confirmPassword: confirmNewPassword
+        });
+
+        if (result) {
+            setPassword("");
+            setNewPassword("");
+            setConfirmNewPassword("");
+            M.toast({
+                html: getMessage("profile_updated")
+            });
+        } else {
+            M.toast({
+                html: getMessage("error_happened")
+            });
+        }
     }
 
     return (

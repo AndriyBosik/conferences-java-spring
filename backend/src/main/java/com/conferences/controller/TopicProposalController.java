@@ -6,6 +6,7 @@ import com.conferences.service.abstraction.ITopicProposalsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -36,7 +37,7 @@ public class TopicProposalController {
     }
 
     @PostMapping("/create")
-    public boolean createTopicProposal(@RequestBody TopicProposal topicProposal) {
+    public boolean createTopicProposal(@Valid @RequestBody TopicProposal topicProposal) {
         return topicProposalsService.create(topicProposal) != null;
     }
 }

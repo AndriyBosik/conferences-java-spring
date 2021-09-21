@@ -412,5 +412,10 @@ export const messages = {
         [EN]: "The topic proposal was successfully created",
         [RU]: "Предложение по теме было успешно создано",
         [UK]: "Пропозиція теми була успішно створена"
+    },
+    profile_updated: {
+        [EN]: "The profile was successfully updated",
+        [RU]: "Профіль успішно оновлено",
+        [UK]: "Профиль был успешно обновлен"
     }
 };

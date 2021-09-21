@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getAccessToken } from "../handler/StorageHandler";
+import { getAccessToken, getUser, getUserRole, refreshAccessToken, refreshUser } from "../handler/StorageHandler";
 
 export const getSpeakers = async () => {
     return axios.get("http://localhost:8080/api/users/speakers", {
@@ -48,4 +48,27 @@ export const getMeetingUsers = async (meetingId) => {
     }).then(response => {
         return response.data;
     });
+}
+
+export const updateProfile = (data) => {
+    return axios.post("http://localhost:8080/api/users/update-profile", {
+        ...data,
+        role: getUserRole()
+    }, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        if (response.data !== "") {
+            const user = getUser();
+            user.email = data.email;
+            user.login = data.login;
+            user.name = data.name;
+            user.surname = data.surname;
+            refreshUser(user);
+            refreshAccessToken(response.data);
+            return true;
+        }
+        return false;
+    })
 }

@@ -50,7 +50,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/api/proposals/moderator/*")
                         .hasAnyAuthority("USER", "SPEAKER", "MODERATOR")
                     .antMatchers(HttpMethod.POST,
-                            "/api/files/save-avatar")
+                            "/api/files/save-avatar",
+                            "/api/users/update-profile")
                         .hasAnyAuthority("USER", "SPEAKER", "MODERATOR")
                     .antMatchers(HttpMethod.GET,
                             "/api/topics/create-from-proposal",

@@ -4,13 +4,15 @@ import com.conferences.entity.User;
 import com.conferences.entity.projection.IUserPresence;
 import com.conferences.entity.projection.IUserPublicData;
 import com.conferences.model.UserPublicData;
+import com.conferences.model.UserRegistrationData;
+import com.conferences.model.UserUpdateData;
+import com.conferences.service.abstraction.IUserMeetingService;
 import com.conferences.service.abstraction.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @RestController
@@ -18,10 +20,12 @@ import java.util.List;
 public class UserController {
 
     private final IUserService userService;
+    private final IUserMeetingService userMeetingService;
 
     @Autowired
-    public UserController(IUserService userService) {
+    public UserController(IUserService userService, IUserMeetingService userMeetingService) {
         this.userService = userService;
+        this.userMeetingService = userMeetingService;
     }
 
     @GetMapping("/{login}")
@@ -46,6 +50,11 @@ public class UserController {
 
     @GetMapping("/get-for-meeting")
     public List<IUserPresence> getForMeeting(int meetingId) {
-        return userService.getJoinedUsersByMeeting(meetingId);
+        return userMeetingService.getJoinedUsersByMeeting(meetingId);
+    }
+
+    @PostMapping("/update-profile")
+    public String updateProfile(@Valid @RequestBody UserUpdateData userUpdateData) {
+        return userService.updateUser(userUpdateData);
     }
 }
