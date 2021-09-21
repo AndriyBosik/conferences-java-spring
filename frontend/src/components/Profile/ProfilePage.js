@@ -1,25 +1,58 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { pages } from "../../constants/pages";
 import { useLink } from "../../hooks/useLink";
 import { useTitle } from "../../hooks/useTitle";
-import Message from "../Message/Message";
+import { useMessage } from "../../hooks/useMessage";
 import RoleController from "../RoleController/RoleController";
-import { getUser } from "./../../handler/StorageHandler";
+import { getUser, refreshUser } from "./../../handler/StorageHandler";
 import UserDataForm from "./UserDataForm";
 import M from "materialize-css";
 import ProposedTopicsButton from "./ProposedTopicsButton";
+import { saveAvatar } from "./../../services/FileService";
+import { getAvatarLink } from "../../services/ImageService";
+import { DEFAULT_AVATAR } from "./../../constants/defaults";
 
 function ProfilePage() {
     useTitle("profile");
 
+    const photoInputRef = useRef();
+
+    const changePhotoMessage = useMessage("change_photo");
+    const profileMessage = useMessage("profile");
+    const myMeetingsMessage = useMessage("my_meetings");
+
     const changeAvatarLink = useLink(pages.changeAvatar);
     const speakerMeetingsLink = useLink(pages.speakerMeetings);
+
+    const [user, setUser] = useState(getUser());
+    const [state, setState] = useState(1);
 
     useEffect(() => {
         M.updateTextFields();
     });
 
-    const user = getUser();
+    const clickFile = () => {
+        photoInputRef.current.click();
+    }
+
+    const changePhoto = async event => {
+        const file = event.target.files[0];
+
+        const result = await saveAvatar(file);
+
+        if (result.status === "success") {
+            setUser(user => {
+                return {
+                    ...user,
+                    imagePath: DEFAULT_AVATAR
+                }
+            });
+            user.imagePath = result.data;
+            refreshUser(user);
+            setUser(getUser());
+            setState(produceNewState);
+        }
+    }
     
     if (user == null) {
         return <div></div>
@@ -32,16 +65,17 @@ function ProfilePage() {
                     <div className="s-vflex m-hflex">
                         <div className="equal-flex s-hflex-center m-hflex-end px10">
                             <div className="z-depth-1 user-profile-avatar stretch-background border50p" style={{
-                                backgroundImage: `url('/shared/images/avatars/${user.imagePath}')`
+                                backgroundImage: `url('${getAvatarLink(user.imagePath)}')`
                             }}></div>
                         </div>
                         <div className="equal-flex s-hflex-center m-hflex-start px10">
                             <div className="s-vflex-center">
                                 <form action={changeAvatarLink} method="post" encType="multipart/form-data">
+                                    <input type="hidden" value={state} />
                                     <div className="file-field input-field">
                                         <div className="btn waves-effect waves-light">
-                                            <span data-forward-click="user-avatar"><Message alias="change_photo" /></span>
-                                            <input id="user-avatar" type="file" name="avatar" accept="image/*" className="hidden" />
+                                            <span onClick={clickFile}>{changePhotoMessage}</span>
+                                            <input id="user-avatar" type="file" name="avatar" accept="image/*" className="hidden" onChange={changePhoto} ref={photoInputRef} />
                                         </div>
                                     </div>
                                 </form>
@@ -52,12 +86,12 @@ function ProfilePage() {
                 <div className="col s12">
                     <div className="s-hflex">
                         <div className="equal-flex">
-                            <h4 className="grey-text text-darken-2 mb0"><Message alias="profile" /></h4>
+                            <h4 className="grey-text text-darken-2 mb0">{profileMessage}</h4>
                         </div>
                         <div className="s-vflex-end">
                             <RoleController allow={["speaker"]}>
                                 <a href={speakerMeetingsLink} className="btn waves-effect waves-light modal-trigger">
-                                    <Message alias="my_meetings" />
+                                    {myMeetingsMessage}
                                     <i className="material-icons right">visibility</i>
                                 </a>
                             </RoleController>
@@ -75,3 +109,10 @@ function ProfilePage() {
 }
 
 export default ProfilePage;
+
+const produceNewState = state => {
+    if (state < 10) {
+        return state + 1;
+    }
+    return 0;
+}

@@ -5,3 +5,5 @@ export const DEFAULT_MEETINGS_FILTER = {
 };
 
 export const MEETINGS_COUNT = 12;
+
+export const DEFAULT_AVATAR = "__default__.png";

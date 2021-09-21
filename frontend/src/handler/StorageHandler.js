@@ -25,3 +25,9 @@ export const getAccessToken = () => {
     const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
     return data == null ? null : data.accessToken;
 }
+
+export const refreshUser = newUser => {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    data.user = newUser;
+    saveData(data);
+}

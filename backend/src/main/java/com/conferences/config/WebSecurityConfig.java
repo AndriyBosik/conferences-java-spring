@@ -49,6 +49,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/api/proposals/speaker/*",
                             "/api/proposals/moderator/*")
                         .hasAnyAuthority("USER", "SPEAKER", "MODERATOR")
+                    .antMatchers(HttpMethod.POST,
+                            "/api/files/save-avatar")
+                        .hasAnyAuthority("USER", "SPEAKER", "MODERATOR")
                     .antMatchers(HttpMethod.GET,
                             "/api/topics/create-from-proposal",
                             "/api/users/speakers",
@@ -75,6 +78,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .hasAuthority("USER")
                     .antMatchers(HttpMethod.POST, "/api/auth/login", "/api/sign-up")
                         .anonymous()
+                    .antMatchers("/api/images/**")
+                        .permitAll()
             .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
             .formLogin().disable();
