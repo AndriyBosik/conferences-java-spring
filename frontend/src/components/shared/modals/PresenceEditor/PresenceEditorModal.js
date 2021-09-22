@@ -2,7 +2,7 @@ import React from "react";
 import { useMessage } from "../../../../hooks/useMessage";
 import UserPresenceItem from "./UserPresenceItem";
 
-function PresenceEditorModal({meeting, usersPresence, meetingUsers}) {
+function PresenceEditorModal({meeting, meetingUsers, onPresenceChanged}) {
     return (
         <div id="presence-editor" className="modal height-70">
             <div className="modal-content row full-width">
@@ -10,7 +10,7 @@ function PresenceEditorModal({meeting, usersPresence, meetingUsers}) {
                 <div className="col s12">
                     <ul id="usersPresenceCollection" className="collection">
                         {
-                            meetingUsers.map(meetingUser => <UserPresenceItem key={meetingUser.id} meetingUser={meetingUser} usersPresence={usersPresence} />)
+                            meetingUsers.map(meetingUser => <UserPresenceItem key={meetingUser.id} meetingUser={meetingUser} onPresenceChanged={onPresenceChanged} />)
                         }
                     </ul>
                 </div>

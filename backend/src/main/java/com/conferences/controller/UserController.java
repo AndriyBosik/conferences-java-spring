@@ -63,4 +63,9 @@ public class UserController {
     public boolean joinToMeeting(@RequestBody UserMeeting userMeeting) {
         return userMeetingService.joinUserToMeeting(userMeeting);
     }
+
+    @PostMapping("/edit-presence")
+    public boolean editPresence(@RequestBody UserMeeting userMeeting) {
+        return userMeetingService.editUserPresence(userMeeting);
+    }
 }

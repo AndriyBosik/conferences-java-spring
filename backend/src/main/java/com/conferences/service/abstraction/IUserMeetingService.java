@@ -10,4 +10,6 @@ public interface IUserMeetingService {
     List<IUserPresence> getJoinedUsersByMeeting(int meetingId);
 
     boolean joinUserToMeeting(UserMeeting userMeeting);
+
+    boolean editUserPresence(UserMeeting userMeeting);
 }

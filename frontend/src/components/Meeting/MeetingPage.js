@@ -43,6 +43,7 @@ function MeetingPage({meetingId}) {
             document.title = meetingData.meeting.title;
             setMeeting(meetingData.meeting);
             setUsersPresence(meetingData.usersPresence);
+            console.log(meetingData.usersPresence);
             initTooltips();
             initModals();
             initSelects();
@@ -51,6 +52,21 @@ function MeetingPage({meetingId}) {
 
         fetchMeeting();
     }, [meetingId]);
+
+    const refreshUsersPresence = userPresence => {
+        setUsersPresence(usersPresence => {
+            if (userPresence.present) {
+                return {
+                    ...usersPresence,
+                    presentUsersCount: usersPresence.presentUsersCount + 1
+                };
+            }
+            return {
+                ...usersPresence,
+                presentUsersCount: usersPresence.presentUsersCount - 1
+            }
+        });
+    }
 
     return (
         <>
@@ -140,7 +156,7 @@ function MeetingPage({meetingId}) {
             </div>
 
             <RoleController allow={["moderator"]}>
-                <ModeratorModals meeting={meeting} topic={activeTopic} usersPresence={usersPresence} />
+                <ModeratorModals meeting={meeting} topic={activeTopic} usersPresence={usersPresence} onPresenceChanged={refreshUsersPresence} />
             </RoleController>
 
             <RoleController allow={["speaker"]}>

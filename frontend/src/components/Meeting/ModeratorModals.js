@@ -5,7 +5,7 @@ import SpeakerProposalsModal from "../shared/modals/SpeakerProposals/SpeakerProp
 import PresenceEditorModal from "./../shared/modals/PresenceEditor/PresenceEditorModal";
 import { getSpeakerProposals, getMeetingUsers } from "./../../services/UserService";
 
-function ModeratorModals({meeting, topic, usersPresence}) {
+function ModeratorModals({meeting, topic, usersPresence, onPresenceChanged}) {
     const [speakerProposals, setSpeakerProposals] = useState([]);
     const [meetingUsers, setMeetingUsers] = useState([]);
 
@@ -34,7 +34,7 @@ function ModeratorModals({meeting, topic, usersPresence}) {
             <SpeakerProposalsModal speakerProposals={speakerProposals} />
             {
                 usersPresence.usersCount > 0 ? (
-                    <PresenceEditorModal usersPresence={usersPresence} meetingUsers={meetingUsers} />
+                    <PresenceEditorModal meetingUsers={meetingUsers} onPresenceChanged={onPresenceChanged} />
                 ) : null
             }
         </>

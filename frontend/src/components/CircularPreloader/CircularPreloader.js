@@ -1,8 +1,8 @@
 import React from "react";
 
-function CircularPreloader({color = "blue"}) {
+function CircularPreloader({color = "blue", size = "big"}) {
     return (
-        <div className="preloader-wrapper big active">
+        <div className={`preloader-wrapper ${size} active`}>
             <div className={`spinner-layer spinner-${color}-only`}>
                 <div className="circle-clipper left">
                     <div className="circle"></div>

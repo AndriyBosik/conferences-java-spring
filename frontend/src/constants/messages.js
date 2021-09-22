@@ -447,5 +447,10 @@ export const messages = {
         [EN]: "Edit meeting",
         [RU]: "Редактировать мероприятие",
         [UK]: "Редагувати захід"
+    },
+    you_have_to_refresh_page_to_see_changes: {
+        [EN]: "You have to refresh page to see changes",
+        [RU]: "Вы должны обновить страницу, чтобы увидеть изменения",
+        [UK]: "Ви повинні оновити сторінку, щоб побачити зміни"
     }
 };

@@ -82,3 +82,13 @@ export const joinToMeeting = data => {
         return response.data;
     });
 }
+
+export const editUserPresence = data => {
+    return axios.post("http://localhost:8080/api/users/edit-presence", data, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return response.data;
+    });
+}

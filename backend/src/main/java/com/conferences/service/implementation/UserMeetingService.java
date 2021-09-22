@@ -31,4 +31,10 @@ public class UserMeetingService implements IUserMeetingService {
         userMeetingRepository.save(userMeeting);
         return true;
     }
+
+    @Override
+    public boolean editUserPresence(UserMeeting userMeeting) {
+        userMeetingRepository.save(userMeeting);
+        return true;
+    }
 }
