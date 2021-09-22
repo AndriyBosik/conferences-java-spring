@@ -155,7 +155,7 @@ function MeetingPage({meetingId}) {
                                 <div className="separator mb10 mt5"></div>
 
                                 {meeting.reportTopics.length > 0 ? (
-                                    <TopicsList topics={meeting.reportTopics} user={user} rowClickHandler={setActiveTopic} isOutdated={isOutdated(meeting.date)} />
+                                    <TopicsList topics={meeting.reportTopics} user={user} rowClickHandler={setActiveTopic} isOutdated={isOutdated(meeting.date)} topicModalId={topicModalId} />
                                 ) : (
                                     <p className="center-align translucent large-text">
                                         {noTopicsMessage}
@@ -168,7 +168,7 @@ function MeetingPage({meetingId}) {
             </div>
 
             <RoleController allow={["moderator"]}>
-                <ModeratorModals meeting={meeting} topic={activeTopic} usersPresence={usersPresence} onPresenceChanged={refreshUsersPresence} createTopicModalId={topicModalId} onTopicAdded={fetchReportTopics} />
+                <ModeratorModals meeting={meeting} topic={activeTopic} usersPresence={usersPresence} onPresenceChanged={refreshUsersPresence} createTopicModalId={topicModalId} onTopicAdded={fetchReportTopics} onTopicChanged={fetchReportTopics} />
             </RoleController>
 
             <RoleController allow={["speaker"]}>

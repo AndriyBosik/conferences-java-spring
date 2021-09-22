@@ -2,26 +2,40 @@ import React, { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 import { useMessage } from "../../../../hooks/useMessage";
 import { getSpeakers } from "../../../../services/UserService";
-import { createTopic } from "./../../../../services/TopicService";
+import { createTopic, editTopic } from "./../../../../services/TopicService";
 import { showPopup } from "./../../../../handler/PopupHandler";
 import M from "materialize-css";
 import Errors from "../../../Errors/Errors";
+import { initInputs, initSelects } from "../../../../handler/MaterializeInitializersHandler";
 
 function CreateTopicModal({
     meeting,
     modalId,
     onTopicAdded = () => {},
+    onTopicChanged = () => {},
     topic = {
-        id: 0
+        id: 0,
+        title: ""
     }
 }) {
-    const [title, setTitle] = useState("");
-    const [speakerId, setSpeakerId] = useState(0);
+    const [title, setTitle] = useState(topic.title ? topic.title : "");
+    const [speakerId, setSpeakerId] = useState(topic.reportTopicSpeaker ? topic.reportTopicSpeaker.speakerId : 0);
     const [speakers, setSpeakers] = useState([]);
     const [errors, setErrors] = useState([]);
 
+    useEffect(() => {
+        setTitle(topic.title ? topic.title : "");
+        setSpeakerId(topic.reportTopicSpeaker ? topic.reportTopicSpeaker.speakerId : 0);
+    }, [topic]);
+
+    useEffect(() => {
+        initSelects();
+        initInputs();
+    }, [speakerId]);
+
     const create = async () => {
         const data = {
+            id: topic.id*1,
             meetingId: meeting.id,
             title: title,
             reportTopicSpeaker: speakerId*1 === 0 ? null : {
@@ -29,11 +43,15 @@ function CreateTopicModal({
             }
         }
 
-        const result = await createTopic(data);
+        const result = data.id === 0 ? await createTopic(data) : await editTopic(data);
         setErrors(result.errors);
         if (result.data) {
-            onTopicAdded();
-            showPopup("topic_was_added");
+            if (data.id === 0) {
+                onTopicAdded();
+            } else {
+                onTopicChanged();
+            }
+            showPopup(data.id === 0 ? "topic_was_added" : "topic_was_edited");
             M.Modal.getInstance(document.getElementById(modalId)).close();
         } else {
             showPopup("error_happened");

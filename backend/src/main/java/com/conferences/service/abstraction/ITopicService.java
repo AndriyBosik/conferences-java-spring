@@ -13,5 +13,7 @@ public interface ITopicService {
 
     boolean createReportTopic(ReportTopic reportTopic);
 
+    boolean editReportTopic(ReportTopic reportTopic);
+
     List<ReportTopic> getByMeetingId(int meetingId);
 }

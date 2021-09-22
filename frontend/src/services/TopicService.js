@@ -56,6 +56,26 @@ export const createTopic = async topic => {
     });
 }
 
+export const editTopic = async topic => {
+    const errors = validate(topic);
+    if (errors.length > 0) {
+        return {
+            errors: errors,
+            data: false
+        };
+    }
+    return axios.post("http://localhost:8080/api/topics/edit", topic, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return {
+            errors: [],
+            data: response.data
+        }
+    });
+}
+
 export const getTopicsByMeetingId = async meetingId => {
     return axios.get("http://localhost:8080/api/topics/get-by-meeting", {
         params: {

@@ -3,6 +3,8 @@ package com.conferences.service.implementation;
 import com.conferences.entity.ReportTopic;
 import com.conferences.entity.ReportTopicSpeaker;
 import com.conferences.entity.TopicProposal;
+import com.conferences.entity.User;
+import com.conferences.handler.abstraction.IPrivateDataHandler;
 import com.conferences.repository.IReportTopicRepository;
 import com.conferences.repository.IReportTopicSpeakerRepository;
 import com.conferences.repository.ITopicProposalRepository;
@@ -21,12 +23,14 @@ public class TopicService implements ITopicService {
     private final IReportTopicRepository reportTopicRepository;
     private final ITopicProposalRepository topicProposalRepository;
     private final IReportTopicSpeakerRepository reportTopicSpeakerRepository;
+    private final IPrivateDataHandler<User> userPrivateDataHandler;
 
     @Autowired
-    public TopicService(IReportTopicRepository reportTopicRepository, ITopicProposalRepository topicProposalRepository, IReportTopicSpeakerRepository reportTopicSpeakerRepository) {
+    public TopicService(IReportTopicRepository reportTopicRepository, ITopicProposalRepository topicProposalRepository, IReportTopicSpeakerRepository reportTopicSpeakerRepository, IPrivateDataHandler<User> userPrivateDataHandler) {
         this.reportTopicRepository = reportTopicRepository;
         this.topicProposalRepository = topicProposalRepository;
         this.reportTopicSpeakerRepository = reportTopicSpeakerRepository;
+        this.userPrivateDataHandler = userPrivateDataHandler;
     }
 
     @Override
@@ -55,8 +59,29 @@ public class TopicService implements ITopicService {
         return true;
     }
 
+    @Transactional
+    @Override
+    public boolean editReportTopic(ReportTopic reportTopic) {
+        if (reportTopic.getId() == null || reportTopic.getId() == 0) {
+            return false;
+        }
+        ReportTopicSpeaker reportTopicSpeaker = reportTopic.getReportTopicSpeaker();
+        reportTopic.setReportTopicSpeaker(null);
+        reportTopicRepository.save(reportTopic);
+        reportTopicSpeakerRepository.deleteByReportTopicId(reportTopic.getId());
+        if (reportTopicSpeaker != null) {
+            reportTopicSpeaker.setReportTopicId(reportTopic.getId());
+            reportTopicSpeakerRepository.save(reportTopicSpeaker);
+        }
+        return true;
+    }
+
     @Override
     public List<ReportTopic> getByMeetingId(int meetingId) {
-        return reportTopicRepository.getReportTopicsByMeetingId(meetingId);
+        List<ReportTopic> reportTopics = reportTopicRepository.getReportTopicsByMeetingId(meetingId);
+        reportTopics.stream()
+                .filter(reportTopic -> reportTopic.getReportTopicSpeaker() != null)
+                .forEach(reportTopic -> userPrivateDataHandler.clearPrivateData(reportTopic.getReportTopicSpeaker().getSpeaker()));
+        return reportTopics;
     }
 }

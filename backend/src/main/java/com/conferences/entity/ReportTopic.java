@@ -31,7 +31,7 @@ public class ReportTopic {
     @Column(name = "meeting_id")
     private Integer meetingId;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private ReportTopicSpeaker reportTopicSpeaker;
 

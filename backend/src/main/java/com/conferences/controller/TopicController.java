@@ -16,12 +16,10 @@ import java.util.List;
 public class TopicController {
 
     private final ITopicService topicService;
-    private final IPrivateDataHandler<User> userPrivateDataHandler;
 
     @Autowired
-    public TopicController(ITopicService topicService, IPrivateDataHandler<User> userPrivateDataHandler) {
+    public TopicController(ITopicService topicService) {
         this.topicService = topicService;
-        this.userPrivateDataHandler = userPrivateDataHandler;
     }
 
     @GetMapping("/get-speaker-proposed-topic-ids")
@@ -39,12 +37,13 @@ public class TopicController {
         return topicService.createReportTopic(reportTopic);
     }
 
+    @PostMapping("/edit")
+    public boolean editReportTopic(@Valid @RequestBody ReportTopic reportTopic) {
+        return topicService.editReportTopic(reportTopic);
+    }
+
     @GetMapping("/get-by-meeting")
     public List<ReportTopic> getByMeeting(@RequestParam int meetingId) {
-        List<ReportTopic> reportTopics = topicService.getByMeetingId(meetingId);
-        reportTopics.stream()
-            .filter(reportTopic -> reportTopic.getReportTopicSpeaker() != null)
-            .forEach(reportTopic -> userPrivateDataHandler.clearPrivateData(reportTopic.getReportTopicSpeaker().getSpeaker()));
-        return reportTopics;
+        return topicService.getByMeetingId(meetingId);
     }
 }

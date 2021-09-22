@@ -388,6 +388,11 @@ export const messages = {
         [RU]: "Тема успешно добавлена",
         [UK]: "Тему успішно додано"
     },
+    topic_was_edited: {
+        [EN]: "The topic was successfully edited",
+        [RU]: "Тема успешно отредактирована",
+        [UK]: "Тему успішно відредаговано"
+    },
     topic_proposal_was_rejected: {
         [EN]: "The topic proposal was rejected",
         [RU]: "Предложение было отклонено",

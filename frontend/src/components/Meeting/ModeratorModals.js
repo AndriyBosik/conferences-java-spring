@@ -11,7 +11,8 @@ function ModeratorModals({
     usersPresence,
     onPresenceChanged = () => {},
     createTopicModalId,
-    onTopicAdded = () => {}
+    onTopicAdded = () => {},
+    onTopicChanged = () => {}
 }) {
     const [speakerProposals, setSpeakerProposals] = useState([]);
     const [meetingUsers, setMeetingUsers] = useState([]);
@@ -36,7 +37,7 @@ function ModeratorModals({
 
     return (
         <>
-            <CreateTopicModal modalId={createTopicModalId} meeting={meeting} onTopicAdded={onTopicAdded} />
+            <CreateTopicModal modalId={createTopicModalId} meeting={meeting} onTopicAdded={onTopicAdded} onTopicChanged={onTopicChanged} topic={topic} />
             <ProposeToSpeakersModal topic={topic} />
             <SpeakerProposalsModal speakerProposals={speakerProposals} />
             {

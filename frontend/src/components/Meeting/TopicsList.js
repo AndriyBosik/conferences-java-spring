@@ -3,7 +3,7 @@ import { useMessage } from "../../hooks/useMessage";
 import RoleController from "../RoleController/RoleController";
 import TopicRow from "./TopicRow";
 
-function TopicsList({topics, user, rowClickHandler, isOutdated}) {
+function TopicsList({topics, user, rowClickHandler, isOutdated, topicModalId}) {
     return (
         <table className="striped highlight z-depth-1">
             <thead>
@@ -18,7 +18,7 @@ function TopicsList({topics, user, rowClickHandler, isOutdated}) {
             </thead>
             <tbody>
                 {
-                    topics.map((topic, index) => <TopicRow rowClickHandler={rowClickHandler} key={topic.id} topic={topic} order={index + 1} user={user} />)
+                    topics.map((topic, index) => <TopicRow topicModalId={topicModalId} rowClickHandler={rowClickHandler} key={topic.id} topic={topic} order={index + 1} user={user} />)
                 }
             </tbody>
         </table>

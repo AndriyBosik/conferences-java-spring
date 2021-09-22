@@ -3,7 +3,7 @@ import { useMessage } from "../../hooks/useMessage";
 import RoleController from "../RoleController/RoleController";
 import SpeakerProposalForm from "./SpeakerProposalForm";
 
-function TopicRow({topic, order, user, rowClickHandler, isOutdated}) {
+function TopicRow({topic, order, user, rowClickHandler, isOutdated, topicModalId}) {
     const noSpeakerMessage = useMessage("no_speaker");
     const selectFromProposalsMessage = useMessage("select_from_proposals");
     const proposeToSpeakersMessage = useMessage("propose_to_speakers");
@@ -58,7 +58,7 @@ function TopicRow({topic, order, user, rowClickHandler, isOutdated}) {
                                 </span>
                             ) : null
                         }
-                        <span className="clickable topicTrigger modal-trigger blue-text text-darken-3 tooltipped" data-target="topic-form" data-position="bottom" data-tooltip={useMessage("edit")}>
+                        <span className="clickable topicTrigger modal-trigger blue-text text-darken-3 tooltipped" data-target={topicModalId} data-position="bottom" data-tooltip={useMessage("edit")}>
                             <i className="material-icons">edit</i>
                         </span>
                     </div>
