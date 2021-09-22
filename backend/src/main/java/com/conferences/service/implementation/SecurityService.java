@@ -1,7 +1,6 @@
 package com.conferences.service.implementation;
 
 import com.conferences.entity.User;
-import com.conferences.mapper.IMapper;
 import com.conferences.model.Account;
 import com.conferences.service.abstraction.ISecurityService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

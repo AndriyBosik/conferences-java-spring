@@ -87,3 +87,13 @@ export const acceptModeratorProposal = async reportTopic => {
         return response.data;
     });
 }
+
+export const proposeSpeaker = async speakerProposal => {
+    return axios.post("http://localhost:8080/api/speaker-proposals/propose", speakerProposal, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return response.data;
+    });
+}

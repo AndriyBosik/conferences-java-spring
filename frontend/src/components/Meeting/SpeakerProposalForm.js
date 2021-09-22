@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useMessage } from "../../hooks/useMessage";
 import { getSpeakerProposedTopicsIds } from "./../../services/TopicService";
+import { proposeSpeaker } from "./../../services/ProposalService";
+import { showPopup } from "../../handler/PopupHandler";
+import CircularPreloader from "./../CircularPreloader/CircularPreloader";
 
-function SpeakerProposalForm({meetingId, topic, userId}) {
+function SpeakerProposalForm({
+    meetingId,
+    topic,
+    userId
+}) {
     const youProposedYourselfMessage = useMessage("you_proposed_yourself");
     const proposeMeMessage = useMessage("propose_me");
 
     const [proposedTopicIds, setProposedTopicIds] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchProposedTopicIds = async () => {
@@ -16,13 +24,20 @@ function SpeakerProposalForm({meetingId, topic, userId}) {
         fetchProposedTopicIds();
     }, [userId, meetingId]);
 
-    const handleSubmit = event => {
-        event.preventDefault();
-
+    const propose = async () => {
+        setLoading(true);
         const data = {
-            meetingId: meetingId,
             reportTopicId: topic.id
         };
+
+        const result = await proposeSpeaker(data);
+
+        if (!result) {
+            showPopup("error_happened");
+        } else {
+            setProposedTopicIds(await getSpeakerProposedTopicsIds(userId, meetingId));
+        }
+        setLoading(false);
     }
 
     return (
@@ -31,11 +46,13 @@ function SpeakerProposalForm({meetingId, topic, userId}) {
                 {youProposedYourselfMessage}
             </span>
         ) : (
-            <form method="post" className="m0" onSubmit={handleSubmit}>
-                <button type="submit" className="btn-floating orange tooltipped" data-position="left" data-tooltip={proposeMeMessage}>
+            loading ? (
+                <CircularPreloader size="small" />
+            ) : (
+                <button type="button" className="btn-floating orange tooltipped" data-position="left" data-tooltip={proposeMeMessage} onClick={propose}>
                     <i className="material-icons">assignment_ind</i>
                 </button>
-            </form>
+            )
         )
     );
 }
