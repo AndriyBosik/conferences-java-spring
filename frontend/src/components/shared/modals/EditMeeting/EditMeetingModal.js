@@ -30,7 +30,7 @@ function EditMeetingModal({meeting, id=""}) {
         initInputs();
         initDatePickers();
         dateField.current.value = parsedDate;
-    }, []);
+    }, [parsedDate]);
 
     useEffect(() => {
         setAddress(meeting.address);

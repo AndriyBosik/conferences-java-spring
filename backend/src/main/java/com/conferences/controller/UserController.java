@@ -1,6 +1,7 @@
 package com.conferences.controller;
 
 import com.conferences.entity.User;
+import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IUserPresence;
 import com.conferences.entity.projection.IUserPublicData;
 import com.conferences.model.UserPublicData;
@@ -56,5 +57,10 @@ public class UserController {
     @PostMapping("/update-profile")
     public String updateProfile(@Valid @RequestBody UserUpdateData userUpdateData) {
         return userService.updateUser(userUpdateData);
+    }
+
+    @PostMapping("/join-to-meeting")
+    public boolean joinToMeeting(@RequestBody UserMeeting userMeeting) {
+        return userMeetingService.joinUserToMeeting(userMeeting);
     }
 }

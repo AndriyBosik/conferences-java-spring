@@ -3,12 +3,16 @@ import { useEffect } from "react/cjs/react.development";
 import { useMessage } from "../../hooks/useMessage";
 import { isOutdated } from "./../../handler/DateHandler";
 import { checkUserJoined } from "./../../services/MeetingService";
+import { joinToMeeting } from "./../../services/UserService";
+import { getMessage } from "./../../handler/MessageHanlder";
+import M from "materialize-css";
 
 function UserJoining({user, meeting}) {
     const joinedMessage = useMessage("joined");
     const joinMessage = useMessage("join");
 
     const [isJoined, setIsJoined] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchIsJoined = async () => {
@@ -20,13 +24,24 @@ function UserJoining({user, meeting}) {
         fetchIsJoined();
     }, [meeting, user]);
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
+        setLoading(true);
         event.preventDefault();
 
         const data = {
             userId: user.id,
             meetingId: meeting.id
         }
+
+        const result = await joinToMeeting(data);
+        if (result) {
+            setIsJoined(true);
+        } else {
+            M.toast({
+                html: getMessage("error_happened")
+            });
+        }
+        setLoading(false);
     }
 
     return (
@@ -40,9 +55,9 @@ function UserJoining({user, meeting}) {
                 ) : (
                     isOutdated(meeting.date) ? null : (
                         <form className="m0" method="post" onSubmit={handleSubmit}>
-                            <button type="submit" class="btn waves-effect waves-light light-blue darken-4">
+                            <button type="submit" className="btn waves-effect waves-light light-blue darken-4" disabled={loading ? "disabled" : ""}>
                                 {joinMessage}
-                                <i class="material-icons right">person_add</i>
+                                <i className="material-icons right">person_add</i>
                             </button>
                         </form>
                     )

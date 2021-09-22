@@ -1,5 +1,6 @@
 package com.conferences.service.implementation;
 
+import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IUserPresence;
 import com.conferences.repository.IUserMeetingRepository;
 import com.conferences.service.abstraction.IUserMeetingService;
@@ -22,5 +23,12 @@ public class UserMeetingService implements IUserMeetingService {
     @Override
     public List<IUserPresence> getJoinedUsersByMeeting(int meetingId) {
         return new ArrayList<>(userMeetingRepository.findAllByMeeting(meetingId));
+    }
+
+    @Override
+    public boolean joinUserToMeeting(UserMeeting userMeeting) {
+        userMeeting.setPresent(false);
+        userMeetingRepository.save(userMeeting);
+        return true;
     }
 }

@@ -72,3 +72,13 @@ export const updateProfile = (data) => {
         return false;
     })
 }
+
+export const joinToMeeting = data => {
+    return axios.post("http://localhost:8080/api/users/join-to-meeting", data, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return response.data;
+    });
+}
