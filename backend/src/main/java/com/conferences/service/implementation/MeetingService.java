@@ -2,8 +2,10 @@ package com.conferences.service.implementation;
 
 import com.conferences.entity.Meeting;
 import com.conferences.entity.ReportTopic;
+import com.conferences.entity.User;
 import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IMeetingWithStats;
+import com.conferences.handler.abstraction.IPrivateDataHandler;
 import com.conferences.model.DateFilter;
 import com.conferences.model.MeetingData;
 import com.conferences.model.MeetingUpdatableData;
@@ -25,12 +27,14 @@ public class MeetingService implements IMeetingService {
     private final IMeetingRepository meetingRepository;
     private final IUserMeetingRepository userMeetingRepository;
     private final IReportTopicRepository reportTopicRepository;
+    private final IPrivateDataHandler<User> userPrivateDataHandler;
 
     @Autowired
-    public MeetingService(IMeetingRepository meetingRepository, IUserMeetingRepository userMeetingRepository, IReportTopicRepository reportTopicRepository) {
+    public MeetingService(IMeetingRepository meetingRepository, IUserMeetingRepository userMeetingRepository, IReportTopicRepository reportTopicRepository, IPrivateDataHandler<User> userPrivateDataHandler) {
         this.meetingRepository = meetingRepository;
         this.userMeetingRepository = userMeetingRepository;
         this.reportTopicRepository = reportTopicRepository;
+        this.userPrivateDataHandler = userPrivateDataHandler;
     }
 
     @Override
@@ -45,8 +49,12 @@ public class MeetingService implements IMeetingService {
 
     @Override
     public MeetingData getMeeting(int meetingId) {
+        Meeting meeting = meetingRepository.findAllById(meetingId);
+        meeting.getReportTopics().stream()
+            .filter(reportTopic -> reportTopic.getReportTopicSpeaker() != null)
+            .forEach(reportTopic -> userPrivateDataHandler.clearPrivateData(reportTopic.getReportTopicSpeaker().getSpeaker()));
         return new MeetingData(
-            meetingRepository.findAllById(meetingId),
+            meeting,
             userMeetingRepository.countAllByMeetingId(meetingId)
         );
     }

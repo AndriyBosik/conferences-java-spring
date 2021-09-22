@@ -11,9 +11,11 @@ import { isOutdated } from "../../handler/DateHandler";
 import ModeratorModals from "./ModeratorModals";
 import CreateTopicProposalModal from "./../shared/modals/CreateTopicProposal/CreateTopicProposalModal";
 import CircularPreloader from "./../CircularPreloader/CircularPreloader";
+import { getTopicsByMeetingId } from "../../services/TopicService";
 
 function MeetingPage({meetingId}) {
     const user = getUser();
+    const topicModalId = "topic-form-modal";
 
     const editMessage = useMessage("edit");
     const noTopicsMessage = useMessage("no_topics");
@@ -37,13 +39,13 @@ function MeetingPage({meetingId}) {
     });
 
     useEffect(() => {
+
         const fetchMeeting = async () => {
             setLoading(true);
             const meetingData = await getMeeting(meetingId);
             document.title = meetingData.meeting.title;
             setMeeting(meetingData.meeting);
             setUsersPresence(meetingData.usersPresence);
-            console.log(meetingData.usersPresence);
             initTooltips();
             initModals();
             initSelects();
@@ -52,6 +54,16 @@ function MeetingPage({meetingId}) {
 
         fetchMeeting();
     }, [meetingId]);
+
+    const fetchReportTopics = async () => {
+        const reportTopics = await getTopicsByMeetingId(meeting.id);
+        setMeeting(meeting => {
+            return {
+                ...meeting,
+                reportTopics: reportTopics
+            };
+        });
+    }
 
     const refreshUsersPresence = userPresence => {
         setUsersPresence(usersPresence => {
@@ -127,7 +139,7 @@ function MeetingPage({meetingId}) {
 
                                     <div className="s-vflex-end">
                                         <RoleController allow={["moderator"]}>
-                                            <a href="#topic-form" className="btn waves-effect waves-light modal-trigger createTopicFormTrigger">
+                                            <a href={`#${topicModalId}`} className="btn waves-effect waves-light modal-trigger createTopicFormTrigger">
                                                 {addMessage}
                                                 <i className="material-icons right">add</i>
                                             </a>
@@ -156,7 +168,7 @@ function MeetingPage({meetingId}) {
             </div>
 
             <RoleController allow={["moderator"]}>
-                <ModeratorModals meeting={meeting} topic={activeTopic} usersPresence={usersPresence} onPresenceChanged={refreshUsersPresence} />
+                <ModeratorModals meeting={meeting} topic={activeTopic} usersPresence={usersPresence} onPresenceChanged={refreshUsersPresence} createTopicModalId={topicModalId} onTopicAdded={fetchReportTopics} />
             </RoleController>
 
             <RoleController allow={["speaker"]}>

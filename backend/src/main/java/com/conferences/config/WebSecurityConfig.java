@@ -59,6 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .hasAnyAuthority("USER", "SPEAKER", "MODERATOR")
                     .antMatchers(HttpMethod.GET,
                             "/api/topics/create-from-proposal",
+                            "/api/topics/get-by-meeting",
                             "/api/users/speakers",
                             "/api/users/get-topic-available",
                             "/api/users/get-topic-proposed",
@@ -67,6 +68,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/api/topic-proposals")
                         .hasAuthority("MODERATOR")
                     .antMatchers(HttpMethod.POST,
+                            "/api/topics/create",
                             "/api/topic-proposals/reject",
                             "/api/meetings/create",
                             "/api/meetings/edit",

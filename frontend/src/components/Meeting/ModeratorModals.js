@@ -5,7 +5,14 @@ import SpeakerProposalsModal from "../shared/modals/SpeakerProposals/SpeakerProp
 import PresenceEditorModal from "./../shared/modals/PresenceEditor/PresenceEditorModal";
 import { getSpeakerProposals, getMeetingUsers } from "./../../services/UserService";
 
-function ModeratorModals({meeting, topic, usersPresence, onPresenceChanged}) {
+function ModeratorModals({
+    meeting,
+    topic,
+    usersPresence,
+    onPresenceChanged = () => {},
+    createTopicModalId,
+    onTopicAdded = () => {}
+}) {
     const [speakerProposals, setSpeakerProposals] = useState([]);
     const [meetingUsers, setMeetingUsers] = useState([]);
 
@@ -29,7 +36,7 @@ function ModeratorModals({meeting, topic, usersPresence, onPresenceChanged}) {
 
     return (
         <>
-            <CreateTopicModal meeting={meeting} />
+            <CreateTopicModal modalId={createTopicModalId} meeting={meeting} onTopicAdded={onTopicAdded} />
             <ProposeToSpeakersModal topic={topic} />
             <SpeakerProposalsModal speakerProposals={speakerProposals} />
             {

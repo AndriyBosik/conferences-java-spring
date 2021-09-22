@@ -28,4 +28,11 @@ public interface IReportTopicRepository extends JpaRepository<ReportTopic, Integ
             "SELECT tp.topic_title, tp.meeting_id FROM topic_proposals tp WHERE id=:topicProposalId"
     )
     int createByTopicProposalId(@Param("topicProposalId") int topicProposalId);
+
+    @Query(value =
+        "SELECT rt FROM ReportTopic rt " +
+            "LEFT JOIN FETCH rt.reportTopicSpeaker AS rts " +
+                "LEFT JOIN FETCH rts.speaker AS speaker WHERE rt.meetingId=:meetingId"
+    )
+    List<ReportTopic> getReportTopicsByMeetingId(@Param("meetingId") int meetingId);
 }
