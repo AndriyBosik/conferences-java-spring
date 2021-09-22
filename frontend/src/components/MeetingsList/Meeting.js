@@ -4,12 +4,13 @@ import RoleController from "../RoleController/RoleController";
 import { format } from "./../../handler/StringHandler";
 import { useLink } from "./../../hooks/useLink";
 import { formatDate, isOutdated } from "./../../handler/DateHandler";
+import { Link } from "react-router-dom";
 
 function Meeting({meeting}) {
     const editMessage = useMessage("edit");
     const meetingLink = useLink(format("/meetings/show/{id}", {id: meeting.id}));
     const meetingCardImageStyles = {
-        backgroundImage: `url('/shared/images/meetings/${meeting.imagePath}')`
+        backgroundImage: `url('http://localhost:8080/api/images/meetings/${meeting.imagePath}')`
     }
 
     return (
@@ -21,9 +22,9 @@ function Meeting({meeting}) {
                     </h6>
                 </div>
                 <div className="card-image stretch-background" style={meetingCardImageStyles}>
-                    <a href={meetingLink} className="tooltipped btn-floating halfway-fab waves-effect waves-light blue darken-3" data-position="right" data-tooltip={useMessage("view")}>
+                    <Link to={meetingLink} className="tooltipped btn-floating halfway-fab waves-effect waves-light blue darken-3" data-position="right" data-tooltip={useMessage("view")}>
                         <i className="material-icons">arrow_forward</i>
-                    </a>
+                    </Link>
                     <RoleController allow={["moderator"]}>
                         <div className="top-right-element s-hflex">
                             {

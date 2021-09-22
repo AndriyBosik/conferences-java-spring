@@ -7,14 +7,14 @@ function MeetingDetails({meeting, usersPresence}) {
         <>
             <div className="z-depth-2 stretch-background" style={{
                 height: 300,
-                backgroundImage: `url('/shared/images/meetings/${meeting.imagePath}')`
+                backgroundImage: `url('http://localhost:8080/api/images/meetings/${meeting.imagePath}')`
             }}></div>
 
             <div className="full-width py15 meeting-additional-data">
                 <div className="meeting-where s-hflex my5">
                     <span className="weight-strong s-hflex">
                         <i className="material-icons pr5 float-left">location_on</i>
-                        {useMessage("where")}
+                        {useMessage("where")}:
                     </span>
                     <span className="translucent-3p px5">
                         {meeting.address}

@@ -69,9 +69,6 @@ public class UserService implements IUserService {
         user.setSurname(userUpdateData.getSurname());
         user.setEmail(userUpdateData.getEmail());
         if (!updateUserPassword(user, userUpdateData)) {
-            System.out.println(userUpdateData.getOldPassword());
-            System.out.println(userUpdateData.getNewPassword());
-            System.out.println(userUpdateData.getConfirmPassword());
             return "";
         }
         userRepository.save(user);
@@ -81,17 +78,14 @@ public class UserService implements IUserService {
 
     private boolean updateUserPassword(User user, UserUpdateData userUpdateData) {
         if ("".equals(userUpdateData.getOldPassword()) && "".equals(userUpdateData.getNewPassword())) {
-            System.out.println("Phase 1");
             return true;
         }
         if (!passwordEncoder.matches(userUpdateData.getOldPassword(), user.getPassword())) {
             return false;
         }
         if (userUpdateData.getNewPassword().length() < 5) {
-            System.out.println("Phase 3");
             return false;
         }
-        System.out.println("Phase 3");
         user.setPassword(passwordEncoder.encode(userUpdateData.getNewPassword()));
         return true;
     }

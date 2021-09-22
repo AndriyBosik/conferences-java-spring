@@ -417,5 +417,30 @@ export const messages = {
         [EN]: "The profile was successfully updated",
         [RU]: "Профіль успішно оновлено",
         [UK]: "Профиль был успешно обновлен"
+    },
+    meeting_created: {
+        [EN]: "The meetings was successfully created",
+        [RU]: "Мероприятие было успешно создано",
+        [UK]: "Захід був успішно створений"
+    },
+    invalid_future_date: {
+        [EN]: "The '{field}' field must be selected from future days",
+        [RU]: "Поле '{field}' должно быть выбрано из будущих дней",
+        [UK]: "Поле '{field}' потрібно вибрати з наступних днів"
+    },
+    required: {
+        [EN]: "The '{field}' field is required",
+        [RU]: "Поле '{field}' является обязательным",
+        [UK]: "Поле '{field}' обов'язкове"
+    },
+    date: {
+        [EN]: "Data",
+        [RU]: "Дата",
+        [UK]: "Дата"
+    },
+    choose_file: {
+        [EN]: "You must select a file",
+        [RU]: "Необхідно вибрати файл",
+        [UK]: "Вы должны выбрать файл"
     }
 };

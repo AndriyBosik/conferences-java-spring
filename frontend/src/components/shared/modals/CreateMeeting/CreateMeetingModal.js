@@ -1,26 +1,49 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 import { initDatePickers } from "../../../../handler/MaterializeInitializersHandler";
 import { useLink } from "../../../../hooks/useLink";
 import { useMessage } from "../../../../hooks/useMessage";
+import { createMeeting } from "./../../../../services/MeetingService";
+import { showPopup } from "./../../../../handler/PopupHandler";
+import Errors from "./../../../Errors/Errors";
 
 function CreateMeetingModal({id}) {
+    const fileField = useRef();
+    const dateField = useRef();
+
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [title, setTitle] = useState("");
     const [address, setAddress] = useState("");
     const [description, setDescription] = useState("");
+    const [errors, setErrors] = useState([]);
 
     useEffect(initDatePickers, []);
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
 
         const data = {
+            date: dateField.current.value,
             hours, minutes, title, address, description
         }
 
-        console.log(data);
+        if (fileField.current.files.length === 0) {
+            showPopup("choose_file");
+            return;
+        }
+
+        const result = await createMeeting(fileField.current.files[0], data);
+        
+        if (result.errors.length === 0) {
+            if (result.data) {
+                showPopup("meeting_created");
+            } else {
+                showPopup("error_happened");
+            }
+        } else {
+            setErrors(result.errors);
+        }
     };
 
     return (
@@ -28,6 +51,8 @@ function CreateMeetingModal({id}) {
             <form action={useLink("/meetings/create")} method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div className="modal-content row">
                     <h5 className="col s12">{useMessage("create_meeting")}</h5>
+
+                    <Errors errors={errors} containerClass="col s12" />
 
                     <div className="input-field col s12 m6">
                         <input id="meeting-title" type="text" value={title} onChange={event => setTitle(event.target.value)} />
@@ -40,7 +65,7 @@ function CreateMeetingModal({id}) {
                     </div>
 
                     <div className="col s12 m6 s-hflex-center">
-                        <input type="text" placeholder={useMessage("select_date")} className="datepicker" />
+                        <input type="text" placeholder={useMessage("select_date")} className="datepicker" ref={dateField} />
                         <div className="col">
                             <input type="number" min="0" max="23" value={hours} onChange={event => setHours(event.target.value)} className="center-align" />
                         </div>
@@ -54,7 +79,7 @@ function CreateMeetingModal({id}) {
                         <div className="file-field input-field" style={{margin: 0}}>
                             <div className="btn">
                                 <span>{useMessage("photo")}</span>
-                                <input type="file" name="image_path" accept="image/*" />
+                                <input type="file" name="image_path" accept="image/*" ref={fileField} />
                             </div>
                             <div className="file-path-wrapper">
                                 <input type="text" className="file-path validate" />

@@ -1,18 +1,23 @@
 package com.conferences.controller;
 
+import com.conferences.entity.Meeting;
 import com.conferences.entity.ReportTopic;
 import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IMeetingWithStats;
+import com.conferences.handler.abstraction.IFileHandler;
 import com.conferences.mapper.IMapper;
 import com.conferences.model.MeetingData;
 import com.conferences.model.MeetingSorter;
 import com.conferences.model.RequestSorter;
 import com.conferences.service.abstraction.IMeetingService;
+import com.conferences.service.abstraction.IStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,11 +26,15 @@ public class MeetingController {
 
     private final IMeetingService meetingService;
     private final IMapper<RequestSorter, MeetingSorter> mapper;
+    private final IStorageService storageService;
+    private final IFileHandler fileHandler;
 
     @Autowired
-    public MeetingController(IMeetingService meetingService, IMapper<RequestSorter, MeetingSorter> mapper) {
+    public MeetingController(IMeetingService meetingService, IMapper<RequestSorter, MeetingSorter> mapper, IStorageService storageService, IFileHandler fileHandler) {
         this.meetingService = meetingService;
         this.mapper = mapper;
+        this.storageService = storageService;
+        this.fileHandler = fileHandler;
     }
 
     @GetMapping("/page/{page}/{items}")
@@ -62,5 +71,14 @@ public class MeetingController {
     @GetMapping("/check-user-joined")
     public boolean checkUserJoined(UserMeeting userMeeting) {
         return meetingService.isUserJoined(userMeeting);
+    }
+
+    @PostMapping(value = "/create", consumes = {"multipart/form-data"})
+    public boolean createMeeting(@RequestPart("file") MultipartFile file, @Valid @RequestPart("meeting") Meeting meeting) {
+        String imagePath = fileHandler.addTimestampToFilename("meeting", file.getOriginalFilename());
+        storageService.store(file, imagePath, "/meetings");
+        meeting.setImagePath(imagePath);
+        //meetingService.createMeeting(meeting);
+        return true;
     }
 }

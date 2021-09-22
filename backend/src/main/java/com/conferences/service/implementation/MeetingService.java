@@ -1,5 +1,6 @@
 package com.conferences.service.implementation;
 
+import com.conferences.entity.Meeting;
 import com.conferences.entity.ReportTopic;
 import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IMeetingWithStats;
@@ -56,5 +57,11 @@ public class MeetingService implements IMeetingService {
     @Override
     public boolean isUserJoined(UserMeeting userMeeting) {
         return userMeetingRepository.findByUserIdAndMeetingId(userMeeting.getUserId(), userMeeting.getMeetingId()) != null;
+    }
+
+    @Override
+    public boolean createMeeting(Meeting meeting) {
+        meetingRepository.save(meeting);
+        return true;
     }
 }

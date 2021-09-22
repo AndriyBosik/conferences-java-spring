@@ -3,6 +3,7 @@ package com.conferences.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -11,6 +12,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -62,7 +66,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/api/topic-proposals/count",
                             "/api/topic-proposals")
                         .hasAuthority("MODERATOR")
-                    .antMatchers(HttpMethod.POST, "/api/topic-proposals/reject")
+                    .antMatchers(HttpMethod.POST,
+                            "/api/topic-proposals/reject",
+                            "/api/meetings/create")
                         .hasAuthority("MODERATOR")
                     .antMatchers(HttpMethod.GET,
                             "/api/meetings/speaker/*/*",

@@ -13,9 +13,9 @@ import org.springframework.core.io.Resource;
 @RequestMapping("/api/images")
 public class ImageController {
 
-    @GetMapping(value = "/avatars/{filename}",  produces = "image/*")
-    public Resource getAvatar(@PathVariable String filename) {
+    @GetMapping(value = "/{folder}/{filename}",  produces = "image/*")
+    public Resource getAvatar(@PathVariable String folder, @PathVariable String filename) {
         ResourceLoader loader = new DefaultResourceLoader();
-        return loader.getResource("classpath:static/images/avatars/" + filename);
+        return loader.getResource("classpath:static/images/" + folder + "/" + filename);
     }
 }

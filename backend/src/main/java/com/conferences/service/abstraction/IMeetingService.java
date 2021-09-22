@@ -22,4 +22,6 @@ public interface IMeetingService {
     List<ReportTopic> getMeetingTopics(int meetingId);
 
     boolean isUserJoined(UserMeeting userMeeting);
+
+    boolean createMeeting(Meeting meeting);
 }

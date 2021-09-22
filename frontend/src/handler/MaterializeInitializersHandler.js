@@ -17,7 +17,10 @@ export const initModals = () => {
 
 export const initDatePickers = () => {
     var elems = document.querySelectorAll('.datepicker');
-    M.Datepicker.init(elems);
+    M.Datepicker.init(elems, {
+        format: "dd-mm-yyyy",
+        firstDay: 1,
+    });
 }
 
 export const initTabs = () => {
