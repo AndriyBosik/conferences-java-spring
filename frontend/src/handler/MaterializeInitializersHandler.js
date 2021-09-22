@@ -1,5 +1,9 @@
 import M from "materialize-css";
 
+export const initInputs = () => {
+    M.updateTextFields();
+}
+
 export const initSelects = () => {
     var elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);

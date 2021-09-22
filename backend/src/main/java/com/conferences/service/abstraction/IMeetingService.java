@@ -6,6 +6,7 @@ import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IMeetingWithStats;
 import com.conferences.model.DateFilter;
 import com.conferences.model.MeetingData;
+import com.conferences.model.MeetingUpdatableData;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -24,4 +25,6 @@ public interface IMeetingService {
     boolean isUserJoined(UserMeeting userMeeting);
 
     boolean createMeeting(Meeting meeting);
+
+    boolean editMeeting(MeetingUpdatableData meeting);
 }

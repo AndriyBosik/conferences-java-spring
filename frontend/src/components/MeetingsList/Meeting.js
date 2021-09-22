@@ -6,7 +6,7 @@ import { useLink } from "./../../hooks/useLink";
 import { formatDate, isOutdated } from "./../../handler/DateHandler";
 import { Link } from "react-router-dom";
 
-function Meeting({meeting}) {
+function Meeting({meeting, editCallback = () => {}}) {
     const editMessage = useMessage("edit");
     const meetingLink = useLink(format("/meetings/show/{id}", {id: meeting.id}));
     const meetingCardImageStyles = {
@@ -29,7 +29,7 @@ function Meeting({meeting}) {
                         <div className="top-right-element s-hflex">
                             {
                                 !isOutdated(meeting.date) ? (
-                                    <div className="clickable tooltipped waves-light blue-text text-darken-3 text-hoverable modal-trigger" data-position="right" data-tooltip={editMessage} data-target="edit-meeting-modal">
+                                    <div className="clickable tooltipped waves-light blue-text text-darken-3 text-hoverable modal-trigger" data-position="right" data-tooltip={editMessage} data-target="edit-meeting-modal" onClick={event => editCallback(meeting)}>
                                         <i className="material-icons small">edit</i>
                                     </div>
                                 ) : null

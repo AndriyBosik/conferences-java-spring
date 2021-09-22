@@ -6,6 +6,7 @@ import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IMeetingWithStats;
 import com.conferences.model.DateFilter;
 import com.conferences.model.MeetingData;
+import com.conferences.model.MeetingUpdatableData;
 import com.conferences.repository.IMeetingRepository;
 import com.conferences.repository.IReportTopicRepository;
 import com.conferences.repository.IUserMeetingRepository;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -62,6 +64,13 @@ public class MeetingService implements IMeetingService {
     @Override
     public boolean createMeeting(Meeting meeting) {
         meetingRepository.save(meeting);
+        return true;
+    }
+
+    @Transactional
+    @Override
+    public boolean editMeeting(MeetingUpdatableData meeting) {
+        meetingRepository.editMeeting(meeting);
         return true;
     }
 }

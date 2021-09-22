@@ -442,5 +442,10 @@ export const messages = {
         [EN]: "You must select a file",
         [RU]: "Необхідно вибрати файл",
         [UK]: "Вы должны выбрать файл"
+    },
+    edit_meeting: {
+        [EN]: "Edit meeting",
+        [RU]: "Редактировать мероприятие",
+        [UK]: "Редагувати захід"
     }
 };

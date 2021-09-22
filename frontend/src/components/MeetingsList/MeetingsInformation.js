@@ -7,7 +7,7 @@ import { useMessage } from "../../hooks/useMessage";
 import { initTooltips } from "../../handler/MaterializeInitializersHandler";
 import { DEFAULT_MEETINGS_FILTER, MEETINGS_COUNT } from "../../constants/defaults";
 
-function MeetingsInformation({meetingsFetcher}) {
+function MeetingsInformation({meetingsFetcher, editCallback = () => {}}) {
     const pageNotFoundMessage = useMessage("page_not_found");
     const [loading, setLoading] = useState(true);
     const [filters, setFilters] = useState(DEFAULT_MEETINGS_FILTER);
@@ -37,7 +37,7 @@ function MeetingsInformation({meetingsFetcher}) {
                 ) : (
                     meetings.length > 0 ? (
                         <>
-                            <MeetingsList meetings={meetings} />
+                            <MeetingsList meetings={meetings} editCallback={editCallback} />
                             <Pagination
                                 totalPages={totalPages}
                                 currentPage={currentPage}

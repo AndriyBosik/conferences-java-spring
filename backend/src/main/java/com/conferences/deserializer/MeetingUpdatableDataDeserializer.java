@@ -1,7 +1,7 @@
 package com.conferences.deserializer;
 
-import com.conferences.entity.Meeting;
 import com.conferences.handler.abstraction.IDateHandler;
+import com.conferences.model.MeetingUpdatableData;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -11,30 +11,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 
-public class MeetingDeserializer extends JsonDeserializer<Meeting> {
+public class MeetingUpdatableDataDeserializer extends JsonDeserializer<MeetingUpdatableData> {
 
     private final IDateHandler dateHandler;
 
     @Autowired
-    public MeetingDeserializer(IDateHandler dateHandler) {
+    public MeetingUpdatableDataDeserializer(IDateHandler dateHandler) {
         this.dateHandler = dateHandler;
     }
 
     @Override
-    public Meeting deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public MeetingUpdatableData deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
 
-        Meeting meeting = new Meeting();
-        if (node.get("id") != null) {
-            meeting.setId(node.get("id").intValue());
-        }
+        MeetingUpdatableData meeting = new MeetingUpdatableData();
 
-        if (node.get("title") != null) {
-            meeting.setTitle(node.get("title").textValue());
-        }
-        if (node.get("description") != null) {
-            meeting.setDescription(node.get("description").textValue());
-        }
+        meeting.setId(node.get("id").intValue());
         meeting.setAddress(node.get("address").textValue());
         meeting.setDate(dateHandler.parseDateFromJsonNode(node));
 

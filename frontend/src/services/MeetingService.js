@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getAccessToken } from "./../handler/StorageHandler";
 import { validate } from "./../validators/MeetingValidator";
+import { validate as validateMeetingUpdatableData } from "./../validators/MeetingUpdatableDataValidator";
 
 export const getAllMeetings = async (page, items, filters) => {
     return axios.get(`http://localhost:8080/api/meetings/page/${page}/${items}`, {
@@ -77,4 +78,24 @@ export const createMeeting = (file, data) => {
             data: response.data
         };
     })
+}
+
+export const editMeeting = async data => {
+    const errors = validateMeetingUpdatableData(data);
+    if (errors.length > 0) {
+        return {
+            errors: errors,
+            data: false,
+        };
+    }
+    return axios.post("http://localhost:8080/api/meetings/edit", data, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return {
+            errors: [],
+            data: response.data
+        };
+    });
 }

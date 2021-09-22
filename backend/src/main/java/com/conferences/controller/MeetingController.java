@@ -8,6 +8,7 @@ import com.conferences.handler.abstraction.IFileHandler;
 import com.conferences.mapper.IMapper;
 import com.conferences.model.MeetingData;
 import com.conferences.model.MeetingSorter;
+import com.conferences.model.MeetingUpdatableData;
 import com.conferences.model.RequestSorter;
 import com.conferences.service.abstraction.IMeetingService;
 import com.conferences.service.abstraction.IStorageService;
@@ -78,7 +79,13 @@ public class MeetingController {
         String imagePath = fileHandler.addTimestampToFilename("meeting", file.getOriginalFilename());
         storageService.store(file, imagePath, "/meetings");
         meeting.setImagePath(imagePath);
-        //meetingService.createMeeting(meeting);
+        meetingService.createMeeting(meeting);
+        return true;
+    }
+
+    @PostMapping("/edit")
+    public boolean editMeeting(@Valid @RequestBody MeetingUpdatableData meeting) {
+        meetingService.editMeeting(meeting);
         return true;
     }
 }

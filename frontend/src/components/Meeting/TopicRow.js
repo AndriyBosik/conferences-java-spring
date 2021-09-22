@@ -36,7 +36,7 @@ function TopicRow({topic, order, user, rowClickHandler, isOutdated}) {
                     ) : (
                         <div className="s-hflex">
                             <div className="z-depth-1 user-avatar stretch-background">
-                                <img src={`/shared/images/avatars/${topic.reportTopicSpeaker.speaker.imagePath}`} alt="" className="full-width full-height" />
+                                <img src={`http://localhost:8080/api/images/avatars/${topic.reportTopicSpeaker.speaker.imagePath}`} alt="" className="full-width full-height" />
                             </div>
                             <div className="s-vflex-center px10 weight-normal">
                                 {topic.reportTopicSpeaker.speaker.name} {topic.reportTopicSpeaker.speaker.surname}

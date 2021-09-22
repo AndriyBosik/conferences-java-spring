@@ -6,8 +6,10 @@ import com.conferences.entity.projection.proposal.moderator.IModeratorProposalMe
 import com.conferences.entity.projection.proposal.speaker.ISpeakerProposalMeetingData;
 import com.conferences.entity.projection.proposal.topic.IMeetingTopicProposalsData;
 import com.conferences.model.DateFilter;
+import com.conferences.model.MeetingUpdatableData;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -114,4 +116,8 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
         "WHERE reportTopicSpeaker is null AND moderatorProposals.speakerId=:speakerId AND m.date >= current_timestamp"
     )
     Set<IModeratorProposalMeetingData> getModeratorProposals(@Param("speakerId") int speakerId);
+
+    @Query(nativeQuery = true, value = "UPDATE meetings SET address=:#{#meeting.getAddress()}, date=:#{#meeting.getDate()} WHERE id=:#{#meeting.getId()}")
+    @Modifying
+    void editMeeting(@Param("meeting") MeetingUpdatableData meeting);
 }

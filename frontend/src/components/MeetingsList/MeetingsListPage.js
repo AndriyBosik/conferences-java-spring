@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTitle } from "../../hooks/useTitle";
 import RoleController from "./../RoleController/RoleController";
 import Message from "./../Message/Message";
 import { useEffect } from "react/cjs/react.development";
 import CreateMeetingModal from "../shared/modals/CreateMeeting/CreateMeetingModal";
+import EditMeetingModal from "../shared/modals/EditMeeting/EditMeetingModal";
 import { initModals } from "../../handler/MaterializeInitializersHandler";
 import MeetingsInformation from "./MeetingsInformation";
 import { getAllMeetings } from "./../../services/MeetingService";
@@ -11,6 +12,13 @@ import { getAllMeetings } from "./../../services/MeetingService";
 function MeetingsListPage() {
     useTitle("meetings");
     
+    const [activeMeeting, setActiveMeeting] = useState({});
+
+    const changeActiveMeeting = meeting => {
+        setActiveMeeting(meeting);
+        initModals();
+    }
+
     useEffect(initModals, []);
     
     return (
@@ -34,12 +42,13 @@ function MeetingsListPage() {
                         <hr />
                     </div>
 
-                    <MeetingsInformation meetingsFetcher={getAllMeetings} />
+                    <MeetingsInformation meetingsFetcher={getAllMeetings} editCallback={changeActiveMeeting} />
 
                 </div>
             </div>
             <RoleController allow={["moderator"]}>
                 <CreateMeetingModal id="meeting-form" />
+                <EditMeetingModal id="edit-meeting-modal" meeting={activeMeeting} />
             </RoleController>
         </>
     );
