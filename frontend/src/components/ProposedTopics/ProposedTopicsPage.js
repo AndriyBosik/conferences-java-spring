@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useMessage } from "./../../hooks/useMessage";
+import { useTitle } from "./../../hooks/useTitle";
 import { getTopicProposals } from "./../../services/ProposalService";
 import MeetingProposals from "./MeetingProposals";
 import CircularPreloader from "./../CircularPreloader/CircularPreloader";
@@ -8,6 +9,8 @@ import M from "materialize-css";
 import { getMessage } from "./../../handler/MessageHanlder";
 
 function ProposedTopicsPage() {
+    useTitle("proposed_topics");
+
     const proposedTopicsMessage = useMessage("proposed_topics");
     const nothingFoundMessage = useMessage("nothing_found");
 

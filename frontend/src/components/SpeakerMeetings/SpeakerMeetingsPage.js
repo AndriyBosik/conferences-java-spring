@@ -1,10 +1,13 @@
 import React from "react";
 import { getUser } from "../../handler/StorageHandler";
 import { useMessage } from "../../hooks/useMessage";
+import { useTitle } from "../../hooks/useTitle";
 import MeetingsInformation from "../MeetingsList/MeetingsInformation";
 import { getAllMeetingsForSpeaker } from "./../../services/MeetingService";
 
 function SpeakerMeetingsPage() {
+    useTitle("meetings");
+
     const user = getUser();
     const meetingsFetcher = getAllMeetingsForSpeaker(user.id);
 

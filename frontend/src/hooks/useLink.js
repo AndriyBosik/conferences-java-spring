@@ -1,21 +1,10 @@
-import { useState } from "react"
-import { history } from "./../handler/HistoryHandler";
-import { useEffect } from "react/cjs/react.development";
+import { useLocation } from "react-router";
 import { parseUrl } from "./../handler/LinkHandler";
 
 export const useLink = (to, language = null) => {
-    const [lang, ] = parseUrl(window.location.pathname);
-    const [link, setLink] = useState("/" + (language == null ? lang : language) + to);
+    const location = useLocation();
 
-    useEffect(() => {
-        const disposer = history.listen(location => {
-            let [lang, ] = parseUrl(location.pathname);
-            lang = language == null ? lang : language;
-            setLink("/" + lang + to);
-        });
-
-        return disposer;
-    }, [language, to]);
-
-    return link;
+    const [lang, url] = parseUrl(location.pathname);
+    
+    return "/" + (language == null ? lang : language) + (to === "" ? url : to);
 }
