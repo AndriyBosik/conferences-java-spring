@@ -22,14 +22,13 @@ import java.io.IOException;
 public class JwtFilter extends GenericFilterBean {
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
+    private static final String HEADER_TOKEN_PREFIX = "Bearer ";
 
     private final JwtHandler jwtHandler;
-    private final UserDetailsService userDetailsService;
 
     @Autowired
-    public JwtFilter(JwtHandler jwtHandler, UserDetailsService userDetailsService) {
+    public JwtFilter(JwtHandler jwtHandler) {
         this.jwtHandler = jwtHandler;
-        this.userDetailsService = userDetailsService;
     }
 
     @Override
@@ -48,8 +47,8 @@ public class JwtFilter extends GenericFilterBean {
         if (bearer == null) {
             return null;
         }
-        if (bearer.startsWith("Bearer ")) {
-            return bearer.substring(7);
+        if (bearer.startsWith(HEADER_TOKEN_PREFIX)) {
+            return bearer.substring(HEADER_TOKEN_PREFIX.length());
         }
         return null;
     }
