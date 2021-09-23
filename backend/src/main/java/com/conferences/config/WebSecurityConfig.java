@@ -70,6 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers(HttpMethod.POST,
                             "/api/topics/create",
                             "/api/topics/edit",
+                            "/api/topics/set-speaker",
                             "/api/topic-proposals/reject",
                             "/api/meetings/create",
                             "/api/meetings/edit",

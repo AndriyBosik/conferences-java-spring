@@ -11,7 +11,7 @@ export const getSpeakers = async () => {
     });
 }
 
-export const getAvailableSpeakers = async (topicId) => {
+export const getAvailableSpeakers = async topicId => {
     return axios.get("http://localhost:8080/api/users/get-topic-available", {
         params: {
             topicId
@@ -24,7 +24,7 @@ export const getAvailableSpeakers = async (topicId) => {
     });
 }
 
-export const getSpeakerProposals = async (topicId) => {
+export const getSpeakerProposals = async topicId => {
     return axios.get("http://localhost:8080/api/users/get-topic-proposed", {
         params: {
             topicId
@@ -37,7 +37,7 @@ export const getSpeakerProposals = async (topicId) => {
     });
 }
 
-export const getMeetingUsers = async (meetingId) => {
+export const getMeetingUsers = async meetingId => {
     return axios.get("http://localhost:8080/api/users/get-for-meeting", {
         params: {
             meetingId
@@ -50,9 +50,9 @@ export const getMeetingUsers = async (meetingId) => {
     });
 }
 
-export const updateProfile = (data) => {
+export const updateProfile = async userProfile => {
     return axios.post("http://localhost:8080/api/users/update-profile", {
-        ...data,
+        ...userProfile,
         role: getUserRole()
     }, {
         headers: {
@@ -61,10 +61,10 @@ export const updateProfile = (data) => {
     }).then(response => {
         if (response.data !== "") {
             const user = getUser();
-            user.email = data.email;
-            user.login = data.login;
-            user.name = data.name;
-            user.surname = data.surname;
+            user.email = userProfile.email;
+            user.login = userProfile.login;
+            user.name = userProfile.name;
+            user.surname = userProfile.surname;
             refreshUser(user);
             refreshAccessToken(response.data);
             return true;
@@ -73,8 +73,8 @@ export const updateProfile = (data) => {
     })
 }
 
-export const joinToMeeting = data => {
-    return axios.post("http://localhost:8080/api/users/join-to-meeting", data, {
+export const joinToMeeting = async userMeeting => {
+    return axios.post("http://localhost:8080/api/users/join-to-meeting", userMeeting, {
         headers: {
             "Authorization": "Bearer " + getAccessToken()
         }
@@ -83,8 +83,18 @@ export const joinToMeeting = data => {
     });
 }
 
-export const editUserPresence = data => {
-    return axios.post("http://localhost:8080/api/users/edit-presence", data, {
+export const editUserPresence = async userMeeting => {
+    return axios.post("http://localhost:8080/api/users/edit-presence", userMeeting, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return response.data;
+    });
+}
+
+export const selectSpeakerForTopic = async reportTopicSpeaker => {
+    return axios.post("http://localhost:8080/api/topics/set-speaker", reportTopicSpeaker, {
         headers: {
             "Authorization": "Bearer " + getAccessToken()
         }

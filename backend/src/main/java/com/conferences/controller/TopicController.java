@@ -1,6 +1,7 @@
 package com.conferences.controller;
 
 import com.conferences.entity.ReportTopic;
+import com.conferences.entity.ReportTopicSpeaker;
 import com.conferences.entity.TopicProposal;
 import com.conferences.entity.User;
 import com.conferences.handler.abstraction.IPrivateDataHandler;
@@ -45,5 +46,11 @@ public class TopicController {
     @GetMapping("/get-by-meeting")
     public List<ReportTopic> getByMeeting(@RequestParam int meetingId) {
         return topicService.getByMeetingId(meetingId);
+    }
+
+    @PostMapping("/set-speaker")
+    public boolean setSpeaker(@RequestBody ReportTopicSpeaker reportTopicSpeaker) {
+        topicService.setSpeaker(reportTopicSpeaker);
+        return true;
     }
 }

@@ -1,6 +1,7 @@
 package com.conferences.service.abstraction;
 
 import com.conferences.entity.ReportTopic;
+import com.conferences.entity.ReportTopicSpeaker;
 import com.conferences.entity.TopicProposal;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface ITopicService {
     boolean editReportTopic(ReportTopic reportTopic);
 
     List<ReportTopic> getByMeetingId(int meetingId);
+
+    void setSpeaker(ReportTopicSpeaker reportTopicSpeaker);
 }

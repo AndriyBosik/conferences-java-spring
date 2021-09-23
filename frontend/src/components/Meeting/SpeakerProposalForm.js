@@ -42,7 +42,7 @@ function SpeakerProposalForm({
 
     return (
         (typeof topic !== "undefined" && proposedTopicIds.includes(topic.id)) ? (
-            <span className="grey-text text-lighten-1 weight-normal">
+            <span className="grey-text text-lighten-1 weight-normal py10">
                 {youProposedYourselfMessage}
             </span>
         ) : (

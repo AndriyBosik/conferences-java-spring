@@ -168,7 +168,7 @@ function MeetingPage({meetingId}) {
             </div>
 
             <RoleController allow={["moderator"]}>
-                <ModeratorModals meeting={meeting} topic={activeTopic} usersPresence={usersPresence} onPresenceChanged={refreshUsersPresence} createTopicModalId={topicModalId} onTopicAdded={fetchReportTopics} onTopicChanged={fetchReportTopics} />
+                <ModeratorModals meeting={meeting} topic={activeTopic} usersPresence={usersPresence} onPresenceChanged={refreshUsersPresence} createTopicModalId={topicModalId} onTopicAdded={fetchReportTopics} onTopicChanged={fetchReportTopics} onSpeakerSelected={fetchReportTopics} />
             </RoleController>
 
             <RoleController allow={["speaker"]}>

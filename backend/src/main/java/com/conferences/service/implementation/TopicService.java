@@ -84,4 +84,10 @@ public class TopicService implements ITopicService {
                 .forEach(reportTopic -> userPrivateDataHandler.clearPrivateData(reportTopic.getReportTopicSpeaker().getSpeaker()));
         return reportTopics;
     }
+
+    @Override
+    public void setSpeaker(ReportTopicSpeaker reportTopicSpeaker) {
+        reportTopicSpeaker.setId(0);
+        reportTopicSpeakerRepository.save(reportTopicSpeaker);
+    }
 }
