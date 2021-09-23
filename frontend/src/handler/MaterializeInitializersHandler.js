@@ -20,10 +20,15 @@ export const initModals = () => {
 }
 
 export const initDatePickers = () => {
-    var elems = document.querySelectorAll('.datepicker');
+    const elems = document.querySelectorAll('.datepicker');
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    const day = today.getDate();
     M.Datepicker.init(elems, {
         format: "dd-mm-yyyy",
         firstDay: 1,
+        maxDate: new Date(year + 1000, month, day)
     });
 }
 
