@@ -4,9 +4,18 @@ import { generateUrl } from "../../handler/LinkHandler";
 import M from "materialize-css";
 import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
-import Message from "../Message/Message";
+import { useMessage } from "./../../hooks/useMessage";
+import { useLink } from "./../../hooks/useLink";
+import { pages } from "./../../constants/pages";
 
 function LoginForm() {
+    const signUpLink = useLink(pages.signUp);
+
+    const loginMessage = useMessage("login");
+    const passwordMessage = useMessage("password");
+    const dontHaveAccountMessage = useMessage("dont_have_account");
+    const signUpMessage = useMessage("sign_up");
+
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [login, setLogin] = useState("");
     const [error, setError] = useState("");
@@ -42,12 +51,12 @@ function LoginForm() {
         <form onSubmit={handleSubmit} className="auto-height">
             <div className="input-field col s12">
                 <i className="material-icons prefix">account_circle</i>
-                <label htmlFor="login">{<Message alias="login" />} </label>
+                <label htmlFor="login">{loginMessage} </label>
                 <input id="login" type="text" value={login} onChange={(event) => setLogin(event.target.value)} />
             </div>
             <div className="input-field col s12">
                 <i className="material-icons prefix">lock</i>
-                <label htmlFor="password">{<Message alias="password" />} </label>
+                <label htmlFor="password">{passwordMessage} </label>
                 <input id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
             </div>
             {error !== "" ? (
@@ -59,13 +68,13 @@ function LoginForm() {
              ) : null}
             <div className="col s12">
                 <button className="full-width btn waves-effect waves-light" type="submit">
-                    {<Message alias="login" />}
+                    {loginMessage}
                 </button>
             </div>
             <div className="col s12 my15 weight-normal center-align">
-                <span className="translucent-3p">{<Message alias="dont_have_account" />} </span>
-                <Link to={generateUrl("/users/sign-up")}>
-                    {<Message alias="sign_up" />}
+                <span className="translucent-3p">{dontHaveAccountMessage} </span>
+                <Link to={signUpLink}>
+                    {signUpMessage}
                 </Link>
             </div>
         </form>
