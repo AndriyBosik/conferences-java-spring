@@ -7,4 +7,6 @@ public interface IModeratorProposalService {
     void rejectProposal(int moderatorProposalId);
 
     boolean acceptProposal(ModeratorProposal moderatorProposal);
+
+    void create(ModeratorProposal moderatorProposal);
 }

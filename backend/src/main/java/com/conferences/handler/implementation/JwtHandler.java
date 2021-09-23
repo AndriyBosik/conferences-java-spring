@@ -1,10 +1,13 @@
 package com.conferences.handler.implementation;
 
+import com.conferences.entity.User;
 import com.conferences.handler.abstraction.IJwtHandler;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import com.conferences.handler.abstraction.IPrivateDataHandler;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.*;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -17,13 +20,30 @@ public class JwtHandler implements IJwtHandler {
 
     private static final String JWT_SECRET = "jwt_secret";
 
-    public String generateToken(String login) {
-        return generateToken(login, Date.from(LocalDateTime.now().plusDays(1).atZone(ZoneId.systemDefault()).toInstant()));
+    private final ObjectMapper objectMapper;
+    private final IPrivateDataHandler<User> userPrivateDataHandler;
+
+    @Autowired
+    public JwtHandler(ObjectMapper objectMapper, IPrivateDataHandler<User> userPrivateDataHandler) {
+        this.objectMapper = objectMapper;
+        this.userPrivateDataHandler = userPrivateDataHandler;
     }
 
-    public String generateToken(String login, Date expiration) {
+    public String generateToken(User user) {
+        return generateToken(user, Date.from(LocalDateTime.now().plusDays(1).atZone(ZoneId.systemDefault()).toInstant()));
+    }
+
+    public String generateToken(User user, Date expiration) {
+        String jsonUser = "";
+        try {
+            userPrivateDataHandler.clearPrivateData(user);
+            jsonUser = objectMapper.writeValueAsString(user);
+        } catch (JsonProcessingException exception) {
+            exception.printStackTrace();
+        }
+
         return Jwts.builder()
-            .setSubject(login)
+            .setSubject(jsonUser)
             .setExpiration(expiration)
             .signWith(SignatureAlgorithm.HS512, JWT_SECRET)
             .compact();
@@ -39,8 +59,14 @@ public class JwtHandler implements IJwtHandler {
         return false;
     }
 
-    public String getLoginFromToken(String token) {
-        Claims claims = Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token).getBody();
-        return claims.getSubject();
+    public User getUserFromToken(String token) {
+        String jsonUser = Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token).getBody().getSubject();
+        User user = null;
+        try {
+            user = objectMapper.readValue(jsonUser, User.class);
+        } catch (JsonProcessingException exception) {
+            exception.printStackTrace();
+        }
+        return user;
     }
 }

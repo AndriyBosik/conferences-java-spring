@@ -15,6 +15,12 @@ function ProposeToSpeakersModal({topic}) {
         fetchAvailableSpeakers();
     }, [topic]);
 
+    const onSpeakerProposed = proposedSpeaker => {
+        setAvailableSpeakers(availableSpeakers => {
+            return availableSpeakers.filter(speaker => speaker.id*1 !== proposedSpeaker.id);
+        });
+    }
+
     return (
         <div id="propose-to-speakers-form" className="modal height-70">
 
@@ -27,7 +33,7 @@ function ProposeToSpeakersModal({topic}) {
                 <div className="col s12">
                     <ul id="availableSpeakersCollection" className="collection">
                         {
-                            availableSpeakers.map(speaker => <CollectionSpeakerItem key={speaker.id} speaker={speaker} />)
+                            availableSpeakers.map(speaker => <CollectionSpeakerItem key={speaker.id} speaker={speaker} topic={topic} onSpeakerProposed={onSpeakerProposed} />)
                         }
                     </ul>
                 </div>

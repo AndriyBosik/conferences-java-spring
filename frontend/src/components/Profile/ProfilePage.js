@@ -47,7 +47,6 @@ function ProfilePage() {
                     imagePath: DEFAULT_AVATAR
                 }
             });
-            user.imagePath = result.data;
             refreshUser(user);
             setUser(getUser());
             setState(produceNewState);

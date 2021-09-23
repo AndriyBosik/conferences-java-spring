@@ -18,4 +18,8 @@ public interface IUserService {
     List<IUserPublicData> getProposedSpeakersForTopic(int topicId);
 
     String updateUser(UserUpdateData userUpdateData);
+
+    String getUserEmail();
+
+    String updateUserImagePath(String imagePath);
 }

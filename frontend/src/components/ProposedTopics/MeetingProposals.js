@@ -21,7 +21,7 @@ function MeetingProposals({
                     </div>
                     <div className="s-vflex-center mx10">
                         <div className="circle stretch-background user-avatar z-depth-1" style={{
-                            backgroundImage: `url('/shared/images/meetings/${proposal.imagePath}')`}}></div>
+                            backgroundImage: `url('http://localhost:8080/api/images/meetings/${proposal.imagePath}')`}}></div>
                     </div>
                     <div className="translucent s-hflex-end equal-flex">
                         <div className="s-vflex-center fs20">

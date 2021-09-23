@@ -37,4 +37,9 @@ public class ModeratorProposalService implements IModeratorProposalService {
         moderatorProposalRepository.deleteById(moderatorProposal.getId());
         return true;
     }
+
+    @Override
+    public void create(ModeratorProposal moderatorProposal) {
+        moderatorProposalRepository.save(moderatorProposal);
+    }
 }

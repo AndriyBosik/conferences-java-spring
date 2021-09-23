@@ -10,5 +10,6 @@ public class UserPrivateDataHandler implements IPrivateDataHandler<User> {
     @Override
     public void clearPrivateData(User user) {
         user.setPassword("");
+        user.setEmail("");
     }
 }

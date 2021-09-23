@@ -1,26 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMessage } from "../../../../hooks/useMessage";
+import { showPopup } from "./../../../../handler/PopupHandler";
+import { proposeTopicForSpeaker } from "./../../../../services/ProposalService";
+import CircularPreloader from "./../../../CircularPreloader/CircularPreloader";
 
-function CollectionSpeakerItem({speaker}) {
-    const handleSubmit = event => {
-        event.preventDefault();
+function CollectionSpeakerItem({speaker, topic, onSpeakerProposed = () => {}}) {
+    const proposeMessage = useMessage("propose");
+
+    const [loading, setLoading] = useState(false);
+
+    const propose = async () => {
+        setLoading(true);
+        const data = {
+            speakerId: speaker.id,
+            reportTopicId: topic.id
+        };
+
+        const result = await proposeTopicForSpeaker(data);
+
+        if (result) {
+            onSpeakerProposed(speaker);
+        } else {
+            showPopup("error_happened");
+        }
+        setLoading(false);
     }
 
     return (
         <li className="collection-item s-hflex">
             <div className="z-depth-1 user-avatar stretch-background">
-                <img src={`/shared/images/avatars/${speaker.imagePath}`} alt="" className="circle full-width full-height" />
+                <img src={`http://localhost:8080/api/images/avatars/${speaker.imagePath}`} alt="" className="circle full-width full-height" />
             </div>
             <span className="title weight-normal s-vflex-center mx10 equal-flex">
                 {speaker.name} {speaker.surname}
             </span>
             <span className="secondary-content s-vflex-center">
-                <form method="post" className="m0 proposalForm" onSubmit={handleSubmit}>
-                    <button type="submit" className="btn waves-effect waves-light">
-                        {useMessage("propose")}
-                        <i className="material-icons right">check</i>
-                    </button>
-                </form>
+                {
+                    loading ? (
+                        <CircularPreloader size="small" />
+                    ) : (
+                        <button type="submit" className="btn waves-effect waves-light" onClick={propose}>
+                            {proposeMessage}
+                            <i className="material-icons right">check</i>
+                        </button>
+                    )
+                }
             </span>
         </li>
     );

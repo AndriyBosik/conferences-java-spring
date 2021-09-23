@@ -28,4 +28,10 @@ public class ModeratorProposalController {
     public boolean acceptModeratorProposal(@RequestBody ModeratorProposal moderatorProposal) {
         return moderatorProposalService.acceptProposal(moderatorProposal);
     }
+
+    @PostMapping("/propose")
+    public boolean proposeToSpeaker(@RequestBody ModeratorProposal moderatorProposal) {
+        moderatorProposalService.create(moderatorProposal);
+        return true;
+    }
 }

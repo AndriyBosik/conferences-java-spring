@@ -26,15 +26,13 @@ public class UserService implements IUserService {
     private final IMapper<User, UserPublicData> mapper;
     private final ISecurityService securityService;
     private final PasswordEncoder passwordEncoder;
-    private final IJwtHandler jwtHandler;
 
     @Autowired
-    public UserService(IUserRepository userRepository, IMapper<User, UserPublicData> mapper, ISecurityService securityService, PasswordEncoder passwordEncoder, IJwtHandler jwtHandler) {
+    public UserService(IUserRepository userRepository, IMapper<User, UserPublicData> mapper, ISecurityService securityService, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.mapper = mapper;
         this.securityService = securityService;
         this.passwordEncoder = passwordEncoder;
-        this.jwtHandler = jwtHandler;
     }
 
     @Override
@@ -72,8 +70,7 @@ public class UserService implements IUserService {
             return "";
         }
         userRepository.save(user);
-        securityService.reAuthenticateUser(user);
-        return jwtHandler.generateToken(user.getLogin());
+        return securityService.reAuthenticateUser(user);
     }
 
     private boolean updateUserPassword(User user, UserUpdateData userUpdateData) {
@@ -88,5 +85,18 @@ public class UserService implements IUserService {
         }
         user.setPassword(passwordEncoder.encode(userUpdateData.getNewPassword()));
         return true;
+    }
+
+    @Override
+    public String getUserEmail() {
+        return userRepository.findEmailByUserLogin(securityService.getUserLogin());
+    }
+
+    @Override
+    public String updateUserImagePath(String imagePath) {
+        String login = securityService.getUserLogin();
+        userRepository.updateImagePath(login, imagePath);
+        User user = userRepository.findByLogin(login);
+        return securityService.reAuthenticateUser(user);
     }
 }

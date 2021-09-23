@@ -68,4 +68,9 @@ public class UserController {
     public boolean editPresence(@RequestBody UserMeeting userMeeting) {
         return userMeetingService.editUserPresence(userMeeting);
     }
+
+    @GetMapping("/get-email")
+    public String getUserEmail() {
+        return userService.getUserEmail();
+    }
 }

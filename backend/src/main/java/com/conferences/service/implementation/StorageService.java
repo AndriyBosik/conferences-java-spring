@@ -41,6 +41,7 @@ public class StorageService implements IStorageService {
     @Override
     public boolean store(MultipartFile file, String filename, String pathname) {
         Path path = init(location + pathname);
+        System.out.println(pathname + " " + filename);
         try {
             if (file.isEmpty()) {
                 return false;

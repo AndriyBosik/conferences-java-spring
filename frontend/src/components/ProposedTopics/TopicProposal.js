@@ -26,7 +26,7 @@ function TopicProposal({
     return (
         <li className="collection-item s-hflex">
             <div className="z-depth-1 user-avatar stretch-background">
-                <img src={`/shared/images/avatars/${topicProposal.speaker.imagePath}`} alt="" className="circle full-width full-height" />
+                <img src={`http://localhost:8080/api/images/avatars/${topicProposal.speaker.imagePath}`} alt="" className="circle full-width full-height" />
             </div>
             <div className="collection-content mx20 equal-flex s-vflex-center py10">
                 <div className="s-hflex">

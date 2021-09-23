@@ -1,7 +1,7 @@
 import axios from "axios"
-import { getAccessToken } from "../handler/StorageHandler"
+import { getAccessToken, refreshAccessToken } from "../handler/StorageHandler"
 
-export const saveAvatar = (avatar) => {
+export const saveAvatar = avatar => {
     const formData = new FormData();
     formData.set("file", avatar);
     return axios.post("http://localhost:8080/api/files/save-avatar", formData, {
@@ -10,6 +10,7 @@ export const saveAvatar = (avatar) => {
             "Content-Type": "multipart/form-data"
         }
     }).then(response => {
+        refreshAccessToken(response.data);
         return {
             status: "success",
             data: response.data

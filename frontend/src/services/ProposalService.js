@@ -77,7 +77,7 @@ export const acceptModeratorProposal = async reportTopic => {
     const moderatorProposal = {
         id: reportTopic.moderatorProposals[0].id,
         reportTopicId: reportTopic.id,
-        speakerId: reportTopic.moderatorProposals[0].speakerId
+        speakerId: getUser().id
     };
     return axios.post("http://localhost:8080/api/moderator-proposals/accept", moderatorProposal, {
         headers: {
@@ -96,4 +96,14 @@ export const proposeSpeaker = async speakerProposal => {
     }).then(response => {
         return response.data;
     });
+}
+
+export const proposeTopicForSpeaker = async moderatorProposal => {
+    return axios.post("http://localhost:8080/api/moderator-proposals/propose", moderatorProposal, {
+        headers: {
+            "Authorization": "Bearer " + getAccessToken()
+        }
+    }).then(response => {
+        return response.data;
+    })
 }

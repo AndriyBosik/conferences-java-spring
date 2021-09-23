@@ -6,5 +6,5 @@ public interface ISecurityService {
 
     String getUserLogin();
 
-    void reAuthenticateUser(User user);
+    String reAuthenticateUser(User user);
 }

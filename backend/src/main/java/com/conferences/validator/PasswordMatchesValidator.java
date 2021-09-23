@@ -17,9 +17,7 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
     public boolean isValid(Object object, ConstraintValidatorContext constraintValidatorContext) {
         List<String> passwords = new ArrayList<>();
         Field[] fields = object.getClass().getDeclaredFields();
-        System.out.println("=========================");
         for (Field field: fields) {
-            System.out.println(field.getName());
             Password password = field.getAnnotation(Password.class);
             if (password == null) {
                 continue;
@@ -34,8 +32,6 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
                 break;
             }
         }
-        System.out.println(passwords.get(0));
-        System.out.println(passwords.get(1));
         return passwords.size() == 2 && Objects.equals(passwords.get(0), passwords.get(1));
     }
 }

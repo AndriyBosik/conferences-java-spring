@@ -1,5 +1,6 @@
 package com.conferences.controller;
 
+import com.conferences.entity.User;
 import com.conferences.handler.abstraction.IJwtHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,7 @@ public class TokenController {
 
     @GetMapping("/refresh")
     public String refreshToken(@RequestBody String refreshToken) {
-        String login = jwtHandler.getLoginFromToken(refreshToken);
-        return jwtHandler.generateToken(login);
+        User user = jwtHandler.getUserFromToken(refreshToken);
+        return jwtHandler.generateToken(user);
     }
 }

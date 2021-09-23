@@ -41,13 +41,12 @@ public class AuthController {
             throw new UsernameNotFoundException(authRequest.getLogin() + " not found");
         }
 
-        String accessToken = jwtHandler.generateToken(user.getLogin());
-        String refreshToken = jwtHandler.generateToken(user.getLogin(), Date.from(LocalDateTime.now().plusDays(60).atZone(ZoneId.systemDefault()).toInstant()));
+        String accessToken = jwtHandler.generateToken(user);
+        String refreshToken = jwtHandler.generateToken(user, Date.from(LocalDateTime.now().plusDays(60).atZone(ZoneId.systemDefault()).toInstant()));
 
         return AuthResponse.builder()
             .accessToken(accessToken)
             .refreshToken(refreshToken)
-            .user(mapper.map(user))
             .build();
     }
 }
