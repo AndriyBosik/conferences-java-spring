@@ -7,6 +7,7 @@ import { showPopup } from "./../../../../handler/PopupHandler";
 import M from "materialize-css";
 import Errors from "../../../Errors/Errors";
 import { initInputs, initSelects } from "../../../../handler/MaterializeInitializersHandler";
+import { getUserAvatar } from "./../../../../handler/ImageHandler";
 
 function CreateTopicModal({
     meeting,
@@ -83,7 +84,7 @@ function CreateTopicModal({
                         <option value="0">{useMessage("choose_speaker")}</option>
                         {
                             speakers.map(speaker => 
-                                <option key={speaker.id} value={speaker.id} data-icon={`http://localhost:8080/api/images/avatars/${speaker.imagePath}`}>
+                                <option key={speaker.id} value={speaker.id} data-icon={`${getUserAvatar(speaker.imagePath)}`}>
                                     {speaker.name} {speaker.surname}
                                 </option>
                             )

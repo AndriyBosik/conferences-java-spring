@@ -5,6 +5,7 @@ import { editUserPresence } from "./../../../../services/UserService";
 import CircularPreloader from "./../../../CircularPreloader/CircularPreloader";
 import M from "materialize-css";
 import { useEffect } from "react/cjs/react.development";
+import { getUserAvatar } from "./../../../../handler/ImageHandler";
 
 function UserPresenceItem({meetingUser, onPresenceChanged = () => {}}) {
     const isNotPresentMessage = useMessage("is_not_present");
@@ -43,7 +44,7 @@ function UserPresenceItem({meetingUser, onPresenceChanged = () => {}}) {
     return (
         <li className="collection-item s-hflex">
             <div className="z-depth-1 user-avatar stretch-background">
-                <img src={`http://localhost:8080/api/images/avatars/${meetingUser.user.imagePath}`} alt="" className="circle full-width full-height" />
+                <img src={`${getUserAvatar(meetingUser.user.imagePath)}`} alt="" className="circle full-width full-height" />
             </div>
             <span className="title weight-normal s-vflex-center mx10 equal-flex">
                 {meetingUser.user.name} {meetingUser.user.surname}

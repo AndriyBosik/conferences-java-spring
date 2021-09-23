@@ -9,7 +9,7 @@ import UserDataForm from "./UserDataForm";
 import M from "materialize-css";
 import ProposedTopicsButton from "./ProposedTopicsButton";
 import { saveAvatar } from "./../../services/FileService";
-import { getAvatarLink } from "../../services/ImageService";
+import { getUserAvatar } from "./../../handler/ImageHandler";
 import { DEFAULT_AVATAR } from "./../../constants/defaults";
 
 function ProfilePage() {
@@ -64,7 +64,7 @@ function ProfilePage() {
                     <div className="s-vflex m-hflex">
                         <div className="equal-flex s-hflex-center m-hflex-end px10">
                             <div className="z-depth-1 user-profile-avatar stretch-background border50p" style={{
-                                backgroundImage: `url('${getAvatarLink(user.imagePath)}')`
+                                backgroundImage: `url('${getUserAvatar(user.imagePath)}')`
                             }}></div>
                         </div>
                         <div className="equal-flex s-hflex-center m-hflex-start px10">

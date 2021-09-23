@@ -1,13 +1,14 @@
 import React from "react";
 import { useMessage } from "./../../hooks/useMessage";
 import { formatDate } from "./../../handler/DateHandler";
+import { getMeetingImage } from "./../../handler/ImageHandler";
 
 function MeetingDetails({meeting, usersPresence}) {
     return (
         <>
             <div className="z-depth-2 stretch-background" style={{
                 height: 300,
-                backgroundImage: `url('http://localhost:8080/api/images/meetings/${meeting.imagePath}')`
+                backgroundImage: `url('${getMeetingImage(meeting.imagePath)}')`
             }}></div>
 
             <div className="full-width py15 meeting-additional-data">

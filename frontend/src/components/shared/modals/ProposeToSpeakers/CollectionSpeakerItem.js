@@ -3,6 +3,7 @@ import { useMessage } from "../../../../hooks/useMessage";
 import { showPopup } from "./../../../../handler/PopupHandler";
 import { proposeTopicForSpeaker } from "./../../../../services/ProposalService";
 import CircularPreloader from "./../../../CircularPreloader/CircularPreloader";
+import { getUserAvatar } from "./../../../../handler/ImageHandler";
 
 function CollectionSpeakerItem({speaker, topic, onSpeakerProposed = () => {}}) {
     const proposeMessage = useMessage("propose");
@@ -29,7 +30,7 @@ function CollectionSpeakerItem({speaker, topic, onSpeakerProposed = () => {}}) {
     return (
         <li className="collection-item s-hflex">
             <div className="z-depth-1 user-avatar stretch-background">
-                <img src={`http://localhost:8080/api/images/avatars/${speaker.imagePath}`} alt="" className="circle full-width full-height" />
+                <img src={`${getUserAvatar(speaker.imagePath)}`} alt="" className="circle full-width full-height" />
             </div>
             <span className="title weight-normal s-vflex-center mx10 equal-flex">
                 {speaker.name} {speaker.surname}

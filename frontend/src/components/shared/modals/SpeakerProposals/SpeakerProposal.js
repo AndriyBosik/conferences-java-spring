@@ -1,6 +1,7 @@
 import React from "react";
 import { showPopup } from "../../../../handler/PopupHandler";
 import { selectSpeakerForTopic } from "../../../../services/UserService";
+import { getUserAvatar } from "./../../../../handler/ImageHandler";
 
 function SpeakerProposal({speakerProposal, topic, onSpeakerSelected = () => {}}) {
     const selectSpeaker = async () => {
@@ -24,7 +25,7 @@ function SpeakerProposal({speakerProposal, topic, onSpeakerSelected = () => {}})
                 <div className="z-depth-1">
                     <div className="s-hflex">
                         <div className="proposal-avatar">
-                            <img src={`http://localhost:8080/api/images/avatars/${speakerProposal.imagePath}`} alt="" className="full-width full-height" />
+                            <img src={`${getUserAvatar(speakerProposal.imagePath)}`} alt="" className="full-width full-height" />
                         </div>
                         <span className="username s-vflex-center mx10 weight-strong">{speakerProposal.name} {speakerProposal.surname}</span>
                     </div>

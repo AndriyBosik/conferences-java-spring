@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { format } from "../../handler/StringHandler";
 import { useLink } from "../../hooks/useLink";
 import { formatDate } from "../../handler/DateHandler";
+import { getMeetingImage } from "./../../handler/ImageHandler";
 
 function MeetingProposal({proposal, proposalHandler}) {
     const meetingLink = useLink(format("/meetings/show/{id}", {id: proposal.id}));
@@ -16,7 +17,7 @@ function MeetingProposal({proposal, proposalHandler}) {
                     </div>
                     <div className="s-vflex-center mx10">
                         <div className="circle stretch-background user-avatar z-depth-1" style={{
-                            backgroundImage: `url('http://localhost:8080/api/images/meetings/${proposal.imagePath}`
+                            backgroundImage: `url('${getMeetingImage(proposal.imagePath)}`
                         }}></div>
                     </div>
                     <div className="translucent s-hflex-end equal-flex">

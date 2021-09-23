@@ -5,12 +5,13 @@ import { format } from "./../../handler/StringHandler";
 import { useLink } from "./../../hooks/useLink";
 import { formatDate, isOutdated } from "./../../handler/DateHandler";
 import { Link } from "react-router-dom";
+import { getMeetingImage } from "./../../handler/ImageHandler";
 
 function Meeting({meeting, editCallback = () => {}}) {
     const editMessage = useMessage("edit");
     const meetingLink = useLink(format("/meetings/show/{id}", {id: meeting.id}));
     const meetingCardImageStyles = {
-        backgroundImage: `url('http://localhost:8080/api/images/meetings/${meeting.imagePath}')`
+        backgroundImage: `url('${getMeetingImage(meeting.imagePath)}')`
     }
 
     return (

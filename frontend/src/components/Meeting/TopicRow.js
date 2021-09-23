@@ -2,6 +2,7 @@ import React from "react";
 import { useMessage } from "../../hooks/useMessage";
 import RoleController from "../RoleController/RoleController";
 import SpeakerProposalForm from "./SpeakerProposalForm";
+import { getUserAvatar } from "./../../handler/ImageHandler";
 
 function TopicRow({topic, order, user, rowClickHandler, isOutdated, topicModalId}) {
     const noSpeakerMessage = useMessage("no_speaker");
@@ -36,7 +37,7 @@ function TopicRow({topic, order, user, rowClickHandler, isOutdated, topicModalId
                     ) : (
                         <div className="s-hflex">
                             <div className="z-depth-1 user-avatar stretch-background">
-                                <img src={`http://localhost:8080/api/images/avatars/${topic.reportTopicSpeaker.speaker.imagePath}`} alt="" className="full-width full-height" />
+                                <img src={`${getUserAvatar(topic.reportTopicSpeaker.speaker.imagePath)}`} alt="" className="full-width full-height" />
                             </div>
                             <div className="s-vflex-center px10 weight-normal">
                                 {topic.reportTopicSpeaker.speaker.name} {topic.reportTopicSpeaker.speaker.surname}

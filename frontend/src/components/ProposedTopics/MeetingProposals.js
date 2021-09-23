@@ -4,6 +4,7 @@ import { formatDate } from '../../handler/DateHandler';
 import { useLink } from "./../../hooks/useLink";
 import { format } from "./../../handler/StringHandler";
 import TopicProposal from './TopicProposal';
+import { getMeetingImage } from "./../../handler/ImageHandler";
 
 function MeetingProposals({
     proposal,
@@ -21,7 +22,7 @@ function MeetingProposals({
                     </div>
                     <div className="s-vflex-center mx10">
                         <div className="circle stretch-background user-avatar z-depth-1" style={{
-                            backgroundImage: `url('http://localhost:8080/api/images/meetings/${proposal.imagePath}')`}}></div>
+                            backgroundImage: `url('${getMeetingImage(proposal.imagePath)}')`}}></div>
                     </div>
                     <div className="translucent s-hflex-end equal-flex">
                         <div className="s-vflex-center fs20">
