@@ -457,5 +457,110 @@ export const messages = {
         [EN]: "You have to refresh page to see changes",
         [RU]: "Вы должны обновить страницу, чтобы увидеть изменения",
         [UK]: "Ви повинні оновити сторінку, щоб побачити зміни"
+    },
+    cancel: {
+        [EN]: "Cancel",
+        [RU]: "Отмена",
+        [UK]: "Скасувати"
+    },
+    clear: {
+        [EN]: "Clear",
+        [RU]: "Очистить",
+        [UK]: "Очистити"
+    },
+    january: {
+        [EN]: "January",
+        [RU]: "Январь",
+        [UK]: "Січень"
+    },
+    february: {
+        [EN]: "February",
+        [RU]: "Февраль",
+        [UK]: "Лютий"
+    },
+    march: {
+        [EN]: "March",
+        [RU]: "Март",
+        [UK]: "Березень"
+    },
+    april: {
+        [EN]: "April",
+        [RU]: "Апрель",
+        [UK]: "Квітень"
+    },
+    may: {
+        [EN]: "May",
+        [RU]: "Май",
+        [UK]: "Травень"
+    },
+    june: {
+        [EN]: "June",
+        [RU]: "Июнь",
+        [UK]: "Червень"
+    },
+    july: {
+        [EN]: "July",
+        [RU]: "Июль",
+        [UK]: "Липень"
+    },
+    august: {
+        [EN]: "August",
+        [RU]: "Август",
+        [UK]: "Серпень"
+    },
+    september: {
+        [EN]: "September",
+        [RU]: "Сентябрь",
+        [UK]: "Вересень"
+    },
+    october: {
+        [EN]: "October",
+        [RU]: "Октябрь",
+        [UK]: "Жовтень"
+    },
+    november: {
+        [EN]: "November",
+        [RU]: "Ноябрь",
+        [UK]: "Листопад"
+    },
+    december: {
+        [EN]: "December",
+        [RU]: "Декабрь",
+        [UK]: "Грудень"
+    },
+    monday: {
+        [EN]: "Monday",
+        [RU]: "Понедельник",
+        [UK]: "Понеділок"
+    },
+    tuesday: {
+        [EN]: "Tuesday",
+        [RU]: "Вторник",
+        [UK]: "Вівторок"
+    },
+    wednesday: {
+        [EN]: "Wednesday",
+        [RU]: "Среда",
+        [UK]: "Середа"
+    },
+    thursday: {
+        [EN]: "Thursday",
+        [RU]: "Четверг",
+        [UK]: "Четвер"
+    },
+    friday: {
+        [EN]: "Friday",
+        [RU]: "Пятница",
+        [UK]: "П’ятниця"
+    },
+    saturday: {
+        [EN]: "Saturday",
+        [RU]: "Суббота",
+        [UK]: "Субота"
+    },
+    sunday: {
+        [EN]: "Sunday",
+        [RU]: "Воскресенье",
+        [UK]: "Неділя"
     }
 };

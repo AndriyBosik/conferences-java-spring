@@ -3,11 +3,14 @@ import { useEffect } from "react/cjs/react.development";
 import { initDatePickers } from "../../../../handler/MaterializeInitializersHandler";
 import { useLink } from "../../../../hooks/useLink";
 import { useMessage } from "../../../../hooks/useMessage";
+import { useDatePickerLocalization } from "./../../../../hooks/useDatePickerLocalization";
 import { createMeeting } from "./../../../../services/MeetingService";
 import { showPopup } from "./../../../../handler/PopupHandler";
 import Errors from "./../../../Errors/Errors";
 
 function CreateMeetingModal({id}) {
+    const localization = useDatePickerLocalization();
+
     const fileField = useRef();
     const dateField = useRef();
 
@@ -18,7 +21,9 @@ function CreateMeetingModal({id}) {
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([]);
 
-    useEffect(initDatePickers, []);
+    useEffect(() => {
+        initDatePickers(localization);
+    }, [localization]);
 
     const handleSubmit = async event => {
         event.preventDefault();

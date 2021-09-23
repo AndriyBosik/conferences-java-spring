@@ -8,8 +8,11 @@ import { parseDateToParts } from "./../../../../handler/DateHandler";
 import { format } from "./../../../../handler/StringHandler";
 import Errors from "./../../../Errors/Errors";
 import M from "materialize-css";
+import { useDatePickerLocalization } from "../../../../hooks/useDatePickerLocalization";
 
 function EditMeetingModal({meeting, id=""}) {
+    const localization = useDatePickerLocalization();
+
     const editMeetingMessage = useMessage("edit_meeting");
     const addressMessage = useMessage("address");
     const selectDateMessage = useMessage("select_date");
@@ -28,9 +31,9 @@ function EditMeetingModal({meeting, id=""}) {
 
     useEffect(() => {
         initInputs();
-        initDatePickers();
+        initDatePickers(localization);
         dateField.current.value = parsedDate;
-    }, [parsedDate]);
+    }, [parsedDate, localization]);
 
     useEffect(() => {
         setAddress(meeting.address);
@@ -40,8 +43,8 @@ function EditMeetingModal({meeting, id=""}) {
         setMinutes(parsedMinutes);
         dateField.current.value = parsedDate;
         initInputs();
-        initDatePickers();
-    }, [meeting]);
+        initDatePickers(localization);
+    }, [meeting, localization]);
 
     const edit = async () => {
         const data = {
