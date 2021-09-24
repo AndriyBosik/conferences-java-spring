@@ -1,25 +1,17 @@
-import axios from "axios";
-import { getAccessToken, getUser } from "./../handler/StorageHandler";
+import { getUser } from "./../handler/StorageHandler";
 import { validate } from "../validators/TopicProposalValidator";
+import { ACCEPT_MODERATOR_PROPOSAL_URL, CREATE_TOPIC_PROPOSAL_URL, GET_MODERATOR_PRPOSALS_URL, GET_TOPICS_WITH_SPEAKER_PROPOSALS_URL, GET_TOPIC_PROPOSALS_COUNT_URL, GET_TOPIC_PROPOSALS_URL, MAKE_SPEAKER_PROPOSAL, PROPOSE_TOPIC_FOR_SPEAKER_URL, REJECT_TOPIC_PROPOSAL_URL } from "../constants/network";
+import { format } from "./../handler/StringHandler";
+import { doGet, doPost } from "../handler/AuthRequestHandler";
 
 export const getSpeakerProposals = async (speakerId) => {
-    return axios.get(`http://localhost:8080/api/proposals/speaker/${speakerId}`, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    const url = format(GET_TOPICS_WITH_SPEAKER_PROPOSALS_URL, {speakerId: speakerId});
+    return doGet(url, {}, response => response.data);
 }
 
 export const getForSpeakerProposals = async (speakerId) => {
-    return axios.get(`http://localhost:8080/api/proposals/moderator/${speakerId}`, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    const url = format(GET_MODERATOR_PRPOSALS_URL, {speakerId: speakerId});
+    return doGet(url, {}, response => response.data);
 }
 
 export const createTopicProposal = async topicProposal => {
@@ -31,46 +23,22 @@ export const createTopicProposal = async topicProposal => {
         };
     }
     topicProposal.speakerId = getUser().id;
-    return axios.post("http://localhost:8080/api/topic-proposals/create", topicProposal, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return {
-            errors: [],
-            data: response.data
-        }
-    });
+    return doPost(CREATE_TOPIC_PROPOSAL_URL, topicProposal, {}, response => ({
+        errors: [],
+        data: response.data
+    }));
 }
 
 export const getTopicProposals = async () => {
-    return axios.get(`http://localhost:8080/api/topic-proposals`, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doGet(GET_TOPIC_PROPOSALS_URL, {}, response => response.data);
 }
 
 export const getProposedTopicsCount = async () => {
-    return axios.get(`http://localhost:8080/api/topic-proposals/count`, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doGet(GET_TOPIC_PROPOSALS_COUNT_URL, {}, response => response.data);
 }
 
 export const rejectModeratorProposal = async proposalId => {
-    return axios.post("http://localhost:8080/api/moderator-proposals/reject", {id: proposalId}, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doPost(REJECT_TOPIC_PROPOSAL_URL, {id: proposalId}, {}, response => response.data);
 }
 
 export const acceptModeratorProposal = async reportTopic => {
@@ -79,31 +47,13 @@ export const acceptModeratorProposal = async reportTopic => {
         reportTopicId: reportTopic.id,
         speakerId: getUser().id
     };
-    return axios.post("http://localhost:8080/api/moderator-proposals/accept", moderatorProposal, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doPost(ACCEPT_MODERATOR_PROPOSAL_URL, moderatorProposal, {}, response => response.data);
 }
 
 export const proposeSpeaker = async speakerProposal => {
-    return axios.post("http://localhost:8080/api/speaker-proposals/propose", speakerProposal, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doPost(MAKE_SPEAKER_PROPOSAL, speakerProposal, {}, response => response.data);
 }
 
 export const proposeTopicForSpeaker = async moderatorProposal => {
-    return axios.post("http://localhost:8080/api/moderator-proposals/propose", moderatorProposal, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    })
+    return doPost(PROPOSE_TOPIC_FOR_SPEAKER_URL, moderatorProposal, {}, response => response.data);
 }

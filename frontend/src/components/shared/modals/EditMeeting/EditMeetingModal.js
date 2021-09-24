@@ -11,14 +11,13 @@ import M from "materialize-css";
 import { useDatePickerLocalization } from "../../../../hooks/useDatePickerLocalization";
 
 function EditMeetingModal({meeting, id=""}) {
+    const dateFieldId = "date-field";
     const localization = useDatePickerLocalization();
 
     const editMeetingMessage = useMessage("edit_meeting");
     const addressMessage = useMessage("address");
     const selectDateMessage = useMessage("select_date");
     const confirmMessage = useMessage("confirm");
-
-    const dateField = useRef();
 
     const [parsedDate, parsedHours, parsedMinutes] = parseDateToParts(meeting.date);
 
@@ -32,16 +31,23 @@ function EditMeetingModal({meeting, id=""}) {
     useEffect(() => {
         initInputs();
         initDatePickers(localization);
-        dateField.current.value = parsedDate;
+        if (document.getElementById(dateFieldId) != null) {
+            document.getElementById(dateFieldId).value = parsedDate;
+        }
     }, [parsedDate, localization]);
 
     useEffect(() => {
         setAddress(meeting.address);
+    }, [meeting]);
+
+    useEffect(() => {
         setMeetingLink(generateUrl(format("/meetings/show/{id}", {id: meeting.id})));
         const [parsedDate, parsedHours, parsedMinutes] = parseDateToParts(meeting.date);
         setHours(parsedHours);
         setMinutes(parsedMinutes);
-        dateField.current.value = parsedDate;
+        if (document.getElementById(dateFieldId) != null) {
+            document.getElementById(dateFieldId).value = parsedDate;
+        }
         initInputs();
         initDatePickers(localization);
     }, [meeting, localization]);
@@ -52,7 +58,7 @@ function EditMeetingModal({meeting, id=""}) {
             address,
             hours: hours + "",
             minutes: minutes + "",
-            date: dateField.current.value
+            date: document.getElementById(dateFieldId).value
         };
 
         const result = await editMeeting(data);
@@ -82,7 +88,7 @@ function EditMeetingModal({meeting, id=""}) {
                     </div>
 
                     <div className="col s12 s-hflex-center">
-                        <input type="text" placeholder={selectDateMessage} className="datepicker" ref={dateField} />
+                        <input id={dateFieldId} type="text" placeholder={selectDateMessage} className="datepicker" />
                         <div className="col">
                             <input type="number" min="0" max="23" className="center-align" value={hours} onChange={event => setHours(event.target.value)} />
                         </div>

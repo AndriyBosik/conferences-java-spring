@@ -1,74 +1,44 @@
-import axios from "axios";
-import { getAccessToken, getUser, getUserRole, refreshAccessToken, refreshUser } from "../handler/StorageHandler";
+import { EDIT_USER_PRESENCE_URL, GET_AVAILABLE_SPEAKERS_FOR_TOPIC_URL, GET_MEETING_USERS_URL, GET_SPEAKERS_URL, GET_USER_EMAIL_URL, JOIN_USER_TO_MEETING_URL, SET_SPEAKER_FOR_TOPIC_URL, UPDATE_PROFILE_URL } from "../constants/network";
+import { doGet, doPost } from "../handler/AuthRequestHandler";
+import { getUser, getUserRole, refreshAccessToken, refreshUser } from "../handler/StorageHandler";
 
 export const getUserEmail = async () => {
-    return axios.get("http://localhost:8080/api/users/get-email", {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    })
+    return doGet(GET_USER_EMAIL_URL, {}, response => response.data);
 }
 
 export const getSpeakers = async () => {
-    return axios.get("http://localhost:8080/api/users/speakers", {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doGet(GET_SPEAKERS_URL, {}, response => response.data);
 }
 
 export const getAvailableSpeakers = async topicId => {
-    return axios.get("http://localhost:8080/api/users/get-topic-available", {
+    return doGet(GET_AVAILABLE_SPEAKERS_FOR_TOPIC_URL, {
         params: {
             topicId
-        },
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
         }
-    }).then(response => {
-        return response.data;
-    });
+    }, response => response.data);
 }
 
 export const getSpeakerProposals = async topicId => {
-    return axios.get("http://localhost:8080/api/users/get-topic-proposed", {
+    return doGet("http://localhost:8080/api/users/get-topic-proposed", {
         params: {
             topicId
-        },
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
         }
-    }).then(response => {
-        return response.data;
-    });
+    }, response => response.data);
 }
 
 export const getMeetingUsers = async meetingId => {
-    return axios.get("http://localhost:8080/api/users/get-for-meeting", {
+    return doGet(GET_MEETING_USERS_URL, {
         params: {
             meetingId
-        },
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
         }
-    }).then(response => {
-        return response.data;
-    });
+    }, response => response.data);
 }
 
 export const updateProfile = async userProfile => {
-    return axios.post("http://localhost:8080/api/users/update-profile", {
+    return doPost(UPDATE_PROFILE_URL, {
         ...userProfile,
         role: getUserRole()
-    }, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
+    }, {}, response => {
         if (response.data !== "") {
             const user = getUser();
             user.email = userProfile.email;
@@ -84,31 +54,17 @@ export const updateProfile = async userProfile => {
 }
 
 export const joinToMeeting = async userMeeting => {
-    return axios.post("http://localhost:8080/api/users/join-to-meeting", userMeeting, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    userMeeting = {
+        ...userMeeting,
+        userId: getUser().id
+    }
+    return doPost(JOIN_USER_TO_MEETING_URL, userMeeting, {}, response => response.data);
 }
 
 export const editUserPresence = async userMeeting => {
-    return axios.post("http://localhost:8080/api/users/edit-presence", userMeeting, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doPost(EDIT_USER_PRESENCE_URL, userMeeting, {}, response => response.data);
 }
 
 export const selectSpeakerForTopic = async reportTopicSpeaker => {
-    return axios.post("http://localhost:8080/api/topics/set-speaker", reportTopicSpeaker, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doPost(SET_SPEAKER_FOR_TOPIC_URL, reportTopicSpeaker, {}, response => response.data);
 }

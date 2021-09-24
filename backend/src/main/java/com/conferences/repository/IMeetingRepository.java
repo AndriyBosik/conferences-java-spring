@@ -101,7 +101,7 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
             "FROM Meeting m " +
                 "JOIN FETCH m.reportTopics AS reportTopics " +
                     "LEFT JOIN FETCH reportTopics.reportTopicSpeaker AS reportTopicSpeaker " +
-                    "JOIN FETCH reportTopics.speakerProposals AS speakerProposals " +
+                    "LEFT JOIN FETCH reportTopics.speakerProposals AS speakerProposals " +
             "WHERE reportTopicSpeaker is null AND speakerProposals.speakerId=:speakerId AND m.date >= current_timestamp "
     )
     Set<ISpeakerProposalMeetingData> getSpeakerProposals(@Param("speakerId") int speakerId);
@@ -112,7 +112,7 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
         "FROM Meeting m " +
             "JOIN FETCH m.reportTopics AS reportTopics " +
                 "LEFT JOIN FETCH reportTopics.reportTopicSpeaker AS reportTopicSpeaker " +
-                "JOIN FETCH reportTopics.moderatorProposals AS moderatorProposals " +
+                "LEFT JOIN FETCH reportTopics.moderatorProposals AS moderatorProposals " +
         "WHERE reportTopicSpeaker is null AND moderatorProposals.speakerId=:speakerId AND m.date >= current_timestamp"
     )
     Set<IModeratorProposalMeetingData> getModeratorProposals(@Param("speakerId") int speakerId);

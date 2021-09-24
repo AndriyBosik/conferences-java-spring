@@ -7,6 +7,7 @@ import { useDatePickerLocalization } from "./../../../../hooks/useDatePickerLoca
 import { createMeeting } from "./../../../../services/MeetingService";
 import { showPopup } from "./../../../../handler/PopupHandler";
 import Errors from "./../../../Errors/Errors";
+import M from "materialize-css";
 
 function CreateMeetingModal({id}) {
     const localization = useDatePickerLocalization();
@@ -43,6 +44,7 @@ function CreateMeetingModal({id}) {
         if (result.errors.length === 0) {
             if (result.data) {
                 showPopup("meeting_created");
+                M.Modal.getInstance(document.getElementById(id)).close();
             } else {
                 showPopup("error_happened");
             }

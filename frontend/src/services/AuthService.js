@@ -1,9 +1,10 @@
 import axios from "axios";
+import { LOGIN_URL, SIGN_UP_URL } from "../constants/network";
 import { saveData, getUserRole, clearData } from "../handler/StorageHandler";
 import { validate } from "../validators/SignUpValidator"; 
 
-export const loginUser = (data) => {
-    return axios.post("http://localhost:8080/api/auth/login", data).then(response => {
+export const loginUser = async data => {
+    return axios.post(LOGIN_URL, data).then(response => {
         saveData(response.data);
         return {
             error: false,
@@ -25,7 +26,7 @@ export const isAuthorized = () => {
     return getUserRole() !== "guest";
 }
 
-export const signUpUser = (data) => {
+export const signUpUser = async data => {
     const errors = validate(data);
     if (errors.length > 0) {
         return {
@@ -33,7 +34,7 @@ export const signUpUser = (data) => {
             data: {}
         };
     }
-    return axios.post("http://localhost:8080/api/sign-up", data).then(response => {
+    return axios.post(SIGN_UP_URL, data).then(response => {
         return {
             errors: [],
             data: response.data

@@ -1,57 +1,38 @@
-import axios from "axios";
-import { getAccessToken } from "./../handler/StorageHandler";
 import { validate } from "./../validators/MeetingValidator";
 import { validate as validateMeetingUpdatableData } from "./../validators/MeetingUpdatableDataValidator";
+import { doGet, doPost } from "../handler/AuthRequestHandler";
+import { CHECK_USER_JOINED_URL, CREATE_MEETING_URL, EDIT_MEETING_URL, MEETINGS_BY_PAGE_URL, MEETING_URL, SPEAKER_MEETINGS_BY_PAGE_URL } from "../constants/network";
+import { format } from "./../handler/StringHandler";
 
 export const getAllMeetings = async (page, items, filters) => {
-    return axios.get(`http://localhost:8080/api/meetings/page/${page}/${items}`, {
-        params: filters,
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    const url = format(MEETINGS_BY_PAGE_URL, {page: page, items: items});
+    return doGet(url, {
+        params: filters
+    }, response => response.data);
 };
 
 export const getAllMeetingsForSpeaker = speakerId => async (page, items, filters) => {
-    return axios.get(`http://localhost:8080/api/meetings/speaker/${page}/${items}`, {
+    const url = format(SPEAKER_MEETINGS_BY_PAGE_URL, {page: page, items: items});
+    return doGet(url, {
         params: {
             ...filters,
             speakerId
-        },
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
         }
-    }).then(response => {
-        return response.data;
-    });
+    }, response => response.data);
 }
 
 export const getMeeting = async meetingId => {
-    return axios.get(`http://localhost:8080/api/meetings/${meetingId}`, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    const url = format(MEETING_URL, {meetingId: meetingId});
+    return doGet(url, {}, response => response.data);
 }
 
 export const checkUserJoined = async (userId, meetingId) => {
-    return axios.get("http://localhost:8080/api/meetings/check-user-joined", {
+    return doGet(CHECK_USER_JOINED_URL, {
         params: {
-            id: 0,
-            present: true,
             userId: userId,
             meetingId: meetingId
-        },
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
         }
-    }).then(response => {
-        return response.data;
-    });
+    }, response => response.data);
 }
 
 export const createMeeting = (file, data) => {
@@ -67,17 +48,14 @@ export const createMeeting = (file, data) => {
     formData.append("meeting", new Blob([JSON.stringify(data)], {
         type: "application/json"
     }));
-    return axios.post("http://localhost:8080/api/meetings/create", formData, {
+    return doPost(CREATE_MEETING_URL, formData, {
         headers: {
-            "Authorization": "Bearer " + getAccessToken(),
             "Content-Type": "multipart/form-data"
         }
-    }).then(response => {
-        return {
-            errors: [],
-            data: response.data
-        };
-    })
+    }, response => ({
+        errors: [],
+        data: response.data
+    }))
 }
 
 export const editMeeting = async data => {
@@ -88,14 +66,8 @@ export const editMeeting = async data => {
             data: false,
         };
     }
-    return axios.post("http://localhost:8080/api/meetings/edit", data, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return {
-            errors: [],
-            data: response.data
-        };
-    });
+    return doPost(EDIT_MEETING_URL, data, {}, response => ({
+        errors: [],
+        data: response.data
+    }));
 }

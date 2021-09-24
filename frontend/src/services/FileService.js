@@ -1,15 +1,15 @@
-import axios from "axios"
-import { getAccessToken, refreshAccessToken } from "../handler/StorageHandler"
+import { SAVE_AVATAR_URL } from "../constants/network";
+import { doPost } from "../handler/AuthRequestHandler";
+import { refreshAccessToken } from "../handler/StorageHandler"
 
-export const saveAvatar = avatar => {
+export const saveAvatar = async avatar => {
     const formData = new FormData();
     formData.set("file", avatar);
-    return axios.post("http://localhost:8080/api/files/save-avatar", formData, {
+    return doPost(SAVE_AVATAR_URL, formData, {
         headers: {
-            "Authorization": "Bearer " + getAccessToken(),
             "Content-Type": "multipart/form-data"
         }
-    }).then(response => {
+    }, response => {
         refreshAccessToken(response.data);
         return {
             status: "success",

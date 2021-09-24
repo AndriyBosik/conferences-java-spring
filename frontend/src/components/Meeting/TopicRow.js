@@ -29,7 +29,7 @@ function TopicRow({topic, order, user, rowClickHandler, isOutdated, topicModalId
                             </RoleController>
 
                             <RoleController allow={["moderator"]}>
-                                <a href="#topic-proposals-form" className="modal-trigger proposalsSearchTrigger weight-slight">
+                                <a href="#topic-proposals-form" className="modal-trigger proposalsSearchTrigger weight-slight" onClick={() => rowClickHandler(topic)}>
                                     ({selectFromProposalsMessage})
                                 </a>
                             </RoleController>
@@ -54,7 +54,7 @@ function TopicRow({topic, order, user, rowClickHandler, isOutdated, topicModalId
                     <div className="s-hflex-end">
                         {
                             (topic.reportTopicSpeaker == null && !isOutdated) ? (
-                                <span className="clickable proposalTrigger modal-trigger tooltipped px5" data-target="propose-to-speakers-form" data-position="bottom" data-tooltip={proposeToSpeakersMessage}>
+                                <span className="clickable proposalTrigger modal-trigger tooltipped px5" data-target="propose-to-speakers-form" data-position="bottom" data-tooltip={proposeToSpeakersMessage} onClick={() => rowClickHandler(topic)}>
                                     <i className="material-icons orange-text">person_add</i>
                                 </span>
                             ) : null

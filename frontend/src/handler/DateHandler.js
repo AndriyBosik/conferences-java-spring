@@ -18,7 +18,7 @@ export const isOutdated = (dateArray) => {
     return moment().isAfter(moment(array));
 }
 
-export const parseDateToParts = (fullDate) => {
+export const parseDateToParts = fullDate => {
     if (typeof fullDate === "undefined" || fullDate == null || fullDate.length < 5) {
         return ["00-00-0000", "00", "00"];
     }

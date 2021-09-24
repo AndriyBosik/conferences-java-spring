@@ -1,39 +1,22 @@
-import axios from "axios";
-import { getAccessToken } from "./../handler/StorageHandler";
+import { CREATE_TOPIC_FROM_PROPOSAL_URL, CREATE_TOPIC_URL, EDIT_TOPIC_URL, GET_SPEAKER_PROPOSED_TOPIC_IDS_URL, GET_TOPICS_BY_MEETING_ID_URL, REJECT_TOPIC_PROPOSAL_URL } from "../constants/network";
+import { doGet, doPost } from "../handler/AuthRequestHandler";
 import { validate } from "./../validators/ReportTopicValidator";
 
 export const getSpeakerProposedTopicsIds = async (speakerId, meetingId) => {
-    return axios.get("http://localhost:8080/api/topics/get-speaker-proposed-topic-ids", {
+    return doGet(GET_SPEAKER_PROPOSED_TOPIC_IDS_URL, {
         params: {
             speakerId: speakerId,
             meetingId: meetingId
-        },
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
         }
-    }).then(response => {
-        return response.data;
-    });
+    }, response => response.data);
 }
 
 export const createFromProposal = async topicProposalId => {
-    return axios.post("http://localhost:8080/api/topics/create-from-proposal", {id: topicProposalId}, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doPost(CREATE_TOPIC_FROM_PROPOSAL_URL, {id: topicProposalId}, {}, response => response.data);
 }
 
 export const rejectTopicProposal = async topicProposalId => {
-    return axios.post("http://localhost:8080/api/topic-proposals/reject", {id: topicProposalId}, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return response.data;
-    });
+    return doPost(REJECT_TOPIC_PROPOSAL_URL, {id: topicProposalId}, {}, response => response.data);
 }
 
 export const createTopic = async topic => {
@@ -44,16 +27,10 @@ export const createTopic = async topic => {
             data: false
         };
     }
-    return axios.post("http://localhost:8080/api/topics/create", topic, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return {
-            errors: [],
-            data: response.data
-        }
-    });
+    return doPost(CREATE_TOPIC_URL, topic, {}, response => ({
+        errors: [],
+        data: response.data
+    }));
 }
 
 export const editTopic = async topic => {
@@ -64,27 +41,16 @@ export const editTopic = async topic => {
             data: false
         };
     }
-    return axios.post("http://localhost:8080/api/topics/edit", topic, {
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
-        }
-    }).then(response => {
-        return {
-            errors: [],
-            data: response.data
-        }
-    });
+    return doPost(EDIT_TOPIC_URL, topic, {}, response => ({
+        errors: [],
+        data: response.data
+    }));
 }
 
 export const getTopicsByMeetingId = async meetingId => {
-    return axios.get("http://localhost:8080/api/topics/get-by-meeting", {
+    return doGet(GET_TOPICS_BY_MEETING_ID_URL, {
         params: {
             meetingId: meetingId
-        },
-        headers: {
-            "Authorization": "Bearer " + getAccessToken()
         }
-    }).then(response => {
-        return response.data
-    });
+    }, response => response.data);
 }
