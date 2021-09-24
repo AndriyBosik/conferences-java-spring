@@ -5,7 +5,7 @@ import { parseUrl } from "./LinkHandler";
 
 const permissions = {
     [pages.signUp]: ["guest"],
-    [pages.home]: ["guest"],
+    [pages.home]: ["guest", "user", "speaker", "moderator"],
     [pages.proposals]: ["speaker"],
     [pages.speakerMeetings]: ["speaker"],
     [pages.proposedTopics]: ["moderator"],

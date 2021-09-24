@@ -8,26 +8,28 @@ import { parseUrl } from "./../../handler/LinkHandler";
 function PermissionBoundary({children}) {
     const [, url] = parseUrl(window.location.pathname);
 
-    const [allowed, setAllowed] = useState(false);
+    const [allowed, setAllowed] = useState(0);
 
     useEffect(() => {
         const result = checkPermission(url);
-        setAllowed(result);
+        setAllowed(result ? 1 : -1);
     }, [url]);
 
     useEffect(() => {
         const disposer = history.listen(location => {
             const [, url] = parseUrl(location.pathname);
-            setAllowed(checkPermission(url));
+            setAllowed(checkPermission(url) ? 1 : -1);
         });
 
         return disposer;
     }, []);
 
-    if (allowed) {
+    if (allowed === 1) {
         return children;
+    } else if (allowed === -1) {
+        return <PageNotFound />;
     }
-    return <PageNotFound />;
+    return <div>Loading...</div>
 }
 
 export default PermissionBoundary;

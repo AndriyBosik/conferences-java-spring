@@ -14,7 +14,6 @@ import ProposalsPage from "../Proposals/ProposalsPage";
 import ProposedTopicsPage from "../ProposedTopics/ProposedTopicsPage";
 import SpeakerMeetingsPage from "../SpeakerMeetings/SpeakerMeetingsPage";
 import Footer from "../shared/Footer/Footer";
-import { availableForGuest } from "../../handler/PermissionsHandler";
 import { refreshToken } from "../../handler/TokenHandler";
 
 function AppRoutes() {

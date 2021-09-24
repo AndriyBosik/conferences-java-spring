@@ -8,7 +8,6 @@ import com.conferences.model.AuthResponse;
 import com.conferences.model.UserPublicData;
 import com.conferences.service.abstraction.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +36,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest authRequest, HttpServletResponse response) {
+    public AuthResponse login(@RequestBody AuthRequest authRequest, HttpServletResponse response) {
         User user = userService.getUserByLogin(authRequest.getLogin());
 
         if (user == null || !passwordEncoder.matches(authRequest.getPassword(), user.getPassword())) {
@@ -48,23 +47,23 @@ public class AuthController {
         String refreshToken = jwtHandler.generateToken(user, Date.from(LocalDateTime.now().plusDays(60).atZone(ZoneId.systemDefault()).toInstant()));
 
         Cookie refreshTokenCookie = new Cookie("refreshToken", refreshToken);
-        refreshTokenCookie.setMaxAge(60 * 24 * 60 * 60);
-        refreshTokenCookie.setPath("/");
-        refreshTokenCookie.setHttpOnly(true);
-        response.addCookie(refreshTokenCookie);
+        configureAndAddToResponseCookie(refreshTokenCookie, 60 * 24 * 60 * 60, response);
 
-        return ResponseEntity.ok(
-                AuthResponse.builder()
-                    .accessToken(accessToken)
-                    .build());
+        return AuthResponse.builder()
+                .accessToken(accessToken)
+                .build();
     }
 
     @PostMapping("/logout")
     public boolean logout(@CookieValue("refreshToken") Cookie cookie, HttpServletResponse response) {
-        cookie.setMaxAge(0);
+        configureAndAddToResponseCookie(cookie, 0, response);
+        return true;
+    }
+
+    private void configureAndAddToResponseCookie(Cookie cookie, int maxAge, HttpServletResponse response) {
+        cookie.setMaxAge(maxAge);
         cookie.setPath("/");
         cookie.setHttpOnly(true);
         response.addCookie(cookie);
-        return true;
     }
 }

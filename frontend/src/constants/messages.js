@@ -562,5 +562,10 @@ export const messages = {
         [EN]: "Sunday",
         [RU]: "Воскресенье",
         [UK]: "Неділя"
+    },
+    error: {
+        [EN]: "Error",
+        [RU]: "Ошибка",
+        [UK]: "Помилка"
     }
 };
