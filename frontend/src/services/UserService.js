@@ -1,6 +1,6 @@
 import { EDIT_USER_PRESENCE_URL, GET_AVAILABLE_SPEAKERS_FOR_TOPIC_URL, GET_MEETING_USERS_URL, GET_SPEAKERS_URL, GET_USER_EMAIL_URL, JOIN_USER_TO_MEETING_URL, SET_SPEAKER_FOR_TOPIC_URL, UPDATE_PROFILE_URL } from "../constants/network";
 import { doGet, doPost } from "../handler/AuthRequestHandler";
-import { getUser, getUserRole, refreshAccessToken, refreshUser } from "../handler/StorageHandler";
+import { getUser, getUserRole, refreshAccessToken } from "../handler/StorageHandler";
 
 export const getUserEmail = async () => {
     return doGet(GET_USER_EMAIL_URL, {}, response => response.data);
@@ -45,7 +45,6 @@ export const updateProfile = async userProfile => {
             user.login = userProfile.login;
             user.name = userProfile.name;
             user.surname = userProfile.surname;
-            refreshUser(user);
             refreshAccessToken(response.data);
             return true;
         }

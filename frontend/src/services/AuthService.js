@@ -1,10 +1,12 @@
 import axios from "axios";
-import { LOGIN_URL, SIGN_UP_URL } from "../constants/network";
+import { LOGIN_URL, LOGOUT_URL, SIGN_UP_URL } from "../constants/network";
 import { saveData, getUserRole, clearData } from "../handler/StorageHandler";
 import { validate } from "../validators/SignUpValidator"; 
 
 export const loginUser = async data => {
-    return axios.post(LOGIN_URL, data).then(response => {
+    return axios.post(LOGIN_URL, data, {
+        withCredentials: true
+    }).then(response => {
         saveData(response.data);
         return {
             error: false,
@@ -18,8 +20,13 @@ export const loginUser = async data => {
     });
 }
 
-export const logoutUser = () => {
-    clearData();
+export const logoutUser = async () => {
+    const response = await axios.post(LOGOUT_URL, {}, {withCredentials: true});
+    if (response.data) {
+        clearData();
+        return true;
+    }
+    return false;
 }
 
 export const isAuthorized = () => {

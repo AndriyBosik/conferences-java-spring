@@ -1,14 +1,27 @@
 import axios from "axios"
-import { getAccessToken } from "./StorageHandler"
+import { refreshToken } from "./TokenHandler";
+import { getAccessToken } from "./StorageHandler";
 
-export const doGet = (url, params = {}, onSuccess = () => {}, onError = () => {}) => {
-    params = initParamsWithAuthorizationHeader(params);
-    return axios.get(url, params).then(onSuccess).catch(onError);
+export const doGet = async (url, params = {}, onSuccess = () => {}, onError = () => {}) => {
+    try {
+        await refreshToken();
+        params = initParamsWithAuthorizationHeader(params);
+        const result = await axios.get(url, params);
+        return onSuccess(result);
+    } catch(error) {
+        return onError(error);
+    }
 }
 
-export const doPost = (url, data = {}, params = {}, onSuccess, onError) => {
-    params = initParamsWithAuthorizationHeader(params);
-    return axios.post(url, data, params).then(onSuccess).catch(onError);
+export const doPost = async (url, data = {}, params = {}, onSuccess, onError) => {
+    try {
+        await refreshToken();
+        params = initParamsWithAuthorizationHeader(params);
+        const result = await axios.post(url, data, params);
+        return onSuccess(result);
+    } catch(error) {
+        return onError(error);
+    }
 }
 
 const initParamsWithAuthorizationHeader = params => {

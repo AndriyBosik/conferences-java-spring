@@ -8,10 +8,11 @@ import { parseUrl } from "./../../handler/LinkHandler";
 function PermissionBoundary({children}) {
     const [, url] = parseUrl(window.location.pathname);
 
-    const [allowed, setAllowed] = useState(true);
+    const [allowed, setAllowed] = useState(false);
 
     useEffect(() => {
-        setAllowed(checkPermission(url));
+        const result = checkPermission(url);
+        setAllowed(result);
     }, [url]);
 
     useEffect(() => {

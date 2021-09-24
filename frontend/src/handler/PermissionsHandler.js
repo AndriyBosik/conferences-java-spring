@@ -1,6 +1,7 @@
 import { pages } from "./../constants/pages";
 import { getUserRole } from "./StorageHandler";
 import { matchPath } from "react-router-dom";
+import { parseUrl } from "./LinkHandler";
 
 const permissions = {
     [pages.signUp]: ["guest"],
@@ -13,8 +14,17 @@ const permissions = {
     [pages.meeting]: ["user", "speaker", "moderator"],
 };
 
-export const checkPermission = (url) => {
+export const checkPermission = url => {
     const role = getUserRole();
+    return checkPermissionForRole(url, role);
+}
+
+export const availableForGuest = fullUrl => {
+    const [, url] = parseUrl(fullUrl);
+    return checkPermissionForRole(url, "guest");
+}
+
+const checkPermissionForRole = (url, role) => {
     if (typeof permissions[url] !== "undefined") {
         return permissions[url].includes(role);
     }

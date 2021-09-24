@@ -11,6 +11,7 @@ export const JOIN_USER_TO_MEETING_URL = API + "/users/join-to-meeting";
 export const EDIT_USER_PRESENCE_URL = API + "/users/edit-presence";
 
 export const LOGIN_URL = API + "/auth/login";
+export const LOGOUT_URL = API + "/auth/logout";
 
 export const SIGN_UP_URL = API + "/sign-up";
 
@@ -43,3 +44,5 @@ export const CREATE_TOPIC_URL = API + "/topics/create";
 export const EDIT_TOPIC_URL = API + "/topics/edit";
 export const GET_TOPICS_BY_MEETING_ID_URL = API + "/topics/get-by-meeting";
 export const SET_SPEAKER_FOR_TOPIC_URL = API + "/topics/set-speaker";
+
+export const REFRESH_TOKEN_URL = API + "/token/refresh";

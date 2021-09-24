@@ -4,7 +4,7 @@ import { useLink } from "../../hooks/useLink";
 import { useTitle } from "../../hooks/useTitle";
 import { useMessage } from "../../hooks/useMessage";
 import RoleController from "../RoleController/RoleController";
-import { getUser, refreshUser } from "./../../handler/StorageHandler";
+import { getUser } from "./../../handler/StorageHandler";
 import UserDataForm from "./UserDataForm";
 import M from "materialize-css";
 import ProposedTopicsButton from "./ProposedTopicsButton";
@@ -24,12 +24,17 @@ function ProfilePage() {
     const changeAvatarLink = useLink(pages.changeAvatar);
     const speakerMeetingsLink = useLink(pages.speakerMeetings);
 
-    const [user, setUser] = useState(getUser());
+    const [user, setUser] = useState(null);
     const [state, setState] = useState(1);
 
     useEffect(() => {
         M.updateTextFields();
-    });
+        const fetchUser = async () => {
+            setUser(getUser());
+        }
+
+        fetchUser();
+    }, []);
 
     const clickFile = () => {
         photoInputRef.current.click();
@@ -47,7 +52,6 @@ function ProfilePage() {
                     imagePath: DEFAULT_AVATAR
                 }
             });
-            refreshUser(user);
             setUser(getUser());
             setState(produceNewState);
         }

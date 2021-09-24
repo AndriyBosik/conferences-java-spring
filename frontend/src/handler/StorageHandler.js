@@ -1,45 +1,50 @@
-const STORAGE_KEY = "storageData";
+import { tokenStore } from "./../stores/TokenStore";
 
 export const refreshAccessToken = newToken => {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    data.accessToken = newToken;
-    saveData(data);
+    tokenStore.accessToken = newToken;
 }
 
 export const getUserRole = () => {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (data == null) {
+    const user = getUserFromToken(tokenStore.accessToken);
+    if (user == null) {
         return "guest";
     }
-    const user = getUserFromToken(data.accessToken);
     return user.role.title;
 }
 
-export const saveData = (data) => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+export const saveData = data => {
+    tokenStore.accessToken = data.accessToken;
 }
 
 export const clearData = () => {
-    localStorage.removeItem(STORAGE_KEY);
+    tokenStore.accessToken = null;
 }
 
 export const getUser = () => {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    return data == null ? null : getUserFromToken(data.accessToken);
+    return tokenStore.accessToken == null ? null : getUserFromToken(tokenStore.accessToken);
 }
 
 export const getAccessToken = () => {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    return data == null ? null : data.accessToken;
+    return tokenStore == null ? null : tokenStore.accessToken;
 }
 
-export const refreshUser = newUser => {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    data.user = newUser;
-    saveData(data);
+export const isTokenValid = () => {
+    return tokenStore.accessToken != null && (Date.now() / 1000) < getTokenExpiration(getAccessToken());
+}
+
+const getTokenExpiration = token => {
+    if (token == null) {
+        return null;
+    }
+    const payload = token.split(".")[1];
+    const value = Buffer.from(payload, "base64");
+    return JSON.parse(JSON.parse(value).exp);
 }
 
 const getUserFromToken = token => {
+    if (token == null) {
+        return null;
+    }
     const payload = token.split(".")[1];
     const value = Buffer.from(payload, "base64");
     return JSON.parse(JSON.parse(value).sub);

@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import { useMessage } from "../../../hooks/useMessage";
 import { logoutUser, isAuthorized } from "./../../../services/AuthService";
 import { Redirect } from "react-router";
+import { showPopup } from "./../../../handler/PopupHandler";
 
 function LeftPanel() {
-    const [isLoggedIn, setIsLoggedIn] = useState(isAuthorized());
+    const authorized = isAuthorized();
+    const [isLoggedIn, setIsLoggedIn] = useState(authorized);
     
     const loginPageLink = useLink(pages.home);
     const profileLink = useLink(pages.profile);
@@ -20,10 +22,14 @@ function LeftPanel() {
     const proposalsMessage = useMessage("proposals");
     const logoutMessage = useMessage("logout");
 
-    const handleLogout = event => {
+    const handleLogout = async event => {
         event.preventDefault();
-        logoutUser();
-        setIsLoggedIn(false);
+        const result = await logoutUser();
+        if (result) {
+            setIsLoggedIn(false);
+        } else {
+            showPopup("error_happened");
+        }
     }
 
     return (
