@@ -1,20 +1,24 @@
 package com.conferences.handler.implementation;
 
 import com.conferences.handler.abstraction.IFileHandler;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+@Log4j2
 @Component
 public class FileHandler implements IFileHandler {
 
     @Override
     public String generateNewFilename(String prefix, String filename) {
+        log.info("Generating new filename");
         return prefix + "." + getFileExtension(filename);
     }
 
     @Override
     public String addTimestampToFilename(String prefix, String filename) {
+        log.info("Adding timestamp to filename");
         String timestamp = retrieveDigits(LocalDateTime.now().toString());
         return prefix + timestamp + "." + getFileExtension(filename);
     }

@@ -5,12 +5,14 @@ import com.conferences.entity.projection.proposal.topic.IMeetingTopicProposalsDa
 import com.conferences.repository.IMeetingRepository;
 import com.conferences.repository.ITopicProposalRepository;
 import com.conferences.service.abstraction.ITopicProposalsService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Log4j2
 @Service
 public class TopicProposalsService implements ITopicProposalsService {
 
@@ -25,21 +27,25 @@ public class TopicProposalsService implements ITopicProposalsService {
 
     @Override
     public List<IMeetingTopicProposalsData> getAllMeetingProposals() {
+        log.info("Getting topic proposals for each meeting");
         return new ArrayList<>(meetingRepository.getMeetingsProposals());
     }
 
     @Override
     public long getCount() {
+        log.info("Getting count of topic proposals");
         return topicProposalRepository.count();
     }
 
     @Override
     public void reject(int topicProposalId) {
+        log.info("Deleting topic proposal");
         topicProposalRepository.deleteById(topicProposalId);
     }
 
     @Override
     public TopicProposal create(TopicProposal topicProposal) {
+        log.info("Creating topic proposal");
         return topicProposalRepository.save(topicProposal);
     }
 }

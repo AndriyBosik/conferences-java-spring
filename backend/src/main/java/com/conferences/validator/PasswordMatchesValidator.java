@@ -3,6 +3,7 @@ package com.conferences.validator;
 import com.conferences.annotation.Password;
 import com.conferences.annotation.PasswordMatches;
 import com.conferences.model.UserRegistrationData;
+import lombok.extern.log4j.Log4j2;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -11,10 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Log4j2
 public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
 
     @Override
     public boolean isValid(Object object, ConstraintValidatorContext constraintValidatorContext) {
+        log.info("Validating passwords to match");
         List<String> passwords = new ArrayList<>();
         Field[] fields = object.getClass().getDeclaredFields();
         for (Field field: fields) {
@@ -26,7 +29,7 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
             try {
                 passwords.add((String) field.get(object));
             } catch (IllegalAccessException exception) {
-                exception.printStackTrace();
+                log.error("Unable to access password field", exception);
             }
             if (passwords.size() == 2) {
                 break;

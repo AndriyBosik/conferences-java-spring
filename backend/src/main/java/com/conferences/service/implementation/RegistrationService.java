@@ -7,9 +7,11 @@ import com.conferences.model.UserRegistrationData;
 import com.conferences.repository.IRoleRepository;
 import com.conferences.repository.IUserRepository;
 import com.conferences.service.abstraction.IRegistrationService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+@Log4j2
 @Service
 public class RegistrationService implements IRegistrationService {
 
@@ -27,13 +29,16 @@ public class RegistrationService implements IRegistrationService {
 
     @Override
     public User signUpUser(UserRegistrationData userRegistrationData) {
+        log.info("Trying to sign up user");
         if (userRepository.findByLoginOrEmail(userRegistrationData.getLogin(), userRegistrationData.getEmail()) != null) {
+            log.warn("User with such email or login already exists");
             return null;
         }
         Role role = roleRepository.findByTitle(userRegistrationData.getRole());
         User user = mapper.map(userRegistrationData);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(role);
+        log.info("Saving user to database");
         return userRepository.save(user);
     }
 }

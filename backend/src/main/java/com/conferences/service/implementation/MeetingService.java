@@ -13,6 +13,7 @@ import com.conferences.repository.IMeetingRepository;
 import com.conferences.repository.IReportTopicRepository;
 import com.conferences.repository.IUserMeetingRepository;
 import com.conferences.service.abstraction.IMeetingService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Log4j2
 @Service
 public class MeetingService implements IMeetingService {
 
@@ -39,16 +41,19 @@ public class MeetingService implements IMeetingService {
 
     @Override
     public Page<IMeetingWithStats> getMeetingsByPage(Pageable pageable, DateFilter dateFilter) {
+        log.info("Getting {} meetings for {} page", pageable.getPageSize(), pageable.getPageNumber() + 1);
         return meetingRepository.findAllWithFilters(pageable, dateFilter);
     }
 
     @Override
     public Page<IMeetingWithStats> getMeetingsByPageAndSpeaker(Pageable pageable, DateFilter dateFilter, Integer speakerId) {
+        log.info("Getting {} speaker meetings for {} page", pageable.getPageSize(), pageable.getPageNumber() + 1);
         return meetingRepository.findAllWithFiltersBySpeaker(pageable, dateFilter, speakerId);
     }
 
     @Override
     public MeetingData getMeeting(int meetingId) {
+        log.info("Getting meeting");
         Meeting meeting = meetingRepository.findAllById(meetingId);
         meeting.getReportTopics().stream()
             .filter(reportTopic -> reportTopic.getReportTopicSpeaker() != null)
@@ -61,16 +66,19 @@ public class MeetingService implements IMeetingService {
 
     @Override
     public List<ReportTopic> getMeetingTopics(int meetingId) {
+        log.info("Getting meeting's report topics");
         return reportTopicRepository.findAllByMeetingId(meetingId);
     }
 
     @Override
     public boolean isUserJoined(UserMeeting userMeeting) {
+        log.info("Checking if user is joined to meeting");
         return userMeetingRepository.findByUserIdAndMeetingId(userMeeting.getUserId(), userMeeting.getMeetingId()) != null;
     }
 
     @Override
     public boolean createMeeting(Meeting meeting) {
+        log.info("Saving meeting");
         meetingRepository.save(meeting);
         return true;
     }
@@ -78,6 +86,7 @@ public class MeetingService implements IMeetingService {
     @Transactional
     @Override
     public boolean editMeeting(MeetingUpdatableData meeting) {
+        log.info("Editing meeting");
         meetingRepository.editMeeting(meeting);
         return true;
     }

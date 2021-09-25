@@ -5,7 +5,6 @@ import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IUserPresence;
 import com.conferences.entity.projection.IUserPublicData;
 import com.conferences.model.UserPublicData;
-import com.conferences.model.UserRegistrationData;
 import com.conferences.model.UserUpdateData;
 import com.conferences.service.abstraction.IUserMeetingService;
 import com.conferences.service.abstraction.IUserService;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 @RestController

@@ -12,6 +12,7 @@ import com.conferences.model.MeetingUpdatableData;
 import com.conferences.model.RequestSorter;
 import com.conferences.service.abstraction.IMeetingService;
 import com.conferences.service.abstraction.IStorageService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.util.List;
 
+@Log4j2
 @RestController
 @RequestMapping("/api/meetings")
 public class MeetingController {
@@ -76,11 +78,16 @@ public class MeetingController {
 
     @PostMapping(value = "/create", consumes = {"multipart/form-data"})
     public boolean createMeeting(@RequestPart("file") MultipartFile file, @Valid @RequestPart("meeting") Meeting meeting) {
+        log.info("Creating meeting");
         String imagePath = fileHandler.addTimestampToFilename("meeting", file.getOriginalFilename());
-        storageService.store(file, imagePath, "/meetings");
-        meeting.setImagePath(imagePath);
-        meetingService.createMeeting(meeting);
-        return true;
+        if (storageService.store(file, imagePath, "/meetings")) {
+            log.info("Meeting's image is saved");
+            meeting.setImagePath(imagePath);
+            meetingService.createMeeting(meeting);
+            return true;
+        }
+        log.warn("Meeting's image is not saved. Meeting not saved");
+        return false;
     }
 
     @PostMapping("/edit")

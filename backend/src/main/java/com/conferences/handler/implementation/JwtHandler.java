@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
-@Component
 @Log4j2
+@Component
 public class JwtHandler implements IJwtHandler {
 
     private static final String JWT_SECRET = "jwt_secret";
@@ -30,10 +30,12 @@ public class JwtHandler implements IJwtHandler {
     }
 
     public String generateToken(User user) {
+        log.info("Generating token");
         return generateToken(user, Date.from(LocalDateTime.now().plusMinutes(30).atZone(ZoneId.systemDefault()).toInstant()));
     }
 
     public String generateToken(User user, Date expiration) {
+        log.info("Generating token with expiration");
         String jsonUser = "";
         try {
             userPrivateDataHandler.clearPrivateData(user);
@@ -49,12 +51,14 @@ public class JwtHandler implements IJwtHandler {
             .compact();
     }
 
+    @Override
     public boolean validateToken(String token) {
         try {
+            log.info("Validating token");
             Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token);
             return true;
         } catch (Exception exception) {
-            exception.printStackTrace();
+            log.error("Token is invalid", exception);
         }
         return false;
     }
@@ -63,9 +67,10 @@ public class JwtHandler implements IJwtHandler {
         String jsonUser = Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token).getBody().getSubject();
         User user = null;
         try {
+            log.info("Parsing user from token JSON value");
             user = objectMapper.readValue(jsonUser, User.class);
         } catch (JsonProcessingException exception) {
-            exception.printStackTrace();
+            log.error("Unable to parse", exception);
         }
         return user;
     }

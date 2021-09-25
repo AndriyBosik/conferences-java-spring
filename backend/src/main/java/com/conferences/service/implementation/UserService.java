@@ -11,6 +11,7 @@ import com.conferences.repository.IUserMeetingRepository;
 import com.conferences.repository.IUserRepository;
 import com.conferences.service.abstraction.ISecurityService;
 import com.conferences.service.abstraction.IUserService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Log4j2
 @Service
 public class UserService implements IUserService {
 
@@ -37,11 +39,13 @@ public class UserService implements IUserService {
 
     @Override
     public User getUserByLogin(String login) {
+        log.info("Getting user by login");
         return userRepository.findByLogin(login);
     }
 
     @Override
     public List<UserPublicData> getUsersByRole(String role) {
+        log.info("Getting users by role and mapping to hide private data");
         return userRepository.findAllByRole(role).stream()
             .map(mapper::map)
             .collect(Collectors.toList());
@@ -49,6 +53,7 @@ public class UserService implements IUserService {
 
     @Override
     public List<UserPublicData> getAvailableSpeakersByTopic(int topicId) {
+        log.info("Getting users which are available to topic and mapping them to hide private data");
         return userRepository.findAvailableSpeakersByTopic(topicId).stream()
             .map(mapper::map)
             .collect(Collectors.toList());
@@ -56,11 +61,13 @@ public class UserService implements IUserService {
 
     @Override
     public List<IUserPublicData> getProposedSpeakersForTopic(int topicId) {
+        log.info("Getting speakers which were proposed to report topic");
         return new ArrayList<>(userRepository.findProposedSpeakersForTopic(topicId));
     }
 
     @Override
     public String updateUser(UserUpdateData userUpdateData) {
+        log.info("Updating user data");
         User user = userRepository.findByLogin(securityService.getUserLogin());
         user.setLogin(userUpdateData.getLogin());
         user.setName(userUpdateData.getName());
@@ -69,7 +76,23 @@ public class UserService implements IUserService {
         if (!updateUserPassword(user, userUpdateData)) {
             return "";
         }
+        log.info("Saving user new data");
         userRepository.save(user);
+        return securityService.reAuthenticateUser(user);
+    }
+
+    @Override
+    public String getUserEmail() {
+        log.info("Getting authenticated user email");
+        return userRepository.findEmailByUserLogin(securityService.getUserLogin());
+    }
+
+    @Override
+    public String updateUserImagePath(String imagePath) {
+        log.info("Updating user's image path");
+        String login = securityService.getUserLogin();
+        userRepository.updateImagePath(login, imagePath);
+        User user = userRepository.findByLogin(login);
         return securityService.reAuthenticateUser(user);
     }
 
@@ -78,25 +101,15 @@ public class UserService implements IUserService {
             return true;
         }
         if (!passwordEncoder.matches(userUpdateData.getOldPassword(), user.getPassword())) {
+            log.warn("Passwords do not match");
             return false;
         }
         if (userUpdateData.getNewPassword().length() < 5) {
+            log.warn("Password is invalid");
             return false;
         }
         user.setPassword(passwordEncoder.encode(userUpdateData.getNewPassword()));
+        log.warn("Password updates successfully");
         return true;
-    }
-
-    @Override
-    public String getUserEmail() {
-        return userRepository.findEmailByUserLogin(securityService.getUserLogin());
-    }
-
-    @Override
-    public String updateUserImagePath(String imagePath) {
-        String login = securityService.getUserLogin();
-        userRepository.updateImagePath(login, imagePath);
-        User user = userRepository.findByLogin(login);
-        return securityService.reAuthenticateUser(user);
     }
 }

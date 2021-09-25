@@ -2,13 +2,16 @@ package com.conferences.mapper;
 
 import com.conferences.entity.User;
 import com.conferences.model.UserPublicData;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
+@Log4j2
 @Component
 public class UserToUserPublicDataMapper implements IMapper<User, UserPublicData> {
 
     @Override
     public UserPublicData map(User user) {
+        log.info("Mapping {} to {}", User.class.getTypeName(), UserPublicData.class.getTypeName());
         UserPublicData userPublicData = new UserPublicData();
         userPublicData.setId(user.getId());
         userPublicData.setLogin(user.getLogin());

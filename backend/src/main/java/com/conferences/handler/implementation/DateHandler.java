@@ -2,6 +2,7 @@ package com.conferences.handler.implementation;
 
 import com.conferences.handler.abstraction.IDateHandler;
 import com.fasterxml.jackson.databind.JsonNode;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+@Log4j2
 @Component
 public class DateHandler implements IDateHandler {
 
@@ -17,6 +19,7 @@ public class DateHandler implements IDateHandler {
 
     @Override
     public LocalDateTime parseDateFromJsonNode(JsonNode node) {
+        log.info("Parsing JSON date to {}", LocalDateTime.class.getTypeName());
         String strDate =    node.get("date").textValue() + " " +
                             addZeroToBegin(node.get("hours").textValue()) + ":" +
                             addZeroToBegin(node.get("minutes").textValue());

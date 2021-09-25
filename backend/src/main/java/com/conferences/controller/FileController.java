@@ -4,12 +4,14 @@ import com.conferences.handler.abstraction.IFileHandler;
 import com.conferences.service.abstraction.ISecurityService;
 import com.conferences.service.abstraction.IStorageService;
 import com.conferences.service.abstraction.IUserService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+@Log4j2
 @RestController
 @RequestMapping("/api/files")
 public class FileController {
@@ -28,10 +30,13 @@ public class FileController {
 
     @PostMapping("/save-avatar")
     public String saveAvatar(@RequestParam("file") MultipartFile file) {
+        log.info("Saving user avatar");
         String filename = fileHandler.generateNewFilename(securityService.getUserLogin(), file.getOriginalFilename());
         if (storageService.store(file, filename, "/avatars")) {
+            log.info("Updating user image path");
             return userService.updateUserImagePath(filename);
         }
+        log.warn("Avatar is not saved");
         return "";
     }
 }

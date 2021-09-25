@@ -2,6 +2,7 @@ package com.conferences.service.implementation;
 
 import com.conferences.config.StorageProperties;
 import com.conferences.service.abstraction.IStorageService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,6 +15,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+@Log4j2
 @Service
 public class StorageService implements IStorageService {
 
@@ -23,8 +25,26 @@ public class StorageService implements IStorageService {
     public StorageService(StorageProperties properties) {
         URL urlLoader = StorageService.class.getProtectionDomain().getCodeSource().getLocation();
         String loaderDir = urlLoader.getPath();
-        
         this.location = loaderDir + properties.getLocation();
+    }
+
+    @Override
+    public boolean store(MultipartFile file, String filename, String pathname) {
+        Path path = init(location + pathname);
+        log.info("Storing file");
+        try {
+            if (file.isEmpty()) {
+                log.warn("File is empty");
+                return false;
+            }
+            try (InputStream inputStream = file.getInputStream()) {
+                Files.copy(inputStream, path.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (IOException exception) {
+            log.error("Unable to store", exception);
+            return false;
+        }
+        return true;
     }
 
     private Path init(String pathname) {
@@ -36,23 +56,5 @@ public class StorageService implements IStorageService {
             return null;
         }
         return path;
-    }
-
-    @Override
-    public boolean store(MultipartFile file, String filename, String pathname) {
-        Path path = init(location + pathname);
-        System.out.println(pathname + " " + filename);
-        try {
-            if (file.isEmpty()) {
-                return false;
-            }
-            try (InputStream inputStream = file.getInputStream()) {
-                Files.copy(inputStream, path.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-            return false;
-        }
-        return true;
     }
 }

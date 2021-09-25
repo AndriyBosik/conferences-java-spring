@@ -4,12 +4,14 @@ import com.conferences.entity.UserMeeting;
 import com.conferences.entity.projection.IUserPresence;
 import com.conferences.repository.IUserMeetingRepository;
 import com.conferences.service.abstraction.IUserMeetingService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Log4j2
 @Service
 public class UserMeetingService implements IUserMeetingService {
 
@@ -22,11 +24,13 @@ public class UserMeetingService implements IUserMeetingService {
 
     @Override
     public List<IUserPresence> getJoinedUsersByMeeting(int meetingId) {
+        log.info("Getting users by meeting");
         return new ArrayList<>(userMeetingRepository.findAllByMeeting(meetingId));
     }
 
     @Override
     public boolean joinUserToMeeting(UserMeeting userMeeting) {
+        log.info("Joining user to meeting");
         userMeeting.setPresent(false);
         userMeetingRepository.save(userMeeting);
         return true;
@@ -34,6 +38,7 @@ public class UserMeetingService implements IUserMeetingService {
 
     @Override
     public boolean editUserPresence(UserMeeting userMeeting) {
+        log.info("Editing user presence");
         userMeetingRepository.save(userMeeting);
         return true;
     }
