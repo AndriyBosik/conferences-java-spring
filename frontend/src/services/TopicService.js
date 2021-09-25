@@ -8,15 +8,15 @@ export const getSpeakerProposedTopicsIds = async (speakerId, meetingId) => {
             speakerId: speakerId,
             meetingId: meetingId
         }
-    }, response => response.data);
+    }, response => response.data, () => []);
 }
 
 export const createFromProposal = async topicProposalId => {
-    return doPost(CREATE_TOPIC_FROM_PROPOSAL_URL, {id: topicProposalId}, {}, response => response.data);
+    return doPost(CREATE_TOPIC_FROM_PROPOSAL_URL, {id: topicProposalId}, {}, response => response.data, () => false);
 }
 
 export const rejectTopicProposal = async topicProposalId => {
-    return doPost(REJECT_TOPIC_PROPOSAL_URL, {id: topicProposalId}, {}, response => response.data);
+    return doPost(REJECT_TOPIC_PROPOSAL_URL, {id: topicProposalId}, {}, response => response.data, () => false);
 }
 
 export const createTopic = async topic => {
@@ -30,6 +30,9 @@ export const createTopic = async topic => {
     return doPost(CREATE_TOPIC_URL, topic, {}, response => ({
         errors: [],
         data: response.data
+    }), () => ({
+        errors: [],
+        data: false
     }));
 }
 
@@ -44,6 +47,9 @@ export const editTopic = async topic => {
     return doPost(EDIT_TOPIC_URL, topic, {}, response => ({
         errors: [],
         data: response.data
+    }), () => ({
+        errors: [],
+        data: false
     }));
 }
 
@@ -52,5 +58,5 @@ export const getTopicsByMeetingId = async meetingId => {
         params: {
             meetingId: meetingId
         }
-    }, response => response.data);
+    }, response => response.data, () => []);
 }

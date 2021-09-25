@@ -6,12 +6,12 @@ import { doGet, doPost } from "../handler/AuthRequestHandler";
 
 export const getSpeakerProposals = async (speakerId) => {
     const url = format(GET_TOPICS_WITH_SPEAKER_PROPOSALS_URL, {speakerId: speakerId});
-    return doGet(url, {}, response => response.data);
+    return doGet(url, {}, response => response.data, () => []);
 }
 
 export const getForSpeakerProposals = async (speakerId) => {
     const url = format(GET_MODERATOR_PRPOSALS_URL, {speakerId: speakerId});
-    return doGet(url, {}, response => response.data);
+    return doGet(url, {}, response => response.data, () => []);
 }
 
 export const createTopicProposal = async topicProposal => {
@@ -26,19 +26,22 @@ export const createTopicProposal = async topicProposal => {
     return doPost(CREATE_TOPIC_PROPOSAL_URL, topicProposal, {}, response => ({
         errors: [],
         data: response.data
+    }), () => ({
+        errors: [],
+        data: []
     }));
 }
 
 export const getTopicProposals = async () => {
-    return doGet(GET_TOPIC_PROPOSALS_URL, {}, response => response.data);
+    return doGet(GET_TOPIC_PROPOSALS_URL, {}, response => response.data, () => []);
 }
 
 export const getProposedTopicsCount = async () => {
-    return doGet(GET_TOPIC_PROPOSALS_COUNT_URL, {}, response => response.data);
+    return doGet(GET_TOPIC_PROPOSALS_COUNT_URL, {}, response => response.data, () => 0);
 }
 
 export const rejectModeratorProposal = async proposalId => {
-    return doPost(REJECT_TOPIC_PROPOSAL_URL, {id: proposalId}, {}, response => response.data);
+    return doPost(REJECT_TOPIC_PROPOSAL_URL, {id: proposalId}, {}, response => response.data, () => false);
 }
 
 export const acceptModeratorProposal = async reportTopic => {
@@ -47,13 +50,13 @@ export const acceptModeratorProposal = async reportTopic => {
         reportTopicId: reportTopic.id,
         speakerId: getUser().id
     };
-    return doPost(ACCEPT_MODERATOR_PROPOSAL_URL, moderatorProposal, {}, response => response.data);
+    return doPost(ACCEPT_MODERATOR_PROPOSAL_URL, moderatorProposal, {}, response => response.data, () => false);
 }
 
 export const proposeSpeaker = async speakerProposal => {
-    return doPost(MAKE_SPEAKER_PROPOSAL, speakerProposal, {}, response => response.data);
+    return doPost(MAKE_SPEAKER_PROPOSAL, speakerProposal, {}, response => response.data, () => false);
 }
 
 export const proposeTopicForSpeaker = async moderatorProposal => {
-    return doPost(PROPOSE_TOPIC_FOR_SPEAKER_URL, moderatorProposal, {}, response => response.data);
+    return doPost(PROPOSE_TOPIC_FOR_SPEAKER_URL, moderatorProposal, {}, response => response.data, () => false);
 }

@@ -30,7 +30,7 @@ public class JwtHandler implements IJwtHandler {
     }
 
     public String generateToken(User user) {
-        return generateToken(user, Date.from(LocalDateTime.now().plusMinutes(1).atZone(ZoneId.systemDefault()).toInstant()));
+        return generateToken(user, Date.from(LocalDateTime.now().plusMinutes(30).atZone(ZoneId.systemDefault()).toInstant()));
     }
 
     public String generateToken(User user, Date expiration) {

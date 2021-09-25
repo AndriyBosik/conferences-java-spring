@@ -13,7 +13,7 @@ export const doGet = async (url, params = {}, onSuccess = () => {}, onError = ()
     }
 }
 
-export const doPost = async (url, data = {}, params = {}, onSuccess, onError) => {
+export const doPost = async (url, data = {}, params = {}, onSuccess = () => {}, onError = () => {}) => {
     try {
         await refreshToken();
         params = initParamsWithAuthorizationHeader(params);

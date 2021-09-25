@@ -11,6 +11,7 @@ import ProposedTopicsButton from "./ProposedTopicsButton";
 import { saveAvatar } from "./../../services/FileService";
 import { getUserAvatar } from "./../../handler/ImageHandler";
 import { DEFAULT_AVATAR } from "./../../constants/defaults";
+import { showPopup } from "./../../handler/PopupHandler";
 
 function ProfilePage() {
     useTitle("profile");
@@ -54,6 +55,8 @@ function ProfilePage() {
             });
             setUser(getUser());
             setState(produceNewState);
+        } else {
+            showPopup("error_happened");
         }
     }
     

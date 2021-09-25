@@ -12,6 +12,7 @@ import ModeratorModals from "./ModeratorModals";
 import CreateTopicProposalModal from "./../shared/modals/CreateTopicProposal/CreateTopicProposalModal";
 import CircularPreloader from "./../CircularPreloader/CircularPreloader";
 import { getTopicsByMeetingId } from "../../services/TopicService";
+import { showPopup } from "./../../handler/PopupHandler";
 
 function MeetingPage({meetingId}) {
     const user = getUser();
@@ -43,6 +44,10 @@ function MeetingPage({meetingId}) {
         const fetchMeeting = async () => {
             setLoading(true);
             const meetingData = await getMeeting(meetingId);
+            if (meetingData == null) {
+                showPopup("error_happened");
+                return;
+            }
             document.title = meetingData.meeting.title;
             setMeeting(meetingData.meeting);
             setUsersPresence(meetingData.usersPresence);

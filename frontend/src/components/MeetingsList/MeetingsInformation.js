@@ -6,6 +6,7 @@ import Pagination from "../Pagination/Pagination";
 import { useMessage } from "../../hooks/useMessage";
 import { initTooltips } from "../../handler/MaterializeInitializersHandler";
 import { DEFAULT_MEETINGS_FILTER, MEETINGS_COUNT } from "../../constants/defaults";
+import { showPopup } from "./../../handler/PopupHandler";
 
 function MeetingsInformation({meetingsFetcher, editCallback = () => {}}) {
     const pageNotFoundMessage = useMessage("page_not_found");
@@ -19,6 +20,10 @@ function MeetingsInformation({meetingsFetcher, editCallback = () => {}}) {
         const fetchMeetings = async (page, items, filters) => {
             setLoading(true);
             const meetingsData = await meetingsFetcher(page, items, filters);
+            if (meetingsData == null) {
+                showPopup("error_happened");
+                return;
+            }
             setMeetings(meetingsData.content);
             setTotalPages(meetingsData.totalPages);
             setLoading(false);

@@ -8,7 +8,7 @@ export const getAllMeetings = async (page, items, filters) => {
     const url = format(MEETINGS_BY_PAGE_URL, {page: page, items: items});
     return doGet(url, {
         params: filters
-    }, response => response.data);
+    }, response => response.data, () => null);
 };
 
 export const getAllMeetingsForSpeaker = speakerId => async (page, items, filters) => {
@@ -18,12 +18,12 @@ export const getAllMeetingsForSpeaker = speakerId => async (page, items, filters
             ...filters,
             speakerId
         }
-    }, response => response.data);
+    }, response => response.data, () => null);
 }
 
 export const getMeeting = async meetingId => {
     const url = format(MEETING_URL, {meetingId: meetingId});
-    return doGet(url, {}, response => response.data);
+    return doGet(url, {}, response => response.data, () => null);
 }
 
 export const checkUserJoined = async (userId, meetingId) => {
@@ -32,7 +32,7 @@ export const checkUserJoined = async (userId, meetingId) => {
             userId: userId,
             meetingId: meetingId
         }
-    }, response => response.data);
+    }, response => response.data, () => false);
 }
 
 export const createMeeting = (file, data) => {
@@ -43,6 +43,7 @@ export const createMeeting = (file, data) => {
             data: false
         };
     }
+    data.title = "";
     const formData = new FormData();
     formData.append("file", file);
     formData.append("meeting", new Blob([JSON.stringify(data)], {
@@ -55,6 +56,9 @@ export const createMeeting = (file, data) => {
     }, response => ({
         errors: [],
         data: response.data
+    }), () => ({
+        errors: [],
+        data: false
     }))
 }
 
@@ -69,5 +73,8 @@ export const editMeeting = async data => {
     return doPost(EDIT_MEETING_URL, data, {}, response => ({
         errors: [],
         data: response.data
+    }), () => ({
+        errors: [],
+        data: false
     }));
 }

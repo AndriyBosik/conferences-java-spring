@@ -3,11 +3,11 @@ import { doGet, doPost } from "../handler/AuthRequestHandler";
 import { getUser, getUserRole, refreshAccessToken } from "../handler/StorageHandler";
 
 export const getUserEmail = async () => {
-    return doGet(GET_USER_EMAIL_URL, {}, response => response.data);
+    return doGet(GET_USER_EMAIL_URL, {}, response => response.data, () => "");
 }
 
 export const getSpeakers = async () => {
-    return doGet(GET_SPEAKERS_URL, {}, response => response.data);
+    return doGet(GET_SPEAKERS_URL, {}, response => response.data, () => []);
 }
 
 export const getAvailableSpeakers = async topicId => {
@@ -15,7 +15,7 @@ export const getAvailableSpeakers = async topicId => {
         params: {
             topicId
         }
-    }, response => response.data);
+    }, response => response.data, () => []);
 }
 
 export const getSpeakerProposals = async topicId => {
@@ -23,7 +23,7 @@ export const getSpeakerProposals = async topicId => {
         params: {
             topicId
         }
-    }, response => response.data);
+    }, response => response.data, () => []);
 }
 
 export const getMeetingUsers = async meetingId => {
@@ -31,7 +31,7 @@ export const getMeetingUsers = async meetingId => {
         params: {
             meetingId
         }
-    }, response => response.data);
+    }, response => response.data, () => []);
 }
 
 export const updateProfile = async userProfile => {
@@ -49,7 +49,7 @@ export const updateProfile = async userProfile => {
             return true;
         }
         return false;
-    })
+    }, () => false);
 }
 
 export const joinToMeeting = async userMeeting => {
@@ -57,13 +57,13 @@ export const joinToMeeting = async userMeeting => {
         ...userMeeting,
         userId: getUser().id
     }
-    return doPost(JOIN_USER_TO_MEETING_URL, userMeeting, {}, response => response.data);
+    return doPost(JOIN_USER_TO_MEETING_URL, userMeeting, {}, response => response.data, () => false);
 }
 
 export const editUserPresence = async userMeeting => {
-    return doPost(EDIT_USER_PRESENCE_URL, userMeeting, {}, response => response.data);
+    return doPost(EDIT_USER_PRESENCE_URL, userMeeting, {}, response => response.data, () => false);
 }
 
 export const selectSpeakerForTopic = async reportTopicSpeaker => {
-    return doPost(SET_SPEAKER_FOR_TOPIC_URL, reportTopicSpeaker, {}, response => response.data);
+    return doPost(SET_SPEAKER_FOR_TOPIC_URL, reportTopicSpeaker, {}, response => response.data, () => false);
 }

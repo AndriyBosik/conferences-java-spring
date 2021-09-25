@@ -15,5 +15,8 @@ export const saveAvatar = async avatar => {
             status: "success",
             data: response.data
         };
-    })
+    }, () => ({
+        status: "error",
+        data: null
+    }));
 }
