@@ -1,0 +1,29 @@
+:root {
+    --bg-primary: #fff9c4;
+    --shadow-primary: #009688;
+    --shadow-secondary: #ff8f00;
+}
+
+#error-404 {
+    background-color: var(--bg-primary);
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#error-404 .error-code {
+    color: var(--bg-primary);
+    font-size: 220px;
+    text-shadow: 4px 4px 0px var(--shadow-primary), -4px -4px 0px var(--shadow-primary);
+}
+
+#error-404 .error-code span {
+    text-shadow: 4px 4px 0px var(--shadow-secondary), -4px -4px 0px var(--shadow-secondary)
+}
+
+#error-404 h1.error-code {
+    margin: 0;
+}
+
+#error-404 .error-text {
+    font-size: 60px;
+    color: var(--shadow-primary);
+}

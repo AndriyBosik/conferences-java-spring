@@ -15,6 +15,12 @@ import ProposedTopicsPage from "../ProposedTopics/ProposedTopicsPage";
 import SpeakerMeetingsPage from "../SpeakerMeetings/SpeakerMeetingsPage";
 import Footer from "../shared/Footer/Footer";
 import { refreshToken } from "../../handler/TokenHandler";
+import './../../App.css';
+import 'materialize-css/dist/css/materialize.min.css';
+import './../../shared/css/common.css';
+import './../../shared/css/indentations.css';
+import './../../shared/css/materialize-extensions.css';
+import './../../shared/css/site.css';
 
 function AppRoutes() {
     const homePageLink = useLink(pages.home);
