@@ -1,6 +1,5 @@
 package com.conferences.config;
 
-import com.conferences.entity.User;
 import com.conferences.handler.implementation.JwtHandler;
 import com.conferences.model.Account;
 import lombok.extern.log4j.Log4j2;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
@@ -42,7 +40,6 @@ public class JwtFilter extends GenericFilterBean {
             log.info("User is successfully authenticated");
             SecurityContextHolder.getContext().setAuthentication(auth);
         }
-        log.warn("Token is invalid");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

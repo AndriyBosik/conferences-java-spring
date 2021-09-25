@@ -43,7 +43,6 @@ export const createMeeting = (file, data) => {
             data: false
         };
     }
-    data.title = "";
     const formData = new FormData();
     formData.append("file", file);
     formData.append("meeting", new Blob([JSON.stringify(data)], {

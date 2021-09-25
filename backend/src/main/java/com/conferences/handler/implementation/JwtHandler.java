@@ -35,7 +35,7 @@ public class JwtHandler implements IJwtHandler {
     }
 
     public String generateToken(User user, Date expiration) {
-        log.info("Generating token with expiration");
+        log.info("Generating token with custom expiration");
         String jsonUser = "";
         try {
             userPrivateDataHandler.clearPrivateData(user);
@@ -56,11 +56,11 @@ public class JwtHandler implements IJwtHandler {
         try {
             log.info("Validating token");
             Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token);
-            return true;
         } catch (Exception exception) {
             log.error("Token is invalid", exception);
+            return false;
         }
-        return false;
+        return true;
     }
 
     public User getUserFromToken(String token) {
