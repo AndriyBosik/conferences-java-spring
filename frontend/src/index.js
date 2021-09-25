@@ -9,11 +9,11 @@ import { history } from "./handler/HistoryHandler";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<ErrorBoundary>
-			<Router history={history}>
+		<Router history={history}>
+			<ErrorBoundary>
 				<AppRoutes />
-			</Router>
-		</ErrorBoundary>
+			</ErrorBoundary>
+		</Router>
 	</React.StrictMode>,
 	document.getElementById('root')
 );

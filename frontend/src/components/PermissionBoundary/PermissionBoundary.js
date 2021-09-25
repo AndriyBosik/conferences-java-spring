@@ -4,6 +4,7 @@ import { useEffect } from "react/cjs/react.development";
 import { checkPermission } from "./../../handler/PermissionsHandler";
 import { history } from "./../../handler/HistoryHandler";
 import { parseUrl } from "./../../handler/LinkHandler";
+import LoadingPage from "../Loading/LoadingPage";
 
 function PermissionBoundary({children}) {
     const [, url] = parseUrl(window.location.pathname);
@@ -29,7 +30,7 @@ function PermissionBoundary({children}) {
     } else if (allowed === -1) {
         return <PageNotFound />;
     }
-    return <div>Loading...</div>
+    return <LoadingPage />
 }
 
 export default PermissionBoundary;
