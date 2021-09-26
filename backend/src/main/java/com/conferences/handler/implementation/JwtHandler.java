@@ -29,11 +29,13 @@ public class JwtHandler implements IJwtHandler {
         this.userPrivateDataHandler = userPrivateDataHandler;
     }
 
+    @Override
     public String generateToken(User user) {
         log.info("Generating token");
         return generateToken(user, Date.from(LocalDateTime.now().plusMinutes(30).atZone(ZoneId.systemDefault()).toInstant()));
     }
 
+    @Override
     public String generateToken(User user, Date expiration) {
         log.info("Generating token with custom expiration");
         String jsonUser = "";
@@ -41,7 +43,7 @@ public class JwtHandler implements IJwtHandler {
             userPrivateDataHandler.clearPrivateData(user);
             jsonUser = objectMapper.writeValueAsString(user);
         } catch (JsonProcessingException exception) {
-            exception.printStackTrace();
+            log.error("Unable to parse user object to JSON", exception);
         }
 
         return Jwts.builder()
@@ -63,6 +65,7 @@ public class JwtHandler implements IJwtHandler {
         return true;
     }
 
+    @Override
     public User getUserFromToken(String token) {
         String jsonUser = Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token).getBody().getSubject();
         User user = null;

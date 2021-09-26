@@ -35,6 +35,6 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
                 break;
             }
         }
-        return passwords.size() == 2 && Objects.equals(passwords.get(0), passwords.get(1));
+        return passwords.size() == 2 && passwords.get(0) != null && passwords.get(0).equals(passwords.get(1));
     }
 }

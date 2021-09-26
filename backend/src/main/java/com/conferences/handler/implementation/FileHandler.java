@@ -13,7 +13,8 @@ public class FileHandler implements IFileHandler {
     @Override
     public String generateNewFilename(String prefix, String filename) {
         log.info("Generating new filename");
-        return prefix + "." + getFileExtension(filename);
+        String extension = getFileExtension(filename);
+        return prefix + (extension.length() > 0 ? ("." + extension) : "");
     }
 
     @Override
@@ -24,8 +25,11 @@ public class FileHandler implements IFileHandler {
     }
 
     private String getFileExtension(String filename) {
+        if (filename.length() == 0) {
+            return "";
+        }
         String[] parts = filename.split("\\.");
-        if (parts.length == 0) {
+        if (parts.length == 1) {
             return "";
         }
         return parts[parts.length - 1];

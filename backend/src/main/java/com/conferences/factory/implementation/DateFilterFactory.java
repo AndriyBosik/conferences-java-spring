@@ -12,13 +12,13 @@ public class DateFilterFactory implements IDateFilterFactory {
     
     @Override
     public DateFilter getDateFilter(String select) {
-        if (select == null) {
-            return null;
-        }
         DateFilter dateFilter = new DateFilter(
             new Timestamp(Integer.MIN_VALUE),
             Timestamp.valueOf(LocalDateTime.now().plusYears(1000))
         );
+        if (select == null) {
+            return dateFilter;
+        }
         if (select.trim().equalsIgnoreCase("future")) {
             dateFilter.setMin(Timestamp.valueOf(LocalDateTime.now()));
         } else if (select.trim().equalsIgnoreCase("past")) {

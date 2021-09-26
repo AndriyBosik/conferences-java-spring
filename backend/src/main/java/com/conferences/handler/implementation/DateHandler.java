@@ -3,6 +3,7 @@ package com.conferences.handler.implementation;
 import com.conferences.handler.abstraction.IDateHandler;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +15,12 @@ import java.util.Locale;
 @Component
 public class DateHandler implements IDateHandler {
 
-    @Value("${date.format}")
-    private String dateFormat;
+    private final String dateFormat;
+
+    @Autowired
+    public DateHandler(@Value("${date.format}") String dateFormat) {
+        this.dateFormat = dateFormat;
+    }
 
     @Override
     public LocalDateTime parseDateFromJsonNode(JsonNode node) {

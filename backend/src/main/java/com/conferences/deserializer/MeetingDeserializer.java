@@ -3,13 +3,11 @@ package com.conferences.deserializer;
 import com.conferences.entity.Meeting;
 import com.conferences.handler.abstraction.IDateHandler;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
@@ -24,7 +22,7 @@ public class MeetingDeserializer extends JsonDeserializer<Meeting> {
     }
 
     @Override
-    public Meeting deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public Meeting deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         log.info("Deserializing JSON to meeting");
         Meeting meeting = new Meeting();

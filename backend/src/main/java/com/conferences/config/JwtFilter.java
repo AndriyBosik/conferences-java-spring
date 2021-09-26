@@ -1,6 +1,6 @@
 package com.conferences.config;
 
-import com.conferences.handler.implementation.JwtHandler;
+import com.conferences.handler.abstraction.IJwtHandler;
 import com.conferences.model.Account;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +24,10 @@ public class JwtFilter extends GenericFilterBean {
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String HEADER_TOKEN_PREFIX = "Bearer ";
 
-    private final JwtHandler jwtHandler;
+    private final IJwtHandler jwtHandler;
 
     @Autowired
-    public JwtFilter(JwtHandler jwtHandler) {
+    public JwtFilter(IJwtHandler jwtHandler) {
         this.jwtHandler = jwtHandler;
     }
 
