@@ -1,6 +1,6 @@
 package com.conferences;
 
-import com.conferences.config.StorageProperties;
+import com.conferences.model.StorageProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

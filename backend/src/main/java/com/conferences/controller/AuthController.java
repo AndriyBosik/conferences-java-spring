@@ -19,6 +19,15 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
+/**
+ * <p>
+ *     Controller which contains routes to handle user authentication and authorization
+ * </p>
+ *
+ * @author Andriy
+ * @version 1.0
+ * @since 2021/09/27
+ */
 @Log4j2
 @RestController
 @RequestMapping("/api/auth")
@@ -37,6 +46,12 @@ public class AuthController {
         this.mapper = mapper;
     }
 
+    /**
+     * <p>Handler user login</p>
+     * @param authRequest contains user's credentials
+     * @param response used to add cookie in case of successful login
+     * @return model which contains access token
+     */
     @PostMapping("/login")
     public AuthResponse login(@RequestBody AuthRequest authRequest, HttpServletResponse response) {
         User user = userService.getUserByLogin(authRequest.getLogin());
@@ -59,6 +74,12 @@ public class AuthController {
                 .build();
     }
 
+    /**
+     * <p>Handles user logout</p>
+     * @param cookie cookie with refresh token
+     * @param response used to replace existing cookie with not valid one
+     * @return true if logout succeeded false otherwise
+     */
     @PostMapping("/logout")
     public boolean logout(@CookieValue("refreshToken") Cookie cookie, HttpServletResponse response) {
         log.info("Processing logout");

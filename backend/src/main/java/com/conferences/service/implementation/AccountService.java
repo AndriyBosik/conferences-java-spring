@@ -10,6 +10,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class AccountService implements UserDetailsService {
@@ -21,6 +24,9 @@ public class AccountService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.info("Searching user by login");

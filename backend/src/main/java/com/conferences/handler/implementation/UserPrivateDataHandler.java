@@ -5,10 +5,16 @@ import com.conferences.handler.abstraction.IPrivateDataHandler;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Component
 public class UserPrivateDataHandler implements IPrivateDataHandler<User> {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void clearPrivateData(User user) {
         log.info("Clearing user private data");

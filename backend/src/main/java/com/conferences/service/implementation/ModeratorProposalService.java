@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class ModeratorProposalService implements IModeratorProposalService {
@@ -26,12 +29,18 @@ public class ModeratorProposalService implements IModeratorProposalService {
         this.mapper = mapper;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void rejectProposal(int moderatorProposalId) {
         log.info("Rejecting moderator proposal");
         moderatorProposalRepository.deleteById(moderatorProposalId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Transactional
     @Override
     public boolean acceptProposal(ModeratorProposal moderatorProposal) {
@@ -43,6 +52,9 @@ public class ModeratorProposalService implements IModeratorProposalService {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void create(ModeratorProposal moderatorProposal) {
         log.info("Creating {}", ModeratorProposal.class.getTypeName());

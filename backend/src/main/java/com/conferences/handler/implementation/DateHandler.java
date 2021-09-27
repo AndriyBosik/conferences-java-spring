@@ -11,6 +11,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Component
 public class DateHandler implements IDateHandler {
@@ -22,6 +25,9 @@ public class DateHandler implements IDateHandler {
         this.dateFormat = dateFormat;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public LocalDateTime parseDateFromJsonNode(JsonNode node) {
         log.info("Parsing JSON date to {}", LocalDateTime.class.getTypeName());

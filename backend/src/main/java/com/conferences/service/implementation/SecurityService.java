@@ -12,6 +12,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class SecurityService implements ISecurityService {
@@ -23,6 +26,9 @@ public class SecurityService implements ISecurityService {
         this.jwtHandler = jwtHandler;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getUserLogin() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -35,6 +41,9 @@ public class SecurityService implements ISecurityService {
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String reAuthenticateUser(User user) {
         log.info("Re-authenticating user");

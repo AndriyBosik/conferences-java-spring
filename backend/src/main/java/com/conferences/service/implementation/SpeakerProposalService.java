@@ -10,6 +10,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class SpeakerProposalService implements ISpeakerProposalService {
@@ -25,6 +28,9 @@ public class SpeakerProposalService implements ISpeakerProposalService {
         this.securityService = securityService;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean proposeSpeaker(SpeakerProposal speakerProposal) {
         User user = userRepository.findByLogin(securityService.getUserLogin());

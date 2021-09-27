@@ -8,6 +8,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * <p>
+ *     Controller which contains router to handle speake proposals requests
+ * </p>
+ *
+ * @author Andriy
+ * @version 1.0
+ * @since 2021/09/27
+ */
 @RestController
 @RequestMapping("/api/speaker-proposals")
 public class SpeakerProposalController {
@@ -19,6 +28,11 @@ public class SpeakerProposalController {
         this.speakerProposalService = speakerProposalService;
     }
 
+    /**
+     * <p>Creates speaker proposal</p>
+     * @param speakerProposal information about speaker proposal
+     * @return true if proposal was created successfully, false otherwise
+     */
     @PostMapping("/propose")
     public boolean proposeSpeaker(@RequestBody SpeakerProposal speakerProposal) {
         return speakerProposalService.proposeSpeaker(speakerProposal);

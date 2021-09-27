@@ -10,11 +10,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.core.io.Resource;
 
+/**
+ * <p>
+ *     Controller which contains routes to handle images requests
+ * </p>
+ *
+ * @author Andriy
+ * @version 1.0
+ * @since 2021/09/27
+ */
 @Log4j2
 @RestController
 @RequestMapping("/api/images")
 public class ImageController {
 
+    /**
+     * <p>Returns image by path</p>
+     * @param folder folder with image
+     * @param filename image name
+     * @return requested image
+     */
     @GetMapping(value = "/{folder}/{filename}",  produces = "image/*")
     public Resource getImage(@PathVariable String folder, @PathVariable String filename) {
         ResourceLoader loader = new DefaultResourceLoader();

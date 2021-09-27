@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class UserMeetingService implements IUserMeetingService {
@@ -22,12 +25,18 @@ public class UserMeetingService implements IUserMeetingService {
         this.userMeetingRepository = userMeetingRepository;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<IUserPresence> getJoinedUsersByMeeting(int meetingId) {
         log.info("Getting users by meeting");
         return new ArrayList<>(userMeetingRepository.findAllByMeeting(meetingId));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean joinUserToMeeting(UserMeeting userMeeting) {
         log.info("Joining user to meeting");
@@ -36,6 +45,9 @@ public class UserMeetingService implements IUserMeetingService {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean editUserPresence(UserMeeting userMeeting) {
         log.info("Editing user presence");

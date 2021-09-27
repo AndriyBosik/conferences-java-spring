@@ -22,6 +22,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class MeetingService implements IMeetingService {
@@ -39,18 +42,27 @@ public class MeetingService implements IMeetingService {
         this.userPrivateDataHandler = userPrivateDataHandler;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Page<IMeetingWithStats> getMeetingsByPage(Pageable pageable, DateFilter dateFilter) {
         log.info("Getting {} meetings for {} page", pageable.getPageSize(), pageable.getPageNumber() + 1);
         return meetingRepository.findAllWithFilters(pageable, dateFilter);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Page<IMeetingWithStats> getMeetingsByPageAndSpeaker(Pageable pageable, DateFilter dateFilter, Integer speakerId) {
         log.info("Getting {} speaker meetings for {} page", pageable.getPageSize(), pageable.getPageNumber() + 1);
         return meetingRepository.findAllWithFiltersBySpeaker(pageable, dateFilter, speakerId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeetingData getMeeting(int meetingId) {
         log.info("Getting meeting");
@@ -64,18 +76,27 @@ public class MeetingService implements IMeetingService {
         );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<ReportTopic> getMeetingTopics(int meetingId) {
         log.info("Getting meeting's report topics");
         return reportTopicRepository.findAllByMeetingId(meetingId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isUserJoined(UserMeeting userMeeting) {
         log.info("Checking if user is joined to meeting");
         return userMeetingRepository.findByUserIdAndMeetingId(userMeeting.getUserId(), userMeeting.getMeetingId()) != null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean createMeeting(Meeting meeting) {
         log.info("Saving meeting");
@@ -83,6 +104,9 @@ public class MeetingService implements IMeetingService {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Transactional
     @Override
     public boolean editMeeting(MeetingUpdatableData meeting) {

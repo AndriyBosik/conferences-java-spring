@@ -12,6 +12,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * <p>
+ *     Configures Spring Security
+ * </p>
+ *
+ * @author Andriy
+ * @version 1.0
+ * @since 2021/09/27
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -27,11 +36,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         this.jwtFilter = jwtFilter;
     }
 
+    /**
+     * <p>Configures password encoder for user</p>
+     * @param auth an instance of {@link AuthenticationManagerBuilder} class
+     * @throws Exception may be thrown during method executing
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
+    /**
+     * <p>Configures application routes</p>
+     * @param http Spring {@link HttpSecurity} object
+     * @throws Exception may be thrown during method executing
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

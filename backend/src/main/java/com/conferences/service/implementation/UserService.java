@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class UserService implements IUserService {
@@ -37,12 +40,18 @@ public class UserService implements IUserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User getUserByLogin(String login) {
         log.info("Getting user by login");
         return userRepository.findByLogin(login);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<UserPublicData> getUsersByRole(String role) {
         log.info("Getting users by role and mapping to hide private data");
@@ -51,6 +60,9 @@ public class UserService implements IUserService {
             .collect(Collectors.toList());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<UserPublicData> getAvailableSpeakersByTopic(int topicId) {
         log.info("Getting users which are available to topic and mapping them to hide private data");
@@ -59,12 +71,18 @@ public class UserService implements IUserService {
             .collect(Collectors.toList());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<IUserPublicData> getProposedSpeakersForTopic(int topicId) {
         log.info("Getting speakers which were proposed to report topic");
         return new ArrayList<>(userRepository.findProposedSpeakersForTopic(topicId));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String updateUser(UserUpdateData userUpdateData) {
         log.info("Updating user data");
@@ -81,12 +99,18 @@ public class UserService implements IUserService {
         return securityService.reAuthenticateUser(user);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getUserEmail() {
         log.info("Getting authenticated user email");
         return userRepository.findEmailByUserLogin(securityService.getUserLogin());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String updateUserImagePath(String imagePath) {
         log.info("Updating user's image path");
@@ -96,6 +120,12 @@ public class UserService implements IUserService {
         return securityService.reAuthenticateUser(user);
     }
 
+    /**
+     * <p>Updates user's password</p>
+     * @param user user to update password for
+     * @param userUpdateData contains information about passwords
+     * @return true if password was updated, false otherwise
+     */
     private boolean updateUserPassword(User user, UserUpdateData userUpdateData) {
         if ("".equals(userUpdateData.getOldPassword()) && "".equals(userUpdateData.getNewPassword())) {
             return true;

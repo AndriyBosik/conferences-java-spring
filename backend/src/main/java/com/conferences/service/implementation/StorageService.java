@@ -1,6 +1,6 @@
 package com.conferences.service.implementation;
 
-import com.conferences.config.StorageProperties;
+import com.conferences.model.StorageProperties;
 import com.conferences.service.abstraction.IStorageService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class StorageService implements IStorageService {
@@ -28,6 +31,9 @@ public class StorageService implements IStorageService {
         this.location = loaderDir + properties.getLocation();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean store(MultipartFile file, String filename, String pathname) {
         Path path = init(location + pathname);
@@ -52,7 +58,7 @@ public class StorageService implements IStorageService {
         try {
             Files.createDirectories(path);
         } catch (IOException exception) {
-            exception.printStackTrace();
+            log.error("Unable to initialize images directory", exception);
             return null;
         }
         return path;

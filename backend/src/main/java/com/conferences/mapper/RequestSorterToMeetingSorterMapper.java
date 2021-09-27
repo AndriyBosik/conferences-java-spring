@@ -8,6 +8,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Component
 public class RequestSorterToMeetingSorterMapper implements IMapper<RequestSorter, MeetingSorter> {
@@ -21,6 +24,10 @@ public class RequestSorterToMeetingSorterMapper implements IMapper<RequestSorter
         this.sortFactory = sortFactory;
     }
 
+    /**
+     * {@inheritDoc}
+     * <p>Maps an instance of {@link RequestSorter} class to an instance of {@link MeetingSorter} class</p>
+     */
     @Override
     public MeetingSorter map(RequestSorter model) {
         log.info("Mapping {} to {}", RequestSorter.class.getTypeName(), MeetingSorter.class.getTypeName());

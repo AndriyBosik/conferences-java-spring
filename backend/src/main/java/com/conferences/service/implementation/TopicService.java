@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class TopicService implements ITopicService {
@@ -35,12 +38,18 @@ public class TopicService implements ITopicService {
         this.userPrivateDataHandler = userPrivateDataHandler;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Integer> getSpeakerProposedTopicIds(int speakerId, int meetingId) {
         log.info("Getting ids for speaker proposed topics");
         return reportTopicRepository.getSpeakerProposedTopicIds(speakerId, meetingId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Transactional
     @Override
     public boolean createFromProposal(int topicProposalId) {
@@ -51,6 +60,9 @@ public class TopicService implements ITopicService {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Transactional
     @Override
     public boolean createReportTopic(ReportTopic reportTopic) {
@@ -65,6 +77,9 @@ public class TopicService implements ITopicService {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Transactional
     @Override
     public boolean editReportTopic(ReportTopic reportTopic) {
@@ -83,6 +98,9 @@ public class TopicService implements ITopicService {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<ReportTopic> getByMeetingId(int meetingId) {
         log.info("Getting report topics by meeting");
@@ -93,6 +111,9 @@ public class TopicService implements ITopicService {
         return reportTopics;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setSpeaker(ReportTopicSpeaker reportTopicSpeaker) {
         log.info("Setting speaker for report topic");

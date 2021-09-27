@@ -12,9 +12,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * <p>
+ *     Defines method to validate model to contain passwords which have to match
+ * </p>
+ *
+ * @author Andriy
+ * @version 1.0
+ * @since 2021/09/27
+ */
 @Log4j2
 public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
 
+    /**
+     * <p>Validates model's passwords</p>
+     * @param object
+     * @param constraintValidatorContext
+     * @return
+     */
     @Override
     public boolean isValid(Object object, ConstraintValidatorContext constraintValidatorContext) {
         log.info("Validating passwords to match");

@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class ProposalsService implements IProposalsService {
@@ -22,12 +25,18 @@ public class ProposalsService implements IProposalsService {
         this.meetingRepository = meetingRepository;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<ISpeakerProposalMeetingData> getSpeakerProposals(int speakerId) {
         log.info("Getting speaker proposals by speakerId");
         return new ArrayList<>(meetingRepository.getSpeakerProposals(speakerId));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<IModeratorProposalMeetingData> getModeratorProposals(int speakerId) {
         log.info("Getting moderator propoposals by speakerId");

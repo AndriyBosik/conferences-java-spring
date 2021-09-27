@@ -16,8 +16,23 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Set;
 
+/**
+ * <p>
+ *     Defines methods to work with meetings table in database
+ * </p>
+ *
+ * @author Andriy
+ * @version 1.0
+ * @since 2021/09/27
+ */
 public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, Integer> {
 
+    /**
+     * <p>Extract meetings for page with sorting and filtering options</p>
+     * @param pageable contains information about page and sorting options
+     * @param dateFilter contains information about filtering
+     * @return list of {@link IMeetingWithStats} objects
+     */
     @Query(nativeQuery = true, value =
         "SELECT " +
             "meetings.*," +
@@ -40,6 +55,13 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
     )
     Page<IMeetingWithStats> findAllWithFilters(Pageable pageable, @Param("dateFilter") DateFilter dateFilter);
 
+    /**
+     * <p>Extract meetings for page for specified speaker with sorting and filtering options</p>
+     * @param pageable contains information about page and sorting options
+     * @param dateFilter contains information about filtering
+     * @param speakerId id of speaker
+     * @return list of {@link IMeetingWithStats} objects
+     */
     @Query(nativeQuery = true, value =
             "SELECT " +
                 "meetings.*," +
@@ -76,6 +98,11 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
     )
     Page<IMeetingWithStats> findAllWithFiltersBySpeaker(Pageable pageable, @Param("dateFilter") DateFilter dateFilter, @Param("speakerId") Integer speakerId);
 
+    /**
+     * <p>Extracts all information about report topics for specified meeting</p>
+     * @param id id of meeting
+     * @return {@link Meeting} object which contains all data
+     */
     @Query(value =
         "SELECT " +
             "m " +
@@ -86,6 +113,10 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
     )
     Meeting findAllById(@Param("id") int id);
 
+    /**
+     * <p>Extracts all meetings with their topic proposals</p>
+     * @return list of {@link IMeetingTopicProposalsData}
+     */
     @Query(value =
             "SELECT " +
                 "m " +
@@ -95,6 +126,11 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
     )
     Set<IMeetingTopicProposalsData> getMeetingsProposals();
 
+    /**
+     * <p>Extracts topics for which speaker proposed himself</p>
+     * @param speakerId id of speaker
+     * @return set of {@link ISpeakerProposalMeetingData}
+     */
     @Query(value =
             "SELECT " +
                 "m " +
@@ -106,6 +142,11 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
     )
     Set<ISpeakerProposalMeetingData> getSpeakerProposals(@Param("speakerId") int speakerId);
 
+    /**
+     * <p>Extracts moderator proposed topics for speaker</p>
+     * @param speakerId id of speaker
+     * @return set of {@link IModeratorProposalMeetingData}
+     */
     @Query(value =
         "SELECT " +
             "m " +
@@ -117,6 +158,10 @@ public interface IMeetingRepository extends PagingAndSortingRepository<Meeting, 
     )
     Set<IModeratorProposalMeetingData> getModeratorProposals(@Param("speakerId") int speakerId);
 
+    /**
+     * <p>Updates meeting in database</p>
+     * @param meeting meeting which contains updated data
+     */
     @Query(nativeQuery = true, value = "UPDATE meetings SET address=:#{#meeting.getAddress()}, date=:#{#meeting.getDate()} WHERE id=:#{#meeting.getId()}")
     @Modifying
     void editMeeting(@Param("meeting") MeetingUpdatableData meeting);

@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Component
 public class JwtHandler implements IJwtHandler {
@@ -29,12 +32,18 @@ public class JwtHandler implements IJwtHandler {
         this.userPrivateDataHandler = userPrivateDataHandler;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String generateToken(User user) {
         log.info("Generating token");
         return generateToken(user, Date.from(LocalDateTime.now().plusMinutes(30).atZone(ZoneId.systemDefault()).toInstant()));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String generateToken(User user, Date expiration) {
         log.info("Generating token with custom expiration");
@@ -53,6 +62,9 @@ public class JwtHandler implements IJwtHandler {
             .compact();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean validateToken(String token) {
         try {
@@ -65,6 +77,9 @@ public class JwtHandler implements IJwtHandler {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User getUserFromToken(String token) {
         String jsonUser = Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token).getBody().getSubject();

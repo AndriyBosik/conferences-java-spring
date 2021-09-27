@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class TopicProposalsService implements ITopicProposalsService {
@@ -25,24 +28,36 @@ public class TopicProposalsService implements ITopicProposalsService {
         this.topicProposalRepository = topicProposalRepository;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<IMeetingTopicProposalsData> getAllMeetingProposals() {
         log.info("Getting topic proposals for each meeting");
         return new ArrayList<>(meetingRepository.getMeetingsProposals());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long getCount() {
         log.info("Getting count of topic proposals");
         return topicProposalRepository.count();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void reject(int topicProposalId) {
         log.info("Deleting topic proposal");
         topicProposalRepository.deleteById(topicProposalId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public TopicProposal create(TopicProposal topicProposal) {
         log.info("Creating topic proposal");

@@ -8,9 +8,13 @@ import com.conferences.repository.IRoleRepository;
 import com.conferences.repository.IUserRepository;
 import com.conferences.service.abstraction.IRegistrationService;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Service
 public class RegistrationService implements IRegistrationService {
@@ -20,6 +24,7 @@ public class RegistrationService implements IRegistrationService {
     private final IMapper<UserRegistrationData, User> mapper;
     private final PasswordEncoder passwordEncoder;
 
+    @Autowired
     public RegistrationService(IUserRepository userRepository, IRoleRepository roleRepository, IMapper<UserRegistrationData, User> mapper, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
@@ -27,6 +32,9 @@ public class RegistrationService implements IRegistrationService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User signUpUser(UserRegistrationData userRegistrationData) {
         log.info("Trying to sign up user");

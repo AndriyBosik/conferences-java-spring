@@ -11,6 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 
+/**
+ * <p>
+ *     Deserializes JSON to {@link Meeting} object
+ * </p>
+ *
+ * @author Andriy
+ * @version 1.0
+ * @since 2021/09/27
+ */
 @Log4j2
 public class MeetingDeserializer extends JsonDeserializer<Meeting> {
 
@@ -21,6 +30,13 @@ public class MeetingDeserializer extends JsonDeserializer<Meeting> {
         this.dateHandler = dateHandler;
     }
 
+    /**
+     * <p>Deserialized JSON</p>
+     * @param jsonParser provides forward, read-only access to JSON data in a streaming way
+     * @param deserializationContext context for the process of deserialization a single root-level value
+     * @return deserialized {@link Meeting} object
+     * @throws IOException may be thrown while method executing
+     */
     @Override
     public Meeting deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);

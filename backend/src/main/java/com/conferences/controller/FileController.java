@@ -11,6 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * <p>
+ *     Controller which contains routes to handle file processing
+ * </p>
+ *
+ * @author Andriy
+ * @version 1.0
+ * @since 2021/09/27
+ */
 @Log4j2
 @RestController
 @RequestMapping("/api/files")
@@ -28,6 +37,11 @@ public class FileController {
         this.userService = userService;
     }
 
+    /**
+     * <p>Saves user avatar to server</p>
+     * @param file file to be saved
+     * @return new image filename
+     */
     @PostMapping("/save-avatar")
     public String saveAvatar(@RequestParam("file") MultipartFile file) {
         log.info("Saving user avatar");

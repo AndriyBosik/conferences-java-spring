@@ -7,9 +7,15 @@ import org.springframework.stereotype.Component;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+/**
+ * {@inheritDoc}
+ */
 @Component
 public class DateFilterFactory implements IDateFilterFactory {
-    
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public DateFilter getDateFilter(String select) {
         DateFilter dateFilter = new DateFilter(

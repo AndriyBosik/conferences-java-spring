@@ -1,4 +1,4 @@
-package com.conferences.config;
+package com.conferences.model;
 
 import lombok.Getter;
 import lombok.Setter;

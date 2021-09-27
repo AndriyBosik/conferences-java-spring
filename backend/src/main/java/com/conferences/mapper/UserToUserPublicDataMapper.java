@@ -5,10 +5,17 @@ import com.conferences.model.UserPublicData;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
+/**
+ * {@inheritDoc}
+ */
 @Log4j2
 @Component
 public class UserToUserPublicDataMapper implements IMapper<User, UserPublicData> {
 
+    /**
+     * {@inheritDoc}
+     * <p>Maps an instance of {@link User} class to an instance of {@link UserPublicData} class</p>
+     */
     @Override
     public UserPublicData map(User user) {
         log.info("Mapping {} to {}", User.class.getTypeName(), UserPublicData.class.getTypeName());
