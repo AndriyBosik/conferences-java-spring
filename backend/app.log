@@ -1747,3 +1747,71 @@ java.lang.NullPointerException: null
 2021-09-28 07:39:47.896  INFO 7452 --- [http-nio-8080-exec-4] c.c.handler.implementation.JwtHandler    : Validating token
 2021-09-28 07:39:47.901  INFO 7452 --- [http-nio-8080-exec-4] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
 2021-09-28 07:39:47.901  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:40:34.449  INFO 12888 --- [restartedMain] com.conferences.ConferencesApplication   : Starting ConferencesApplication using Java 1.8.0_231 on DESKTOP-0ONFAU2 with PID 12888 (D:\Java\SpringApplications\Conferences\backend\target\classes started by Andriy in D:\Java\SpringApplications\Conferences\backend)
+2021-09-28 07:40:34.467  INFO 12888 --- [restartedMain] com.conferences.ConferencesApplication   : No active profile set, falling back to default profiles: default
+2021-09-28 07:40:34.709  INFO 12888 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-28 07:40:34.710  INFO 12888 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-28 07:40:37.535  INFO 12888 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-28 07:40:37.844  INFO 12888 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 285 ms. Found 9 JPA repository interfaces.
+2021-09-28 07:40:39.284  INFO 12888 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-28 07:40:39.306  INFO 12888 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-28 07:40:39.307  INFO 12888 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-28 07:40:39.653  INFO 12888 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-28 07:40:39.654  INFO 12888 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4942 ms
+2021-09-28 07:40:40.299  INFO 12888 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-28 07:40:40.648  INFO 12888 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-28 07:40:40.987  INFO 12888 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-28 07:40:41.278  INFO 12888 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-09-28 07:40:43.403  INFO 12888 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-09-28 07:40:43.432  INFO 12888 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL81Dialect
+2021-09-28 07:40:48.812  INFO 12888 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-28 07:40:48.847  INFO 12888 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-28 07:40:50.181  WARN 12888 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-28 07:40:51.847  INFO 12888 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5456b7a2, org.springframework.security.web.context.SecurityContextPersistenceFilter@72e60bdb, org.springframework.security.web.header.HeaderWriterFilter@444006fe, org.springframework.security.web.authentication.logout.LogoutFilter@6f5d9c22, com.conferences.config.JwtFilter@286e37ba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34e249af, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2bf21687, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1aadb8b7, org.springframework.security.web.session.SessionManagementFilter@7dcdbf86, org.springframework.security.web.access.ExceptionTranslationFilter@14baca30, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@125b9d89]
+2021-09-28 07:40:52.219  INFO 12888 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-09-28 07:40:52.772  INFO 12888 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-28 07:40:52.797  INFO 12888 --- [restartedMain] com.conferences.ConferencesApplication   : Started ConferencesApplication in 20.04 seconds (JVM running for 23.933)
+2021-09-28 07:40:55.791  INFO 12888 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-28 07:40:55.792  INFO 12888 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-28 07:40:55.794  INFO 12888 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-09-28 07:40:55.825  INFO 12888 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:55.827  INFO 12888 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:40:55.837  INFO 12888 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:55.838  INFO 12888 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:40:55.919  INFO 12888 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:55.921  INFO 12888 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:40:56.160  INFO 12888 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:40:56.313  INFO 12888 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:40:56.330  INFO 12888 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:56.333  INFO 12888 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:40:56.340  INFO 12888 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:40:56.341  INFO 12888 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:40:56.577  INFO 12888 --- [http-nio-8080-exec-1] c.c.service.implementation.TopicService  : Creating report topic
+2021-09-28 07:40:56.966  INFO 12888 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:56.970  INFO 12888 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:40:56.971  INFO 12888 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:56.976  INFO 12888 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:40:57.023  INFO 12888 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:57.024  INFO 12888 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:40:57.031  INFO 12888 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:40:57.032  INFO 12888 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:40:57.042  INFO 12888 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:57.043  INFO 12888 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:40:57.052  INFO 12888 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:40:57.061  INFO 12888 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:40:57.092  INFO 12888 --- [http-nio-8080-exec-3] c.c.service.implementation.TopicService  : Getting report topics by meeting
+2021-09-28 07:40:57.189  INFO 12888 --- [http-nio-8080-exec-3] c.c.h.i.UserPrivateDataHandler           : Clearing user private data
+2021-09-28 07:40:57.189  INFO 12888 --- [http-nio-8080-exec-3] c.c.h.i.UserPrivateDataHandler           : Clearing user private data
+2021-09-28 07:40:57.414  INFO 12888 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:57.415  INFO 12888 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:40:57.416  INFO 12888 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:57.417  INFO 12888 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:40:57.428  INFO 12888 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:57.429  INFO 12888 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:40:57.434  INFO 12888 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:40:57.435  INFO 12888 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:40:57.436  INFO 12888 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:40:57.437  INFO 12888 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:40:57.442  INFO 12888 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:40:57.443  INFO 12888 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:40:57.457  INFO 12888 --- [http-nio-8080-exec-5] c.c.s.implementation.UserMeetingService  : Getting users by meeting

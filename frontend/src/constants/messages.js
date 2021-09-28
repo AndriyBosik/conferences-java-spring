@@ -420,8 +420,8 @@ export const messages = {
     },
     profile_updated: {
         [EN]: "The profile was successfully updated",
-        [RU]: "Профіль успішно оновлено",
-        [UK]: "Профиль был успешно обновлен"
+        [RU]: "Профиль был успешно обновлен",
+        [UK]: "Профіль успішно оновлено"
     },
     meeting_created: {
         [EN]: "The meetings was successfully created",
@@ -567,5 +567,10 @@ export const messages = {
         [EN]: "Error",
         [RU]: "Ошибка",
         [UK]: "Помилка"
+    },
+    invalid_login_or_password: {
+        [EN]: "Invalid login or password",
+        [RU]: "Неверный логин или пароль",
+        [UK]: "Невірний логін чи пароль"
     }
 };

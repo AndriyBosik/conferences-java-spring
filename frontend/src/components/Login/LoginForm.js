@@ -15,10 +15,11 @@ function LoginForm() {
     const passwordMessage = useMessage("password");
     const dontHaveAccountMessage = useMessage("dont_have_account");
     const signUpMessage = useMessage("sign_up");
+    const invalidLoginOrPassword = useMessage("invalid_login_or_password");
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [error, setError] = useState(false);
     const [login, setLogin] = useState("");
-    const [error, setError] = useState("");
     const [password, setPassword] = useState("");
 
     useEffect(() => {
@@ -34,7 +35,7 @@ function LoginForm() {
         });
 
         if (result.error) {
-            setError(result.message);
+            setError(true);
             return;
         }
 
@@ -62,7 +63,7 @@ function LoginForm() {
             {error !== "" ? (
                 <div className="full-width col s12">
                     <p className="center-align pink-text text-lighten-1 weight-normal login-errorKey-message">
-                        {error}
+                        {error ? invalidLoginOrPassword : ""}
                     </p>
                 </div>
              ) : null}
