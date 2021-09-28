@@ -476,3 +476,1274 @@ java.nio.file.InvalidPathException: Illegal char <:> at index 2: /D:/Java/Spring
 2021-09-28 07:26:58.777  INFO 2464 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Validating token
 2021-09-28 07:26:58.783  INFO 2464 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
 2021-09-28 07:26:58.784  INFO 2464 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:28:23.796  INFO 6648 --- [restartedMain] com.conferences.ConferencesApplication   : Starting ConferencesApplication using Java 1.8.0_231 on DESKTOP-0ONFAU2 with PID 6648 (D:\Java\SpringApplications\Conferences\backend\target\classes started by Andriy in D:\Java\SpringApplications\Conferences\backend)
+2021-09-28 07:28:23.820  INFO 6648 --- [restartedMain] com.conferences.ConferencesApplication   : No active profile set, falling back to default profiles: default
+2021-09-28 07:28:24.189  INFO 6648 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-28 07:28:24.190  INFO 6648 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-28 07:28:28.571  INFO 6648 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-28 07:28:29.062  INFO 6648 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 459 ms. Found 9 JPA repository interfaces.
+2021-09-28 07:28:32.106  INFO 6648 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-28 07:28:32.131  INFO 6648 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-28 07:28:32.132  INFO 6648 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-28 07:28:32.565  INFO 6648 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-28 07:28:32.567  INFO 6648 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8375 ms
+2021-09-28 07:28:34.863  INFO 6648 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-28 07:28:35.571  INFO 6648 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-28 07:28:36.136  INFO 6648 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-28 07:28:36.791  INFO 6648 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-09-28 07:28:39.068  INFO 6648 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-09-28 07:28:39.126  INFO 6648 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL81Dialect
+2021-09-28 07:28:46.778  INFO 6648 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-28 07:28:46.816  INFO 6648 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-28 07:28:48.454  WARN 6648 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-28 07:28:50.153  INFO 6648 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@8ca1a36, org.springframework.security.web.context.SecurityContextPersistenceFilter@7f40949b, org.springframework.security.web.header.HeaderWriterFilter@68431ca8, org.springframework.security.web.authentication.logout.LogoutFilter@1db3a45c, com.conferences.config.JwtFilter@f7e0739, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20881841, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36338938, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@404238ac, org.springframework.security.web.session.SessionManagementFilter@6f53a2ae, org.springframework.security.web.access.ExceptionTranslationFilter@5a36c2af, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7657503a]
+2021-09-28 07:28:50.674  INFO 6648 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-09-28 07:28:51.376  INFO 6648 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-28 07:28:51.414  INFO 6648 --- [restartedMain] com.conferences.ConferencesApplication   : Started ConferencesApplication in 29.865 seconds (JVM running for 35.713)
+2021-09-28 07:28:58.489  INFO 6648 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-28 07:28:58.489  INFO 6648 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-28 07:28:58.492  INFO 6648 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-09-28 07:28:58.549  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:58.552  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:28:58.574  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:58.574  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:28:58.741  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:58.741  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:28:58.756  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:58.757  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:28:58.833  INFO 6648 --- [http-nio-8080-exec-2] c.c.controller.TokenController           : Refreshing access token
+2021-09-28 07:28:58.834  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:28:59.102  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:28:59.284  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Generating token
+2021-09-28 07:28:59.313  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Generating token with custom expiration
+2021-09-28 07:28:59.313  INFO 6648 --- [http-nio-8080-exec-2] c.c.h.i.UserPrivateDataHandler           : Clearing user private data
+2021-09-28 07:28:59.624  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:59.624  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:28:59.626  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:59.626  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:28:59.653  INFO 6648 --- [http-nio-8080-exec-3] c.c.controller.ImageController           : Getting an image avatars/user_avatar_--T_.png
+2021-09-28 07:28:59.680  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:59.681  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:28:59.682  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:59.682  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:28:59.745  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:59.745  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:28:59.752  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:28:59.756  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:28:59.759  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:28:59.775  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:28:59.784  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:28:59.785  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:28:59.792  INFO 6648 --- [http-nio-8080-exec-5] c.c.service.implementation.UserService   : Getting authenticated user email
+2021-09-28 07:28:59.793  INFO 6648 --- [http-nio-8080-exec-5] c.c.s.implementation.SecurityService     : Extracting user login
+2021-09-28 07:29:04.762  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:29:04.763  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:29:04.763  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:29:04.763  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:29:04.797  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:29:04.797  INFO 6648 --- [http-nio-8080-exec-9] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:29:04.803  INFO 6648 --- [http-nio-8080-exec-9] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:29:04.804  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:29:04.805  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:29:04.806  INFO 6648 --- [http-nio-8080-exec-9] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:29:04.811  INFO 6648 --- [http-nio-8080-exec-9] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:29:04.812  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:29:04.895  INFO 6648 --- [http-nio-8080-exec-9] c.conferences.controller.FileController  : Saving user avatar
+2021-09-28 07:29:04.895  INFO 6648 --- [http-nio-8080-exec-9] c.c.s.implementation.SecurityService     : Extracting user login
+2021-09-28 07:29:04.895  INFO 6648 --- [http-nio-8080-exec-9] c.c.handler.implementation.FileHandler   : Generating new filename
+2021-09-28 07:29:04.902  INFO 6648 --- [http-nio-8080-exec-9] c.c.s.implementation.StorageService      : Storing file
+2021-09-28 07:29:04.909  INFO 6648 --- [http-nio-8080-exec-9] c.conferences.controller.FileController  : Updating user image path
+2021-09-28 07:29:04.910  INFO 6648 --- [http-nio-8080-exec-9] c.c.service.implementation.UserService   : Updating user's image path
+2021-09-28 07:29:04.911  INFO 6648 --- [http-nio-8080-exec-9] c.c.s.implementation.SecurityService     : Extracting user login
+2021-09-28 07:29:05.070  INFO 6648 --- [http-nio-8080-exec-9] c.c.s.implementation.SecurityService     : Re-authenticating user
+2021-09-28 07:29:05.071  INFO 6648 --- [http-nio-8080-exec-9] c.c.handler.implementation.JwtHandler    : Generating token
+2021-09-28 07:29:05.071  INFO 6648 --- [http-nio-8080-exec-9] c.c.handler.implementation.JwtHandler    : Generating token with custom expiration
+2021-09-28 07:29:05.071  INFO 6648 --- [http-nio-8080-exec-9] c.c.h.i.UserPrivateDataHandler           : Clearing user private data
+2021-09-28 07:29:05.356  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:29:05.357  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:29:05.360  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:29:05.362  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:29:05.369  INFO 6648 --- [http-nio-8080-exec-10] c.c.controller.ImageController           : Getting an image avatars/speaker.jpg
+2021-09-28 07:31:15.841  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:15.842  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:15.842  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:15.842  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:15.850  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:15.850  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:15.851  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:15.851  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:15.856  INFO 6648 --- [http-nio-8080-exec-4] c.conferences.controller.AuthController  : Processing logout
+2021-09-28 07:31:15.856  INFO 6648 --- [http-nio-8080-exec-4] c.conferences.controller.AuthController  : User logged out
+2021-09-28 07:31:19.709  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:19.710  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:19.711  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:19.711  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:19.723  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:19.724  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:19.725  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:19.725  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:19.790  INFO 6648 --- [http-nio-8080-exec-8] c.c.service.implementation.UserService   : Getting user by login
+2021-09-28 07:31:19.797  INFO 6648 --- [http-nio-8080-exec-8] c.conferences.controller.AuthController  : Processing user login
+2021-09-28 07:31:20.130  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Generating token
+2021-09-28 07:31:20.131  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Generating token with custom expiration
+2021-09-28 07:31:20.131  INFO 6648 --- [http-nio-8080-exec-8] c.c.h.i.UserPrivateDataHandler           : Clearing user private data
+2021-09-28 07:31:20.134  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Generating token with custom expiration
+2021-09-28 07:31:20.134  INFO 6648 --- [http-nio-8080-exec-8] c.c.h.i.UserPrivateDataHandler           : Clearing user private data
+2021-09-28 07:31:20.138  INFO 6648 --- [http-nio-8080-exec-8] c.conferences.controller.AuthController  : Returning response
+2021-09-28 07:31:20.286  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.287  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:20.288  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.288  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:20.290  INFO 6648 --- [http-nio-8080-exec-9] c.c.controller.ImageController           : Getting an image avatars/user_avatar_--T_.jpg
+2021-09-28 07:31:20.344  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.344  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:20.345  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.346  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:20.359  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.360  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:20.361  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.361  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:20.435  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.437  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:20.438  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.438  INFO 6648 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:20.447  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:20.448  INFO 6648 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:20.448  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:20.448  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:20.449  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.449  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:20.452  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:20.452  INFO 6648 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:20.454  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:20.455  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:20.456  INFO 6648 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:20.457  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:20.460  INFO 6648 --- [http-nio-8080-exec-2] c.c.s.i.TopicProposalsService            : Getting count of topic proposals
+2021-09-28 07:31:20.461  INFO 6648 --- [http-nio-8080-exec-3] c.c.service.implementation.UserService   : Getting authenticated user email
+2021-09-28 07:31:20.462  INFO 6648 --- [http-nio-8080-exec-3] c.c.s.implementation.SecurityService     : Extracting user login
+2021-09-28 07:31:30.873  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:30.875  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:30.876  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:30.876  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:30.891  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:30.891  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:30.896  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:30.897  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:30.898  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:30.899  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:30.903  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:30.904  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:30.932  INFO 6648 --- [http-nio-8080-exec-8] c.c.m.RequestSorterToMeetingSorterMapper : Mapping com.conferences.model.RequestSorter to com.conferences.model.MeetingSorter
+2021-09-28 07:31:30.968  INFO 6648 --- [http-nio-8080-exec-8] c.c.s.implementation.MeetingService      : Getting 12 meetings for 1 page
+2021-09-28 07:31:31.491  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.491  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.492  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.493  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.496  INFO 6648 --- [http-nio-8080-exec-9] c.c.controller.ImageController           : Getting an image meetings/spring-core.png
+2021-09-28 07:31:31.513  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.514  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.516  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.517  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.517  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.516  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.519  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.520  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.520  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.520  INFO 6648 --- [http-nio-8080-exec-10] c.c.controller.ImageController           : Getting an image meetings/spring-data.png
+2021-09-28 07:31:31.522  INFO 6648 --- [http-nio-8080-exec-3] c.c.controller.ImageController           : Getting an image meetings/java-core.png
+2021-09-28 07:31:31.524  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.524  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.517  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.524  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.525  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.520  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.526  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.527  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.527  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.527  INFO 6648 --- [http-nio-8080-exec-4] c.c.controller.ImageController           : Getting an image meetings/junit-5.png
+2021-09-28 07:31:31.529  INFO 6648 --- [http-nio-8080-exec-2] c.c.controller.ImageController           : Getting an image meetings/design-patterns.png
+2021-09-28 07:31:31.534  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.525  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.534  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.534  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.535  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.536  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.537  INFO 6648 --- [http-nio-8080-exec-1] c.c.controller.ImageController           : Getting an image meetings/spring-mvc.png
+2021-09-28 07:31:31.544  INFO 6648 --- [http-nio-8080-exec-5] c.c.controller.ImageController           : Getting an image meetings/solid.png
+2021-09-28 07:31:31.590  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.590  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.591  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.591  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.591  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.591  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.591  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.592  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.592  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.592  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.594  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.594  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.596  INFO 6648 --- [http-nio-8080-exec-8] c.c.controller.ImageController           : Getting an image meetings/rest-api.png
+2021-09-28 07:31:31.596  INFO 6648 --- [http-nio-8080-exec-6] c.c.controller.ImageController           : Getting an image meetings/grasp.png
+2021-09-28 07:31:31.596  INFO 6648 --- [http-nio-8080-exec-7] c.c.controller.ImageController           : Getting an image meetings/git-basics.png
+2021-09-28 07:31:31.599  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.599  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.602  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.602  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.602  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.602  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.603  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:31.604  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:31.604  INFO 6648 --- [http-nio-8080-exec-3] c.c.controller.ImageController           : Getting an image meetings/mv-patterns.png
+2021-09-28 07:31:31.613  INFO 6648 --- [http-nio-8080-exec-9] c.c.controller.ImageController           : Getting an image meetings/kotlin-basics.png
+2021-09-28 07:31:35.021  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.022  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.026  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.026  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.032  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.032  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.034  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.035  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.049  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.049  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.049  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.049  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.058  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.058  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.058  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.058  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.069  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.069  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.070  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.070  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.086  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.087  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.089  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.090  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.091  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.092  INFO 6648 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.092  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.092  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.093  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.094  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.097  INFO 6648 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.098  INFO 6648 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.099  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.099  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.099  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.099  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.100  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.101  INFO 6648 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.101  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.101  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.103  INFO 6648 --- [http-nio-8080-exec-2] c.c.service.implementation.UserService   : Getting users by role and mapping to hide private data
+2021-09-28 07:31:35.104  INFO 6648 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.104  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.109  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.109  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.116  INFO 6648 --- [http-nio-8080-exec-1] c.c.s.implementation.UserMeetingService  : Getting users by meeting
+2021-09-28 07:31:35.116  INFO 6648 --- [http-nio-8080-exec-2] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.117  INFO 6648 --- [http-nio-8080-exec-2] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.117  INFO 6648 --- [http-nio-8080-exec-2] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.117  INFO 6648 --- [http-nio-8080-exec-5] c.c.service.implementation.UserService   : Getting users which are available to topic and mapping them to hide private data
+2021-09-28 07:31:35.117  INFO 6648 --- [http-nio-8080-exec-2] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.118  INFO 6648 --- [http-nio-8080-exec-2] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.118  INFO 6648 --- [http-nio-8080-exec-2] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.118  INFO 6648 --- [http-nio-8080-exec-2] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.130  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.130  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.133  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.134  INFO 6648 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.135  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.137  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.138  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.138  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.140  INFO 6648 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.141  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.141  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.141  INFO 6648 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.146  INFO 6648 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.142  INFO 6648 --- [http-nio-8080-exec-8] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.147  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.147  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.149  INFO 6648 --- [http-nio-8080-exec-8] c.c.service.implementation.UserService   : Getting speakers which were proposed to report topic
+2021-09-28 07:31:35.150  INFO 6648 --- [http-nio-8080-exec-6] c.c.s.implementation.MeetingService      : Getting meeting
+2021-09-28 07:31:35.183  INFO 6648 --- [http-nio-8080-exec-5] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.183  INFO 6648 --- [http-nio-8080-exec-5] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.184  INFO 6648 --- [http-nio-8080-exec-5] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.184  INFO 6648 --- [http-nio-8080-exec-5] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.184  INFO 6648 --- [http-nio-8080-exec-5] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.184  INFO 6648 --- [http-nio-8080-exec-5] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.184  INFO 6648 --- [http-nio-8080-exec-5] c.c.mapper.UserToUserPublicDataMapper    : Mapping com.conferences.entity.User to com.conferences.model.UserPublicData
+2021-09-28 07:31:35.302  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.302  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.303  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.303  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.303  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.303  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.307  INFO 6648 --- [http-nio-8080-exec-3] c.c.controller.ImageController           : Getting an image avatars/andrii.png
+2021-09-28 07:31:35.307  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.308  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.309  INFO 6648 --- [http-nio-8080-exec-9] c.c.controller.ImageController           : Getting an image avatars/loanGANTRY.png
+2021-09-28 07:31:35.315  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.316  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.316  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.316  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.316  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.317  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.317  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.318  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.318  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.318  INFO 6648 --- [http-nio-8080-exec-7] c.c.controller.ImageController           : Getting an image avatars/timbereddeviate.png
+2021-09-28 07:31:35.318  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.319  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.319  INFO 6648 --- [http-nio-8080-exec-10] c.c.controller.ImageController           : Getting an image avatars/guise.png
+2021-09-28 07:31:35.319  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.320  INFO 6648 --- [http-nio-8080-exec-9] c.c.controller.ImageController           : Getting an image avatars/rubella.png
+2021-09-28 07:31:35.322  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.322  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.323  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.323  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.325  INFO 6648 --- [http-nio-8080-exec-3] c.c.controller.ImageController           : Getting an image avatars/__default__.png
+2021-09-28 07:31:35.474  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.474  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.475  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.475  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.477  INFO 6648 --- [http-nio-8080-exec-1] c.c.controller.ImageController           : Getting an image avatars/speaker.jpg
+2021-09-28 07:31:35.533  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.533  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.533  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.534  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.551  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.552  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.553  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.553  INFO 6648 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.553  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.553  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.557  INFO 6648 --- [http-nio-8080-exec-5] c.c.controller.ImageController           : Getting an image meetings/spring-mvc.png
+2021-09-28 07:31:35.568  INFO 6648 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.569  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.572  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.573  INFO 6648 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:35.581  INFO 6648 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:35.582  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:35.586  INFO 6648 --- [http-nio-8080-exec-6] c.c.s.implementation.UserMeetingService  : Getting users by meeting
+2021-09-28 07:31:35.803  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.804  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.804  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:35.804  INFO 6648 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:35.806  INFO 6648 --- [http-nio-8080-exec-4] c.c.controller.ImageController           : Getting an image avatars/user.png
+2021-09-28 07:31:53.748  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.749  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.751  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.751  INFO 6648 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.753  INFO 6648 --- [http-nio-8080-exec-7] c.c.controller.ImageController           : Getting an image avatars/loanGANTRY.png
+2021-09-28 07:31:53.762  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.763  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.765  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.765  INFO 6648 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.768  INFO 6648 --- [http-nio-8080-exec-9] c.c.controller.ImageController           : Getting an image avatars/andrii.png
+2021-09-28 07:31:53.769  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.770  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.770  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.771  INFO 6648 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.773  INFO 6648 --- [http-nio-8080-exec-3] c.c.controller.ImageController           : Getting an image avatars/speaker.jpg
+2021-09-28 07:31:53.773  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.774  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.774  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.775  INFO 6648 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.776  INFO 6648 --- [http-nio-8080-exec-10] c.c.controller.ImageController           : Getting an image avatars/__default__.png
+2021-09-28 07:31:53.780  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.781  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.781  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.782  INFO 6648 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.785  INFO 6648 --- [http-nio-8080-exec-2] c.c.controller.ImageController           : Getting an image avatars/rubella.png
+2021-09-28 07:31:53.786  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.786  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.787  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.788  INFO 6648 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.790  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.790  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.790  INFO 6648 --- [http-nio-8080-exec-1] c.c.controller.ImageController           : Getting an image avatars/guise.png
+2021-09-28 07:31:53.791  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:53.792  INFO 6648 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:53.793  INFO 6648 --- [http-nio-8080-exec-8] c.c.controller.ImageController           : Getting an image avatars/timbereddeviate.png
+2021-09-28 07:31:54.508  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:54.508  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:54.509  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:54.509  INFO 6648 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:31:54.521  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:54.521  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:54.527  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:54.528  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:54.530  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:54.530  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:54.535  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:54.535  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:31:54.668  INFO 6648 --- [http-nio-8080-exec-5] c.c.service.implementation.TopicService  : Creating report topic
+2021-09-28 07:31:54.794 ERROR 6648 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.orm.jpa.JpaSystemException: ids for this class must be manually assigned before calling save(): com.conferences.entity.ReportTopicSpeaker; nested exception is org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): com.conferences.entity.ReportTopicSpeaker] with root cause
+
+org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): com.conferences.entity.ReportTopicSpeaker
+	at org.hibernate.id.Assigned.generate(Assigned.java:33) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:115) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:271) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:243) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:175) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:110) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:813) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:786) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:261) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:499) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:423) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:220) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:153) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.cascadeBeforeSave(AbstractSaveEventListener.java:427) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:240) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:318) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:172) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:70) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:99) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:793) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:780) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.9.jar:5.3.9]
+	at com.sun.proxy.$Proxy99.merge(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-5.3.9.jar:5.3.9]
+	at com.sun.proxy.$Proxy99.merge(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:600) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:529) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:599) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:163) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:138) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.sun.proxy.$Proxy114.save(Unknown Source) ~[na:na]
+	at com.conferences.service.implementation.TopicService.createReportTopic(TopicService.java:70) ~[classes/:na]
+	at com.conferences.service.implementation.TopicService$$FastClassBySpringCGLIB$$fc580da5.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.conferences.service.implementation.TopicService$$EnhancerBySpringCGLIB$$9b12dcbc.createReportTopic(<generated>) ~[classes/:na]
+	at com.conferences.controller.TopicController.createReportTopic(TopicController.java:63) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at com.conferences.config.JwtFilter.doFilter(JwtFilter.java:62) ~[classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at com.conferences.config.CorsFilter.doFilterInternal(CorsFilter.java:37) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at com.conferences.config.JwtFilter.doFilter(JwtFilter.java:62) ~[classes/:na]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+
+2021-09-28 07:31:54.803  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:31:54.803  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:31:54.806  INFO 6648 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:31:54.806  INFO 6648 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:34:20.136  INFO 10280 --- [restartedMain] com.conferences.ConferencesApplication   : Starting ConferencesApplication using Java 1.8.0_231 on DESKTOP-0ONFAU2 with PID 10280 (D:\Java\SpringApplications\Conferences\backend\target\classes started by Andriy in D:\Java\SpringApplications\Conferences\backend)
+2021-09-28 07:34:20.147  INFO 10280 --- [restartedMain] com.conferences.ConferencesApplication   : No active profile set, falling back to default profiles: default
+2021-09-28 07:34:20.408  INFO 10280 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-28 07:34:20.409  INFO 10280 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-28 07:34:23.471  INFO 10280 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-28 07:34:23.766  INFO 10280 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 278 ms. Found 9 JPA repository interfaces.
+2021-09-28 07:34:26.621  INFO 10280 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-28 07:34:26.643  INFO 10280 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-28 07:34:26.644  INFO 10280 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-28 07:34:26.994  INFO 10280 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-28 07:34:26.995  INFO 10280 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6584 ms
+2021-09-28 07:34:27.627  INFO 10280 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-28 07:34:28.130  INFO 10280 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-28 07:34:28.561  INFO 10280 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-28 07:34:28.859  INFO 10280 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-09-28 07:34:30.611  INFO 10280 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-09-28 07:34:30.661  INFO 10280 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL81Dialect
+2021-09-28 07:34:36.111  INFO 10280 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-28 07:34:36.169  INFO 10280 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-28 07:34:37.796  WARN 10280 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-28 07:34:40.132  INFO 10280 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a5227f0, org.springframework.security.web.context.SecurityContextPersistenceFilter@4a07107, org.springframework.security.web.header.HeaderWriterFilter@22ff3c28, org.springframework.security.web.authentication.logout.LogoutFilter@4111db04, com.conferences.config.JwtFilter@68c1fde0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b4f9491, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a1c824d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@542bd8e7, org.springframework.security.web.session.SessionManagementFilter@1f80f35f, org.springframework.security.web.access.ExceptionTranslationFilter@24037905, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3099227b]
+2021-09-28 07:34:40.632  INFO 10280 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-09-28 07:34:41.690  INFO 10280 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-28 07:34:41.728  INFO 10280 --- [restartedMain] com.conferences.ConferencesApplication   : Started ConferencesApplication in 23.453 seconds (JVM running for 27.556)
+2021-09-28 07:34:46.497  INFO 10280 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-28 07:34:46.498  INFO 10280 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-28 07:34:46.501  INFO 10280 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-09-28 07:34:46.549  INFO 10280 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:34:46.550  INFO 10280 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:34:46.563  INFO 10280 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:34:46.564  INFO 10280 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:34:46.688  INFO 10280 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:34:46.689  INFO 10280 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:34:46.913  INFO 10280 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:34:47.053  INFO 10280 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:34:47.064  INFO 10280 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:34:47.066  INFO 10280 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:34:47.073  INFO 10280 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:34:47.075  INFO 10280 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:34:47.325  INFO 10280 --- [http-nio-8080-exec-2] c.c.service.implementation.TopicService  : Creating report topic
+2021-09-28 07:34:47.560 ERROR 10280 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.orm.jpa.JpaSystemException: ids for this class must be manually assigned before calling save(): com.conferences.entity.ReportTopicSpeaker; nested exception is org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): com.conferences.entity.ReportTopicSpeaker] with root cause
+
+org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): com.conferences.entity.ReportTopicSpeaker
+	at org.hibernate.id.Assigned.generate(Assigned.java:33) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:115) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:271) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:243) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:175) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:110) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:813) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:786) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:261) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:499) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:423) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:220) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:153) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.cascadeBeforeSave(AbstractSaveEventListener.java:427) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:240) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:318) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:172) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:70) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:99) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:793) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:780) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.9.jar:5.3.9]
+	at com.sun.proxy.$Proxy99.merge(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-5.3.9.jar:5.3.9]
+	at com.sun.proxy.$Proxy99.merge(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:600) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:529) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:599) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:163) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:138) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.sun.proxy.$Proxy114.save(Unknown Source) ~[na:na]
+	at com.conferences.service.implementation.TopicService.createReportTopic(TopicService.java:75) ~[classes/:na]
+	at com.conferences.service.implementation.TopicService$$FastClassBySpringCGLIB$$fc580da5.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.conferences.service.implementation.TopicService$$EnhancerBySpringCGLIB$$a1749d29.createReportTopic(<generated>) ~[classes/:na]
+	at com.conferences.controller.TopicController.createReportTopic(TopicController.java:63) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at com.conferences.config.JwtFilter.doFilter(JwtFilter.java:62) ~[classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at com.conferences.config.CorsFilter.doFilterInternal(CorsFilter.java:37) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at com.conferences.config.JwtFilter.doFilter(JwtFilter.java:62) ~[classes/:na]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+
+2021-09-28 07:34:47.570  INFO 10280 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:34:47.570  INFO 10280 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:34:47.576  INFO 10280 --- [http-nio-8080-exec-2] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:34:47.577  INFO 10280 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:35:44.639  INFO 2876 --- [restartedMain] com.conferences.ConferencesApplication   : Starting ConferencesApplication using Java 1.8.0_231 on DESKTOP-0ONFAU2 with PID 2876 (D:\Java\SpringApplications\Conferences\backend\target\classes started by Andriy in D:\Java\SpringApplications\Conferences\backend)
+2021-09-28 07:35:44.661  INFO 2876 --- [restartedMain] com.conferences.ConferencesApplication   : No active profile set, falling back to default profiles: default
+2021-09-28 07:35:44.830  INFO 2876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-28 07:35:44.831  INFO 2876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-28 07:35:47.047  INFO 2876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-28 07:35:47.311  INFO 2876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 246 ms. Found 9 JPA repository interfaces.
+2021-09-28 07:35:48.916  INFO 2876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-28 07:35:48.935  INFO 2876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-28 07:35:48.936  INFO 2876 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-28 07:35:49.242  INFO 2876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-28 07:35:49.243  INFO 2876 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4410 ms
+2021-09-28 07:35:49.763  INFO 2876 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-28 07:35:50.037  INFO 2876 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-28 07:35:50.295  INFO 2876 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-28 07:35:50.480  INFO 2876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-09-28 07:35:51.873  INFO 2876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-09-28 07:35:51.899  INFO 2876 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL81Dialect
+2021-09-28 07:35:56.907  INFO 2876 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-28 07:35:56.934  INFO 2876 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-28 07:35:58.249  WARN 2876 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-28 07:35:59.839  INFO 2876 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d3dfd3e, org.springframework.security.web.context.SecurityContextPersistenceFilter@2644c2f6, org.springframework.security.web.header.HeaderWriterFilter@2b2ef893, org.springframework.security.web.authentication.logout.LogoutFilter@3c96e27c, com.conferences.config.JwtFilter@3a73285a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6364959b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2543a727, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@655769f9, org.springframework.security.web.session.SessionManagementFilter@64dcc676, org.springframework.security.web.access.ExceptionTranslationFilter@63b62ad9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5f7f144]
+2021-09-28 07:36:00.194  INFO 2876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-09-28 07:36:00.788  INFO 2876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-28 07:36:00.834  INFO 2876 --- [restartedMain] com.conferences.ConferencesApplication   : Started ConferencesApplication in 17.885 seconds (JVM running for 21.945)
+2021-09-28 07:36:06.720  INFO 2876 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-28 07:36:06.721  INFO 2876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-28 07:36:06.723  INFO 2876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-09-28 07:36:06.752  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:36:06.753  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:36:06.762  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:36:06.763  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:36:06.840  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:36:06.841  INFO 2876 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:36:06.998  INFO 2876 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:36:07.108  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:36:07.117  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:36:07.117  INFO 2876 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:36:07.123  INFO 2876 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:36:07.124  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:36:07.320  INFO 2876 --- [http-nio-8080-exec-1] c.c.service.implementation.TopicService  : Creating report topic
+2021-09-28 07:36:07.648  WARN 2876 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23503
+2021-09-28 07:36:07.649 ERROR 2876 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: insert or update on table "report_topics_speakers" violates foreign key constraint "fk_report_topics_speakers_to_report_topics"
+  Detail: Key (report_topic_id)=(0) is not present in table "report_topics".
+2021-09-28 07:36:07.710 ERROR 2876 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [fk_report_topics_speakers_to_report_topics]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
+
+org.postgresql.util.PSQLException: ERROR: insert or update on table "report_topics_speakers" violates foreign key constraint "fk_report_topics_speakers_to_report_topics"
+  Detail: Key (report_topic_id)=(0) is not present in table "report_topics".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2552) ~[postgresql-42.2.23.jar:42.2.23]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2284) ~[postgresql-42.2.23.jar:42.2.23]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322) ~[postgresql-42.2.23.jar:42.2.23]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481) ~[postgresql-42.2.23.jar:42.2.23]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401) ~[postgresql-42.2.23.jar:42.2.23]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:164) ~[postgresql-42.2.23.jar:42.2.23]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:130) ~[postgresql-42.2.23.jar:42.2.23]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3298) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3825) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684) ~[na:1.8.0_231]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:344) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:99) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1362) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:453) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3212) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2380) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:448) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-5.4.32.Final.jar:5.4.32.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.conferences.service.implementation.TopicService$$EnhancerBySpringCGLIB$$5dbe2a6f.createReportTopic(<generated>) ~[classes/:na]
+	at com.conferences.controller.TopicController.createReportTopic(TopicController.java:63) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at com.conferences.config.JwtFilter.doFilter(JwtFilter.java:62) ~[classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at com.conferences.config.CorsFilter.doFilterInternal(CorsFilter.java:37) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at com.conferences.config.JwtFilter.doFilter(JwtFilter.java:62) ~[classes/:na]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+
+2021-09-28 07:36:07.719  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:36:07.719  INFO 2876 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:36:07.723  INFO 2876 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:36:07.724  INFO 2876 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:38:40.925  INFO 7452 --- [restartedMain] com.conferences.ConferencesApplication   : Starting ConferencesApplication using Java 1.8.0_231 on DESKTOP-0ONFAU2 with PID 7452 (D:\Java\SpringApplications\Conferences\backend\target\classes started by Andriy in D:\Java\SpringApplications\Conferences\backend)
+2021-09-28 07:38:40.936  INFO 7452 --- [restartedMain] com.conferences.ConferencesApplication   : No active profile set, falling back to default profiles: default
+2021-09-28 07:38:41.195  INFO 7452 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-28 07:38:41.195  INFO 7452 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-28 07:38:44.835  INFO 7452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-28 07:38:45.220  INFO 7452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 357 ms. Found 9 JPA repository interfaces.
+2021-09-28 07:38:46.945  INFO 7452 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-09-28 07:38:46.966  INFO 7452 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-28 07:38:46.967  INFO 7452 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-28 07:38:47.309  INFO 7452 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-28 07:38:47.310  INFO 7452 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6113 ms
+2021-09-28 07:38:47.813  INFO 7452 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-28 07:38:48.184  INFO 7452 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-28 07:38:48.549  INFO 7452 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-28 07:38:48.876  INFO 7452 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-09-28 07:38:50.693  INFO 7452 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-09-28 07:38:50.740  INFO 7452 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL81Dialect
+2021-09-28 07:38:55.969  INFO 7452 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-28 07:38:56.006  INFO 7452 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-28 07:38:57.579  WARN 7452 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-28 07:38:59.670  INFO 7452 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a5227f0, org.springframework.security.web.context.SecurityContextPersistenceFilter@4a07107, org.springframework.security.web.header.HeaderWriterFilter@22ff3c28, org.springframework.security.web.authentication.logout.LogoutFilter@4111db04, com.conferences.config.JwtFilter@62f39282, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b4f9491, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a1c824d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@542bd8e7, org.springframework.security.web.session.SessionManagementFilter@1f80f35f, org.springframework.security.web.access.ExceptionTranslationFilter@24037905, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3099227b]
+2021-09-28 07:39:00.148  INFO 7452 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-09-28 07:39:00.773  INFO 7452 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-28 07:39:00.810  INFO 7452 --- [restartedMain] com.conferences.ConferencesApplication   : Started ConferencesApplication in 22.233 seconds (JVM running for 27.375)
+2021-09-28 07:39:06.208  INFO 7452 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-28 07:39:06.209  INFO 7452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-09-28 07:39:06.213  INFO 7452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-09-28 07:39:06.256  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:06.258  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:06.270  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:06.270  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:06.362  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:06.363  INFO 7452 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:06.576  INFO 7452 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:06.872  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:06.887  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:06.888  INFO 7452 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:06.898  INFO 7452 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:06.899  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:07.168  INFO 7452 --- [http-nio-8080-exec-1] c.c.service.implementation.TopicService  : Creating report topic
+2021-09-28 07:39:07.666  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:07.666  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:07.667  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:07.669  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:07.749  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:07.750  INFO 7452 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:07.759  INFO 7452 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:07.760  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:07.762  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:07.764  INFO 7452 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:07.770  INFO 7452 --- [http-nio-8080-exec-3] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:07.772  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:07.794  INFO 7452 --- [http-nio-8080-exec-3] c.c.service.implementation.TopicService  : Getting report topics by meeting
+2021-09-28 07:39:07.915  INFO 7452 --- [http-nio-8080-exec-3] c.c.h.i.UserPrivateDataHandler           : Clearing user private data
+2021-09-28 07:39:08.072  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:08.072  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:08.079  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:08.079  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:08.133  INFO 7452 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:08.134  INFO 7452 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:08.135  INFO 7452 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:08.135  INFO 7452 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:08.137  INFO 7452 --- [http-nio-8080-exec-4] c.c.controller.ImageController           : Getting an image avatars/speaker.jpg
+2021-09-28 07:39:08.156  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:08.157  INFO 7452 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:08.165  INFO 7452 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:08.167  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:08.172  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:08.173  INFO 7452 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:08.180  INFO 7452 --- [http-nio-8080-exec-6] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:08.182  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:08.216  INFO 7452 --- [http-nio-8080-exec-6] c.c.s.implementation.UserMeetingService  : Getting users by meeting
+2021-09-28 07:39:29.617  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.618  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.620  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.621  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.622  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.623  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.624  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.625  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.627  INFO 7452 --- [http-nio-8080-exec-1] c.c.controller.ImageController           : Getting an image avatars/speaker.jpg
+2021-09-28 07:39:29.641  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.641  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.642  INFO 7452 --- [http-nio-8080-exec-2] c.c.controller.ImageController           : Getting an image avatars/__default__.png
+2021-09-28 07:39:29.643  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.644  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.649  INFO 7452 --- [http-nio-8080-exec-3] c.c.controller.ImageController           : Getting an image avatars/rubella.png
+2021-09-28 07:39:29.651  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.651  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.652  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.653  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.703  INFO 7452 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.704  INFO 7452 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.705  INFO 7452 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.705  INFO 7452 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.707  INFO 7452 --- [http-nio-8080-exec-1] c.c.controller.ImageController           : Getting an image avatars/guise.png
+2021-09-28 07:39:29.705  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.720  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.724  INFO 7452 --- [http-nio-8080-exec-9] c.c.controller.ImageController           : Getting an image avatars/loanGANTRY.png
+2021-09-28 07:39:29.724  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.724  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.726  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.727  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.724  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:29.730  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:29.734  INFO 7452 --- [http-nio-8080-exec-10] c.c.controller.ImageController           : Getting an image avatars/andrii.png
+2021-09-28 07:39:29.734  INFO 7452 --- [http-nio-8080-exec-3] c.c.controller.ImageController           : Getting an image avatars/timbereddeviate.png
+2021-09-28 07:39:30.762  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.762  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:30.763  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.763  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:30.773  INFO 7452 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.774  INFO 7452 --- [http-nio-8080-exec-7] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:30.779  INFO 7452 --- [http-nio-8080-exec-7] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:30.780  INFO 7452 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:30.781  INFO 7452 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.782  INFO 7452 --- [http-nio-8080-exec-7] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:30.789  INFO 7452 --- [http-nio-8080-exec-7] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:30.790  INFO 7452 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:30.795  INFO 7452 --- [http-nio-8080-exec-7] c.c.service.implementation.TopicService  : Creating report topic
+2021-09-28 07:39:30.841  INFO 7452 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.842  INFO 7452 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:30.842  INFO 7452 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.842  INFO 7452 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:30.865  INFO 7452 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.866  INFO 7452 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:30.873  INFO 7452 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:30.876  INFO 7452 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:30.880  INFO 7452 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.881  INFO 7452 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:30.886  INFO 7452 --- [http-nio-8080-exec-5] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:30.887  INFO 7452 --- [http-nio-8080-exec-5] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:30.890  INFO 7452 --- [http-nio-8080-exec-5] c.c.service.implementation.TopicService  : Getting report topics by meeting
+2021-09-28 07:39:30.897  INFO 7452 --- [http-nio-8080-exec-5] c.c.h.i.UserPrivateDataHandler           : Clearing user private data
+2021-09-28 07:39:30.898  INFO 7452 --- [http-nio-8080-exec-5] c.c.h.i.UserPrivateDataHandler           : Clearing user private data
+2021-09-28 07:39:30.975  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.975  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:30.976  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:30.977  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:30.980  INFO 7452 --- [http-nio-8080-exec-2] c.c.controller.ImageController           : Getting an image avatars/__default__.png
+2021-09-28 07:39:31.063  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:31.063  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:31.064  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:31.064  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:31.130  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:31.130  INFO 7452 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:31.135  INFO 7452 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:31.136  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:31.137  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:31.138  INFO 7452 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:31.143  INFO 7452 --- [http-nio-8080-exec-1] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:31.145  INFO 7452 --- [http-nio-8080-exec-1] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:31.147  INFO 7452 --- [http-nio-8080-exec-1] c.c.s.implementation.UserMeetingService  : Getting users by meeting
+2021-09-28 07:39:40.049  INFO 7452 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.049  INFO 7452 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.052  INFO 7452 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.052  INFO 7452 --- [http-nio-8080-exec-9] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.055  INFO 7452 --- [http-nio-8080-exec-9] c.c.controller.ImageController           : Getting an image avatars/loanGANTRY.png
+2021-09-28 07:39:40.055  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.055  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.057  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.057  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.062  INFO 7452 --- [http-nio-8080-exec-10] c.c.controller.ImageController           : Getting an image avatars/andrii.png
+2021-09-28 07:39:40.065  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.065  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.085  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.085  INFO 7452 --- [http-nio-8080-exec-3] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.086  INFO 7452 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.086  INFO 7452 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.086  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.089  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.090  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.091  INFO 7452 --- [http-nio-8080-exec-6] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.091  INFO 7452 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.091  INFO 7452 --- [http-nio-8080-exec-7] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.092  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.092  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.093  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.093  INFO 7452 --- [http-nio-8080-exec-7] c.c.controller.ImageController           : Getting an image avatars/rubella.png
+2021-09-28 07:39:40.093  INFO 7452 --- [http-nio-8080-exec-10] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.091  INFO 7452 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.094  INFO 7452 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.093  INFO 7452 --- [http-nio-8080-exec-6] c.c.controller.ImageController           : Getting an image avatars/__default__.png
+2021-09-28 07:39:40.095  INFO 7452 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:40.091  INFO 7452 --- [http-nio-8080-exec-3] c.c.controller.ImageController           : Getting an image avatars/speaker.jpg
+2021-09-28 07:39:40.096  INFO 7452 --- [http-nio-8080-exec-8] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:40.098  INFO 7452 --- [http-nio-8080-exec-10] c.c.controller.ImageController           : Getting an image avatars/timbereddeviate.png
+2021-09-28 07:39:40.102  INFO 7452 --- [http-nio-8080-exec-8] c.c.controller.ImageController           : Getting an image avatars/guise.png
+2021-09-28 07:39:47.811  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:47.812  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:47.812  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:47.813  INFO 7452 --- [http-nio-8080-exec-2] com.conferences.config.JwtFilter         : Token does not exist
+2021-09-28 07:39:47.822  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:47.823  INFO 7452 --- [http-nio-8080-exec-4] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:47.829  INFO 7452 --- [http-nio-8080-exec-4] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:47.830  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:47.831  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:47.832  INFO 7452 --- [http-nio-8080-exec-4] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:47.836  INFO 7452 --- [http-nio-8080-exec-4] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:47.837  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : User is successfully authenticated
+2021-09-28 07:39:47.885 ERROR 7452 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.conferences.service.implementation.TopicService.createReportTopic(TopicService.java:72) ~[classes/:na]
+	at com.conferences.service.implementation.TopicService$$FastClassBySpringCGLIB$$fc580da5.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.conferences.service.implementation.TopicService$$EnhancerBySpringCGLIB$$c3208314.createReportTopic(<generated>) ~[classes/:na]
+	at com.conferences.controller.TopicController.createReportTopic(TopicController.java:63) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_231]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at com.conferences.config.JwtFilter.doFilter(JwtFilter.java:62) ~[classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at com.conferences.config.CorsFilter.doFilterInternal(CorsFilter.java:37) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at com.conferences.config.JwtFilter.doFilter(JwtFilter.java:62) ~[classes/:na]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.5.2.jar:5.5.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+
+2021-09-28 07:39:47.895  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : Getting token from request
+2021-09-28 07:39:47.896  INFO 7452 --- [http-nio-8080-exec-4] c.c.handler.implementation.JwtHandler    : Validating token
+2021-09-28 07:39:47.901  INFO 7452 --- [http-nio-8080-exec-4] c.c.handler.implementation.JwtHandler    : Parsing user from token JSON value
+2021-09-28 07:39:47.901  INFO 7452 --- [http-nio-8080-exec-4] com.conferences.config.JwtFilter         : User is successfully authenticated

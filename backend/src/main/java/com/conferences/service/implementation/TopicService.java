@@ -67,9 +67,9 @@ public class TopicService implements ITopicService {
     @Override
     public boolean createReportTopic(ReportTopic reportTopic) {
         log.info("Creating report topic");
-        reportTopicRepository.save(reportTopic);
         ReportTopicSpeaker reportTopicSpeaker = reportTopic.getReportTopicSpeaker();
         reportTopic.setReportTopicSpeaker(null);
+        reportTopic = reportTopicRepository.save(reportTopic);
         if (reportTopicSpeaker != null) {
             reportTopicSpeaker.setReportTopicId(reportTopic.getId());
             reportTopicSpeakerRepository.save(reportTopicSpeaker);
