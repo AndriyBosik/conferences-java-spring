@@ -54,7 +54,8 @@ public class StorageService implements IStorageService {
     }
 
     private Path init(String pathname) {
-        Path path = Paths.get(pathname);
+        String value = configurePathname(pathname);
+        Path path = Paths.get(value);
         try {
             Files.createDirectories(path);
         } catch (IOException exception) {
@@ -62,5 +63,12 @@ public class StorageService implements IStorageService {
             return null;
         }
         return path;
+    }
+
+    private String configurePathname(String pathname) {
+        if (pathname.contains(":") && pathname.startsWith("/")) {
+            return pathname.substring(1);
+        }
+        return pathname;
     }
 }
