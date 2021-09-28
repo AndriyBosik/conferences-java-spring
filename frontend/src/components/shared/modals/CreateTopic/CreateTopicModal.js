@@ -19,6 +19,9 @@ function CreateTopicModal({
         title: ""
     }
 }) {
+    const createTopicMessage = useMessage("create_topic");
+    const editTopicMessage = useMessage("edit_topic")
+
     const [title, setTitle] = useState(topic.title ? topic.title : "");
     const [speakerId, setSpeakerId] = useState(topic.reportTopicSpeaker ? topic.reportTopicSpeaker.speakerId : 0);
     const [speakers, setSpeakers] = useState([]);
@@ -70,7 +73,7 @@ function CreateTopicModal({
     return (
         <div id={modalId} className="modal height-70">
             <div className="modal-content row full-width">
-                <h5 className="col s12">{useMessage("create_topic")}</h5>
+                <h5 className="col s12">{topic.id === 0 ? createTopicMessage : editTopicMessage}</h5>
 
                 <Errors errors={errors} containerClass="col s12" />
 

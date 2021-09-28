@@ -40,6 +40,6 @@ public class ReportTopic {
     private Set<SpeakerProposal> speakerProposals = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "report_topic_id")
+    @JoinColumn(name = "report_topic_id", updatable = false, insertable = false)
     private Set<ModeratorProposal> moderatorProposals = new HashSet<>();
 }

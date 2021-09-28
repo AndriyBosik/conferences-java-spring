@@ -144,7 +144,7 @@ function MeetingPage({meetingId}) {
 
                                     <div className="s-vflex-end">
                                         <RoleController allow={["moderator"]}>
-                                            <a href={`#${topicModalId}`} className="btn waves-effect waves-light modal-trigger createTopicFormTrigger">
+                                            <a href={`#${topicModalId}`} className="btn waves-effect waves-light modal-trigger createTopicFormTrigger" onClick={() => setActiveTopic({id: 0})}>
                                                 {addMessage}
                                                 <i className="material-icons right">add</i>
                                             </a>

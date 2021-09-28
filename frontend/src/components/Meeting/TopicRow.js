@@ -59,7 +59,7 @@ function TopicRow({topic, order, user, rowClickHandler, isOutdated, topicModalId
                                 </span>
                             ) : null
                         }
-                        <span className="clickable topicTrigger modal-trigger blue-text text-darken-3 tooltipped" data-target={topicModalId} data-position="bottom" data-tooltip={useMessage("edit")}>
+                        <span className="clickable topicTrigger modal-trigger blue-text text-darken-3 tooltipped" data-target={topicModalId} data-position="bottom" data-tooltip={useMessage("edit")} onClick={() => rowClickHandler(topic)}>
                             <i className="material-icons">edit</i>
                         </span>
                     </div>

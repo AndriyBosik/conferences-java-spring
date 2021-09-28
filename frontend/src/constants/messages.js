@@ -303,6 +303,11 @@ export const messages = {
         [RU]: "Создать тему",
         [UK]: "Створити тему"
     },
+    edit_topic: {
+        [EN]: "Edit topic",
+        [RU]: "Редактировать тему",
+        [UK]: "Редагувати тему"
+    },
     choose_speaker: {
         [EN]: "Choose speaker",
         [RU]: "Выберите спикера",
