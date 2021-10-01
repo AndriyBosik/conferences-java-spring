@@ -20,6 +20,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = ValidRoleValidator.class)
 @Documented
 public @interface ValidRole {
+    String[] roles() default {};
     String message() default "Invalid role";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};

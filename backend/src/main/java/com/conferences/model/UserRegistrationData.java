@@ -3,6 +3,7 @@ package com.conferences.model;
 import com.conferences.annotation.Password;
 import com.conferences.annotation.PasswordMatches;
 import com.conferences.annotation.ValidEmail;
+import com.conferences.annotation.ValidRole;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +17,7 @@ public class UserRegistrationData {
 
     @NotNull
     @NotEmpty
+    @ValidRole(roles = {"user", "speaker"})
     private String role;
 
     @NotNull

@@ -5,6 +5,10 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * <p>
@@ -18,15 +22,22 @@ import javax.validation.ConstraintValidatorContext;
 @Log4j2
 public class ValidRoleValidator implements ConstraintValidator<ValidRole, String> {
 
+    private List<String> roles;
+
+    @Override
+    public void initialize(ValidRole constraintAnnotation) {
+        roles = Arrays.asList(constraintAnnotation.roles());
+    }
+
     /**
      * <p>Validates user's role</p>
-     * @param role
+     * @param role field to validate
      * @param constraintValidatorContext
-     * @return
+     * @return true if role is valid, false otherwise
      */
     @Override
     public boolean isValid(String role, ConstraintValidatorContext constraintValidatorContext) {
         log.info("Validating role");
-        return "user".equalsIgnoreCase(role) || "speaker".equalsIgnoreCase(role);
+        return role != null && roles.contains(role);
     }
 }
