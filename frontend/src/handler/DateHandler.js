@@ -9,6 +9,11 @@ export const formatDate = (dateArray, format = "DD-MM-YYYY HH:mm") => {
     return moment(array).format(format)
 }
 
+export const parseDateAndTimeToArray = (date, time) => {
+    const parts = date.split("-");
+    return [parts[2]*1, parts[1]*1, parts[0]*1, time.hours*1, time.minutes*1];
+}
+
 export const isOutdated = (dateArray) => {
     if (dateArray.length <= 0) {
         return true;

@@ -3,6 +3,7 @@ import { validate as validateMeetingUpdatableData } from "./../validators/Meetin
 import { doGet, doPost } from "../handler/AuthRequestHandler";
 import { CHECK_USER_JOINED_URL, CREATE_MEETING_URL, EDIT_MEETING_URL, MEETINGS_BY_PAGE_URL, MEETING_URL, SPEAKER_MEETINGS_BY_PAGE_URL } from "../constants/network";
 import { format } from "./../handler/StringHandler";
+import { parseDateAndTimeToArray } from "../handler/DateHandler";
 
 export const getAllMeetings = async (page, items, filters) => {
     const url = format(MEETINGS_BY_PAGE_URL, {page: page, items: items});
@@ -37,6 +38,7 @@ export const checkUserJoined = async (userId, meetingId) => {
 
 export const createMeeting = (file, data) => {
     const errors = validate(data);
+    data.date = parseDateAndTimeToArray(data.date, {hours: data.hours, minutes: data.minutes});
     if (errors.length > 0) {
         return {
             errors: errors,
@@ -63,6 +65,7 @@ export const createMeeting = (file, data) => {
 
 export const editMeeting = async data => {
     const errors = validateMeetingUpdatableData(data);
+    data.date = parseDateAndTimeToArray(data.date, {hours: data.hours, minutes: data.minutes});
     if (errors.length > 0) {
         return {
             errors: errors,

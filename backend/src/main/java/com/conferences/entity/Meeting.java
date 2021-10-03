@@ -1,8 +1,6 @@
 package com.conferences.entity;
 
-import com.conferences.deserializer.MeetingDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +18,6 @@ import java.util.Set;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonDeserialize(using = MeetingDeserializer.class)
 public class Meeting {
 
     @Id
