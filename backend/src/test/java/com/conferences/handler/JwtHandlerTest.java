@@ -30,7 +30,7 @@ public class JwtHandlerTest {
     private static void beforeAll() {
         objectMapper = new ObjectMapper();
         userPrivateDataHandler = new UserPrivateDataHandler();
-        jwtHandler = new JwtHandler(objectMapper, userPrivateDataHandler);
+        jwtHandler = new JwtHandler(30, objectMapper, userPrivateDataHandler);
     }
 
     @BeforeEach

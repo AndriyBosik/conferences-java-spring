@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Table(name = "report_topics_speakers")
 @Getter @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class ReportTopicSpeaker {
 
     @Column(name = "id", insertable = false, updatable = false)
@@ -28,4 +27,10 @@ public class ReportTopicSpeaker {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "speaker_id", updatable = false, insertable = false)
     private User speaker;
+
+    public ReportTopicSpeaker(int id, int reportTopicId, int speakerId) {
+        this.id = id;
+        this.reportTopicId = reportTopicId;
+        this.speakerId = speakerId;
+    }
 }

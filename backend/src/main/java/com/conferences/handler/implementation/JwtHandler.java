@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -25,9 +26,15 @@ public class JwtHandler implements IJwtHandler {
 
     private final ObjectMapper objectMapper;
     private final IPrivateDataHandler<User> userPrivateDataHandler;
+    private final int expirationTime;
 
     @Autowired
-    public JwtHandler(ObjectMapper objectMapper, IPrivateDataHandler<User> userPrivateDataHandler) {
+    public JwtHandler(
+        @Value("${token.expiration}") int expirationTime,
+        ObjectMapper objectMapper,
+        IPrivateDataHandler<User> userPrivateDataHandler
+    ) {
+        this.expirationTime = expirationTime;
         this.objectMapper = objectMapper;
         this.userPrivateDataHandler = userPrivateDataHandler;
     }
@@ -38,7 +45,7 @@ public class JwtHandler implements IJwtHandler {
     @Override
     public String generateToken(User user) {
         log.info("Generating token");
-        return generateToken(user, Date.from(LocalDateTime.now().plusMinutes(30).atZone(ZoneId.systemDefault()).toInstant()));
+        return generateToken(user, Date.from(LocalDateTime.now().plusMinutes(expirationTime).atZone(ZoneId.systemDefault()).toInstant()));
     }
 
     /**

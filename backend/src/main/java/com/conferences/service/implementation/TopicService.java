@@ -90,7 +90,6 @@ public class TopicService implements ITopicService {
         ReportTopicSpeaker reportTopicSpeaker = reportTopic.getReportTopicSpeaker();
         reportTopic.setReportTopicSpeaker(null);
         reportTopic.setModeratorProposals(null);
-        System.out.println("id: " + reportTopic.getId());
         reportTopic = reportTopicRepository.save(reportTopic);
         reportTopicSpeakerRepository.deleteByReportTopicId(reportTopic.getId());
         if (reportTopicSpeaker != null) {

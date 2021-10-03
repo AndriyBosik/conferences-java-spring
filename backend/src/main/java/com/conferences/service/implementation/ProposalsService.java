@@ -39,7 +39,7 @@ public class ProposalsService implements IProposalsService {
      */
     @Override
     public List<IModeratorProposalMeetingData> getModeratorProposals(int speakerId) {
-        log.info("Getting moderator propoposals by speakerId");
+        log.info("Getting moderator proposals by speakerId");
         return new ArrayList<>(meetingRepository.getModeratorProposals(speakerId));
     }
 }

@@ -1,7 +1,8 @@
 package com.conferences.validator;
 
-import org.junit.jupiter.api.Assertions;
+import com.conferences.annotation.ValidRole;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -13,11 +14,19 @@ public class ValidRoleValidatorTest {
 
     private static ValidRoleValidator validator;
     private static ConstraintValidatorContext context;
+    private static ValidRole constraintContext;
 
     @BeforeAll
     private static void beforeAll() {
         validator = new ValidRoleValidator();
         context = Mockito.mock(ConstraintValidatorContext.class);
+        constraintContext = Mockito.mock(ValidRole.class);
+        Mockito.when(constraintContext.roles()).thenReturn(new String[]{"speaker", "user"});
+    }
+
+    @BeforeEach
+    private void beforeEach() {
+        validator.initialize(constraintContext);
     }
 
     @Test
